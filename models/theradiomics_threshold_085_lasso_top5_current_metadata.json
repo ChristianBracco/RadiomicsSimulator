@@ -1,0 +1,4082 @@
+{
+  "created_at": "2026-06-12T14:57:11",
+  "model_id": "lasso_top5_current",
+  "label": "5 feature - top LASSO current run",
+  "family": "current_run_lasso_topk",
+  "model_file": "C:\\Users\\cbracco\\Downloads\\THERADIOMICS-STUDY-DESIGNER-Sprint1\\server\\server\\models\\theradiomics_threshold_085_lasso_top5_current.joblib",
+  "metadata_file": "C:\\Users\\cbracco\\Downloads\\THERADIOMICS-STUDY-DESIGNER-Sprint1\\server\\server\\models\\theradiomics_threshold_085_lasso_top5_current_metadata.json",
+  "input_file": "C:\\Users\\cbracco\\Downloads\\THERADIOMICS-STUDY-DESIGNER-Sprint1\\server\\server\\data\\uploads\\Features_all.xlsx",
+  "pruning_threshold": 0.85,
+  "model_type": "StandardScaler + LogisticRegression",
+  "classifier": {
+    "name": "LogisticRegression",
+    "solver": "liblinear",
+    "C": 1.0,
+    "max_iter": 5000
+  },
+  "features": [
+    "ngtdm_Contrast_mean",
+    "firstorder_Entropy_mean",
+    "firstorder_10Percentile_mean",
+    "firstorder_Minimum_mean",
+    "gldm_DependenceVariance_mean"
+  ],
+  "n_features": 5,
+  "coefficients": [
+    {
+      "feature": "ngtdm_Contrast_mean",
+      "coef": -1.1893820560802448
+    },
+    {
+      "feature": "firstorder_Entropy_mean",
+      "coef": 0.8425486372916996
+    },
+    {
+      "feature": "firstorder_10Percentile_mean",
+      "coef": 0.8758243452796244
+    },
+    {
+      "feature": "firstorder_Minimum_mean",
+      "coef": -0.8357587964731609
+    },
+    {
+      "feature": "gldm_DependenceVariance_mean",
+      "coef": -0.2743935918365362
+    }
+  ],
+  "intercept": -2.2117576611547713,
+  "apparent_training_auc": 0.9709090909090908,
+  "candidate_validation": {
+    "model_id": "lasso_top5_current",
+    "label": "5 feature - top LASSO current run",
+    "family": "current_run_lasso_topk",
+    "features": [
+      "ngtdm_Contrast_mean",
+      "firstorder_Entropy_mean",
+      "firstorder_10Percentile_mean",
+      "firstorder_Minimum_mean",
+      "gldm_DependenceVariance_mean"
+    ],
+    "description": "Modello a cinque feature prese dalla selezione LASSO descrittiva del run corrente. Da interpretare come esplorativo.",
+    "missing_features": [],
+    "n_features": 5,
+    "status": "ok",
+    "group_cv": {
+      "mean_auc": 0.9247474747474748,
+      "std_auc": 0.04824223812630125,
+      "folds": [
+        1.0,
+        0.9545454545454545,
+        0.8888888888888888,
+        0.8636363636363635,
+        0.9166666666666666
+      ],
+      "pooled_auc": 0.9345454545454546,
+      "sensitivity": 0.5,
+      "specificity": 0.9454545454545454,
+      "confusion_matrix": {
+        "tn": 52,
+        "fp": 3,
+        "fn": 5,
+        "tp": 5
+      },
+      "all_predictions": [
+        {
+          "true_label": 0,
+          "predicted_probability": 0.07793547938341536,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.0015705973023937363,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.18646807325272896,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.23385418480522663,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.23902097068122016,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 1,
+          "predicted_probability": 0.5123006854043084,
+          "predicted_class_05": 1
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.07199593403973403,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.11663835067932421,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.04877922525010067,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.011173030725212368,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.011761206144575905,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.16997257132115007,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.1633343902478016,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.10816111069399345,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.03622138412585731,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.021699590292955356,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 1,
+          "predicted_probability": 0.33098664590858856,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 1,
+          "predicted_probability": 0.46984592903688877,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.05497735408945053,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.05108969709495453,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.19636026987562974,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.3613708635525275,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.2118075911540354,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.11659371200692759,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.12780711784274681,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.1184145687776851,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 1,
+          "predicted_probability": 0.8536672809575723,
+          "predicted_class_05": 1
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.29052484170044823,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.09429870570015007,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.7489370280214237,
+          "predicted_class_05": 1
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.0425723732499702,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.0021145753995758065,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 1,
+          "predicted_probability": 0.389691367196647,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.077756704820853,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 1,
+          "predicted_probability": 0.6191669321124773,
+          "predicted_class_05": 1
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.09970698778523497,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.05645083215758579,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.4082755790199633,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 1,
+          "predicted_probability": 0.697154012841817,
+          "predicted_class_05": 1
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.02768306641294705,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.09634392851945808,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.8610218008907472,
+          "predicted_class_05": 1
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.022314109276303055,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.04630939259705506,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 1,
+          "predicted_probability": 0.6390589125822862,
+          "predicted_class_05": 1
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.3908333961838822,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.13903667171970313,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.10095008200968718,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.12811449534102573,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 1,
+          "predicted_probability": 0.23975428253445616,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.06268876668887002,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.011512294404898902,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.09497759283281833,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.16622560412589021,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.0019751808155004085,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.018261344343479622,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.10248114751721132,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.23764925846077756,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.02985370919254024,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.010613780563961544,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 1,
+          "predicted_probability": 0.4789101556165571,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.6741427919117757,
+          "predicted_class_05": 1
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.00921885860050116,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.13097126424040342,
+          "predicted_class_05": 0
+        },
+        {
+          "true_label": 0,
+          "predicted_probability": 0.05190101031340932,
+          "predicted_class_05": 0
+        }
+      ],
+      "fold_details": [
+        {
+          "fold": 1,
+          "auc": 1.0,
+          "test_patients": [
+            "4",
+            "9",
+            "14",
+            "19",
+            "24",
+            "29",
+            "34",
+            "39",
+            "44",
+            "49",
+            "54",
+            "59",
+            "64"
+          ],
+          "n_train": 52,
+          "n_test": 13,
+          "test_responders": 1,
+          "test_non_responders": 12,
+          "coefficients": [
+            {
+              "feature": "ngtdm_Contrast_mean",
+              "coef": -1.1043093596142055
+            },
+            {
+              "feature": "firstorder_Entropy_mean",
+              "coef": 0.7841493814620837
+            },
+            {
+              "feature": "firstorder_10Percentile_mean",
+              "coef": 0.7838220019933616
+            },
+            {
+              "feature": "firstorder_Minimum_mean",
+              "coef": -0.7851648028609663
+            },
+            {
+              "feature": "gldm_DependenceVariance_mean",
+              "coef": -0.24642917474682813
+            }
+          ],
+          "intercept": -1.951372526808884,
+          "predictions": [
+            {
+              "patient": "4",
+              "true_label": 0,
+              "predicted_probability": 0.07793547938341536,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "9",
+              "true_label": 0,
+              "predicted_probability": 0.0015705973023937363,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "14",
+              "true_label": 0,
+              "predicted_probability": 0.18646807325272896,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "19",
+              "true_label": 0,
+              "predicted_probability": 0.23385418480522663,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "24",
+              "true_label": 0,
+              "predicted_probability": 0.23902097068122016,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "29",
+              "true_label": 1,
+              "predicted_probability": 0.5123006854043084,
+              "predicted_class_05": 1
+            },
+            {
+              "patient": "34",
+              "true_label": 0,
+              "predicted_probability": 0.07199593403973403,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "39",
+              "true_label": 0,
+              "predicted_probability": 0.11663835067932421,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "44",
+              "true_label": 0,
+              "predicted_probability": 0.04877922525010067,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "49",
+              "true_label": 0,
+              "predicted_probability": 0.011173030725212368,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "54",
+              "true_label": 0,
+              "predicted_probability": 0.011761206144575905,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "59",
+              "true_label": 0,
+              "predicted_probability": 0.16997257132115007,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "64",
+              "true_label": 0,
+              "predicted_probability": 0.1633343902478016,
+              "predicted_class_05": 0
+            }
+          ]
+        },
+        {
+          "fold": 2,
+          "auc": 0.9545454545454545,
+          "test_patients": [
+            "3",
+            "8",
+            "13",
+            "18",
+            "23",
+            "28",
+            "33",
+            "38",
+            "43",
+            "48",
+            "53",
+            "58",
+            "63"
+          ],
+          "n_train": 52,
+          "n_test": 13,
+          "test_responders": 2,
+          "test_non_responders": 11,
+          "coefficients": [
+            {
+              "feature": "ngtdm_Contrast_mean",
+              "coef": -0.9276480424897487
+            },
+            {
+              "feature": "firstorder_Entropy_mean",
+              "coef": 0.7645815762453212
+            },
+            {
+              "feature": "firstorder_10Percentile_mean",
+              "coef": 0.9891879039127609
+            },
+            {
+              "feature": "firstorder_Minimum_mean",
+              "coef": -0.7403120766561931
+            },
+            {
+              "feature": "gldm_DependenceVariance_mean",
+              "coef": -0.29887973896085723
+            }
+          ],
+          "intercept": -2.0544590740855453,
+          "predictions": [
+            {
+              "patient": "3",
+              "true_label": 0,
+              "predicted_probability": 0.10816111069399345,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "8",
+              "true_label": 0,
+              "predicted_probability": 0.03622138412585731,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "13",
+              "true_label": 0,
+              "predicted_probability": 0.021699590292955356,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "18",
+              "true_label": 1,
+              "predicted_probability": 0.33098664590858856,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "23",
+              "true_label": 1,
+              "predicted_probability": 0.46984592903688877,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "28",
+              "true_label": 0,
+              "predicted_probability": 0.05497735408945053,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "33",
+              "true_label": 0,
+              "predicted_probability": 0.05108969709495453,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "38",
+              "true_label": 0,
+              "predicted_probability": 0.19636026987562974,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "43",
+              "true_label": 0,
+              "predicted_probability": 0.3613708635525275,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "48",
+              "true_label": 0,
+              "predicted_probability": 0.2118075911540354,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "53",
+              "true_label": 0,
+              "predicted_probability": 0.11659371200692759,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "58",
+              "true_label": 0,
+              "predicted_probability": 0.12780711784274681,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "63",
+              "true_label": 0,
+              "predicted_probability": 0.1184145687776851,
+              "predicted_class_05": 0
+            }
+          ]
+        },
+        {
+          "fold": 3,
+          "auc": 0.8888888888888888,
+          "test_patients": [
+            "2",
+            "7",
+            "12",
+            "17",
+            "22",
+            "27",
+            "32",
+            "37",
+            "42",
+            "47",
+            "52",
+            "57",
+            "62"
+          ],
+          "n_train": 52,
+          "n_test": 13,
+          "test_responders": 4,
+          "test_non_responders": 9,
+          "coefficients": [
+            {
+              "feature": "ngtdm_Contrast_mean",
+              "coef": -0.8069744422729659
+            },
+            {
+              "feature": "firstorder_Entropy_mean",
+              "coef": 0.6987082339794474
+            },
+            {
+              "feature": "firstorder_10Percentile_mean",
+              "coef": 1.0021998234231573
+            },
+            {
+              "feature": "firstorder_Minimum_mean",
+              "coef": -0.9712176342915952
+            },
+            {
+              "feature": "gldm_DependenceVariance_mean",
+              "coef": -0.4333018590594814
+            }
+          ],
+          "intercept": -2.202164551812385,
+          "predictions": [
+            {
+              "patient": "2",
+              "true_label": 1,
+              "predicted_probability": 0.8536672809575723,
+              "predicted_class_05": 1
+            },
+            {
+              "patient": "7",
+              "true_label": 0,
+              "predicted_probability": 0.29052484170044823,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "12",
+              "true_label": 0,
+              "predicted_probability": 0.09429870570015007,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "17",
+              "true_label": 0,
+              "predicted_probability": 0.7489370280214237,
+              "predicted_class_05": 1
+            },
+            {
+              "patient": "22",
+              "true_label": 0,
+              "predicted_probability": 0.0425723732499702,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "27",
+              "true_label": 0,
+              "predicted_probability": 0.0021145753995758065,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "32",
+              "true_label": 1,
+              "predicted_probability": 0.389691367196647,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "37",
+              "true_label": 0,
+              "predicted_probability": 0.077756704820853,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "42",
+              "true_label": 1,
+              "predicted_probability": 0.6191669321124773,
+              "predicted_class_05": 1
+            },
+            {
+              "patient": "47",
+              "true_label": 0,
+              "predicted_probability": 0.09970698778523497,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "52",
+              "true_label": 0,
+              "predicted_probability": 0.05645083215758579,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "57",
+              "true_label": 0,
+              "predicted_probability": 0.4082755790199633,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "62",
+              "true_label": 1,
+              "predicted_probability": 0.697154012841817,
+              "predicted_class_05": 1
+            }
+          ]
+        },
+        {
+          "fold": 4,
+          "auc": 0.8636363636363635,
+          "test_patients": [
+            "1",
+            "6",
+            "11",
+            "16",
+            "21",
+            "26",
+            "31",
+            "36",
+            "41",
+            "46",
+            "51",
+            "56",
+            "61"
+          ],
+          "n_train": 52,
+          "n_test": 13,
+          "test_responders": 2,
+          "test_non_responders": 11,
+          "coefficients": [
+            {
+              "feature": "ngtdm_Contrast_mean",
+              "coef": -1.101125737205427
+            },
+            {
+              "feature": "firstorder_Entropy_mean",
+              "coef": 0.41680662590316475
+            },
+            {
+              "feature": "firstorder_10Percentile_mean",
+              "coef": 0.7774968906621997
+            },
+            {
+              "feature": "firstorder_Minimum_mean",
+              "coef": -0.8669077055761724
+            },
+            {
+              "feature": "gldm_DependenceVariance_mean",
+              "coef": 0.14917550506562555
+            }
+          ],
+          "intercept": -2.103760829772184,
+          "predictions": [
+            {
+              "patient": "1",
+              "true_label": 0,
+              "predicted_probability": 0.02768306641294705,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "6",
+              "true_label": 0,
+              "predicted_probability": 0.09634392851945808,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "11",
+              "true_label": 0,
+              "predicted_probability": 0.8610218008907472,
+              "predicted_class_05": 1
+            },
+            {
+              "patient": "16",
+              "true_label": 0,
+              "predicted_probability": 0.022314109276303055,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "21",
+              "true_label": 0,
+              "predicted_probability": 0.04630939259705506,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "26",
+              "true_label": 1,
+              "predicted_probability": 0.6390589125822862,
+              "predicted_class_05": 1
+            },
+            {
+              "patient": "31",
+              "true_label": 0,
+              "predicted_probability": 0.3908333961838822,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "36",
+              "true_label": 0,
+              "predicted_probability": 0.13903667171970313,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "41",
+              "true_label": 0,
+              "predicted_probability": 0.10095008200968718,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "46",
+              "true_label": 0,
+              "predicted_probability": 0.12811449534102573,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "51",
+              "true_label": 1,
+              "predicted_probability": 0.23975428253445616,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "56",
+              "true_label": 0,
+              "predicted_probability": 0.06268876668887002,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "61",
+              "true_label": 0,
+              "predicted_probability": 0.011512294404898902,
+              "predicted_class_05": 0
+            }
+          ]
+        },
+        {
+          "fold": 5,
+          "auc": 0.9166666666666666,
+          "test_patients": [
+            "0",
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "35",
+            "40",
+            "45",
+            "50",
+            "55",
+            "60"
+          ],
+          "n_train": 52,
+          "n_test": 13,
+          "test_responders": 1,
+          "test_non_responders": 12,
+          "coefficients": [
+            {
+              "feature": "ngtdm_Contrast_mean",
+              "coef": -1.382639275733228
+            },
+            {
+              "feature": "firstorder_Entropy_mean",
+              "coef": 0.9795773694647608
+            },
+            {
+              "feature": "firstorder_10Percentile_mean",
+              "coef": 0.5933702880555998
+            },
+            {
+              "feature": "firstorder_Minimum_mean",
+              "coef": -0.5702814561376028
+            },
+            {
+              "feature": "gldm_DependenceVariance_mean",
+              "coef": -0.15934409199289487
+            }
+          ],
+          "intercept": -2.0281388685935826,
+          "predictions": [
+            {
+              "patient": "0",
+              "true_label": 0,
+              "predicted_probability": 0.09497759283281833,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "5",
+              "true_label": 0,
+              "predicted_probability": 0.16622560412589021,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "10",
+              "true_label": 0,
+              "predicted_probability": 0.0019751808155004085,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "15",
+              "true_label": 0,
+              "predicted_probability": 0.018261344343479622,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "20",
+              "true_label": 0,
+              "predicted_probability": 0.10248114751721132,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "25",
+              "true_label": 0,
+              "predicted_probability": 0.23764925846077756,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "30",
+              "true_label": 0,
+              "predicted_probability": 0.02985370919254024,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "35",
+              "true_label": 0,
+              "predicted_probability": 0.010613780563961544,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "40",
+              "true_label": 1,
+              "predicted_probability": 0.4789101556165571,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "45",
+              "true_label": 0,
+              "predicted_probability": 0.6741427919117757,
+              "predicted_class_05": 1
+            },
+            {
+              "patient": "50",
+              "true_label": 0,
+              "predicted_probability": 0.00921885860050116,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "55",
+              "true_label": 0,
+              "predicted_probability": 0.13097126424040342,
+              "predicted_class_05": 0
+            },
+            {
+              "patient": "60",
+              "true_label": 0,
+              "predicted_probability": 0.05190101031340932,
+              "predicted_class_05": 0
+            }
+          ]
+        }
+      ]
+    },
+    "loocv": {
+      "auc": 0.9345454545454545,
+      "sensitivity": 0.5,
+      "specificity": 0.9454545454545454,
+      "confusion_matrix": {
+        "tn": 52,
+        "fp": 3,
+        "fn": 5,
+        "tp": 5
+      },
+      "details": []
+    },
+    "full_model": {
+      "apparent_training_auc": 0.9709090909090908,
+      "intercept": -2.2117576611547713,
+      "coefficients": [
+        {
+          "feature": "ngtdm_Contrast_mean",
+          "coef": -1.1893820560802448
+        },
+        {
+          "feature": "firstorder_Entropy_mean",
+          "coef": 0.8425486372916996
+        },
+        {
+          "feature": "firstorder_10Percentile_mean",
+          "coef": 0.8758243452796244
+        },
+        {
+          "feature": "firstorder_Minimum_mean",
+          "coef": -0.8357587964731609
+        },
+        {
+          "feature": "gldm_DependenceVariance_mean",
+          "coef": -0.2743935918365362
+        }
+      ]
+    },
+    "validation_note": "Fixed-feature model evaluated with GroupKFold and LOOCV. If features were chosen from the current full dataset, interpret as exploratory."
+  },
+  "dataset_summary": {
+    "lesions": 65,
+    "patients": 65,
+    "responders": 10,
+    "non_responders": 55,
+    "features_before_pruning": 214,
+    "features_after_pruning": 37
+  },
+  "validation_summary": {
+    "nested_cv": {
+      "mean_auc": 0.8863636363636365,
+      "std_auc": 0.08088695645478264,
+      "folds": [
+        0.9166666666666666,
+        0.9545454545454545,
+        0.9166666666666667,
+        0.7272727272727273,
+        0.9166666666666666
+      ],
+      "stable_features": [
+        [
+          "ngtdm_Contrast_mean",
+          5
+        ],
+        [
+          "firstorder_Minimum_mean",
+          5
+        ],
+        [
+          "firstorder_10Percentile_mean",
+          4
+        ],
+        [
+          "firstorder_Entropy_mean",
+          4
+        ],
+        [
+          "gldm_DependenceVariance_mean",
+          4
+        ],
+        [
+          "shape_Flatness_mean",
+          3
+        ],
+        [
+          "shape_Elongation_mean",
+          3
+        ],
+        [
+          "firstorder_Energy_mean",
+          2
+        ],
+        [
+          "glszm_LargeAreaLowGrayLevelEmphasis_mean",
+          2
+        ],
+        [
+          "shape_LeastAxisLength_mean",
+          2
+        ],
+        [
+          "glcm_Idmn_mean",
+          1
+        ],
+        [
+          "firstorder_Skewness_mean",
+          1
+        ],
+        [
+          "shape_MajorAxisLength_mean",
+          1
+        ],
+        [
+          "glszm_LowGrayLevelZoneEmphasis_mean",
+          1
+        ],
+        [
+          "glszm_SizeZoneNonUniformityNormalized_mean",
+          1
+        ],
+        [
+          "firstorder_Kurtosis_mean",
+          1
+        ],
+        [
+          "shape_Sphericity_mean",
+          1
+        ],
+        [
+          "firstorder_InterquartileRange_mean",
+          1
+        ],
+        [
+          "firstorder_Maximum_mean",
+          1
+        ],
+        [
+          "glcm_ClusterShade_mean",
+          1
+        ],
+        [
+          "shape_SurfaceVolumeRatio_mean",
+          1
+        ]
+      ],
+      "n_splits": 5,
+      "top_n_features_per_fold": 10,
+      "all_predictions": [
+        {
+          "fold": 1,
+          "row_index": 4,
+          "patient": "4",
+          "y_true": 0,
+          "probability": 0.06143807815935853,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 1,
+          "row_index": 9,
+          "patient": "9",
+          "y_true": 0,
+          "probability": 0.0006829002884856536,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 1,
+          "row_index": 14,
+          "patient": "14",
+          "y_true": 0,
+          "probability": 0.09106622605876787,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 1,
+          "row_index": 19,
+          "patient": "19",
+          "y_true": 0,
+          "probability": 0.1852767609821952,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 1,
+          "row_index": 24,
+          "patient": "24",
+          "y_true": 0,
+          "probability": 0.5708373727634056,
+          "predicted_class_0_5": 1
+        },
+        {
+          "fold": 1,
+          "row_index": 29,
+          "patient": "29",
+          "y_true": 1,
+          "probability": 0.44226392197438336,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 1,
+          "row_index": 34,
+          "patient": "34",
+          "y_true": 0,
+          "probability": 0.024190910993844426,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 1,
+          "row_index": 39,
+          "patient": "39",
+          "y_true": 0,
+          "probability": 0.0988285163671471,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 1,
+          "row_index": 44,
+          "patient": "44",
+          "y_true": 0,
+          "probability": 0.040594503013107235,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 1,
+          "row_index": 49,
+          "patient": "49",
+          "y_true": 0,
+          "probability": 0.004318317229314589,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 1,
+          "row_index": 54,
+          "patient": "54",
+          "y_true": 0,
+          "probability": 0.008585200557193338,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 1,
+          "row_index": 59,
+          "patient": "59",
+          "y_true": 0,
+          "probability": 0.1533331780583527,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 1,
+          "row_index": 64,
+          "patient": "64",
+          "y_true": 0,
+          "probability": 0.16968191435533803,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 2,
+          "row_index": 3,
+          "patient": "3",
+          "y_true": 0,
+          "probability": 0.13007924246926542,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 2,
+          "row_index": 8,
+          "patient": "8",
+          "y_true": 0,
+          "probability": 0.04109592080042253,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 2,
+          "row_index": 13,
+          "patient": "13",
+          "y_true": 0,
+          "probability": 0.010696158878768527,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 2,
+          "row_index": 18,
+          "patient": "18",
+          "y_true": 1,
+          "probability": 0.2008447187018077,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 2,
+          "row_index": 23,
+          "patient": "23",
+          "y_true": 1,
+          "probability": 0.5295106057705701,
+          "predicted_class_0_5": 1
+        },
+        {
+          "fold": 2,
+          "row_index": 28,
+          "patient": "28",
+          "y_true": 0,
+          "probability": 0.04373833391975387,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 2,
+          "row_index": 33,
+          "patient": "33",
+          "y_true": 0,
+          "probability": 0.03226394932876068,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 2,
+          "row_index": 38,
+          "patient": "38",
+          "y_true": 0,
+          "probability": 0.141910885349689,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 2,
+          "row_index": 43,
+          "patient": "43",
+          "y_true": 0,
+          "probability": 0.18948829019214125,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 2,
+          "row_index": 48,
+          "patient": "48",
+          "y_true": 0,
+          "probability": 0.21942555435541908,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 2,
+          "row_index": 53,
+          "patient": "53",
+          "y_true": 0,
+          "probability": 0.1688449450901997,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 2,
+          "row_index": 58,
+          "patient": "58",
+          "y_true": 0,
+          "probability": 0.042045983367912605,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 2,
+          "row_index": 63,
+          "patient": "63",
+          "y_true": 0,
+          "probability": 0.15164149474416488,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 3,
+          "row_index": 2,
+          "patient": "2",
+          "y_true": 1,
+          "probability": 0.6960542684537929,
+          "predicted_class_0_5": 1
+        },
+        {
+          "fold": 3,
+          "row_index": 7,
+          "patient": "7",
+          "y_true": 0,
+          "probability": 0.10676842111142061,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 3,
+          "row_index": 12,
+          "patient": "12",
+          "y_true": 0,
+          "probability": 0.08415918704427726,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 3,
+          "row_index": 17,
+          "patient": "17",
+          "y_true": 0,
+          "probability": 0.3076423136832884,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 3,
+          "row_index": 22,
+          "patient": "22",
+          "y_true": 0,
+          "probability": 0.035452620959933075,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 3,
+          "row_index": 27,
+          "patient": "27",
+          "y_true": 0,
+          "probability": 0.00041661942738029653,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 3,
+          "row_index": 32,
+          "patient": "32",
+          "y_true": 1,
+          "probability": 0.4323868431000797,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 3,
+          "row_index": 37,
+          "patient": "37",
+          "y_true": 0,
+          "probability": 0.022854696202762925,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 3,
+          "row_index": 42,
+          "patient": "42",
+          "y_true": 1,
+          "probability": 0.10763696454846494,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 3,
+          "row_index": 47,
+          "patient": "47",
+          "y_true": 0,
+          "probability": 0.07664698262184019,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 3,
+          "row_index": 52,
+          "patient": "52",
+          "y_true": 0,
+          "probability": 0.04840859148874506,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 3,
+          "row_index": 57,
+          "patient": "57",
+          "y_true": 0,
+          "probability": 0.40338054449234734,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 3,
+          "row_index": 62,
+          "patient": "62",
+          "y_true": 1,
+          "probability": 0.3131516215305108,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 4,
+          "row_index": 1,
+          "patient": "1",
+          "y_true": 0,
+          "probability": 0.033566772456858754,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 4,
+          "row_index": 6,
+          "patient": "6",
+          "y_true": 0,
+          "probability": 0.04701156480731846,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 4,
+          "row_index": 11,
+          "patient": "11",
+          "y_true": 0,
+          "probability": 0.948480241895393,
+          "predicted_class_0_5": 1
+        },
+        {
+          "fold": 4,
+          "row_index": 16,
+          "patient": "16",
+          "y_true": 0,
+          "probability": 0.018097999262811502,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 4,
+          "row_index": 21,
+          "patient": "21",
+          "y_true": 0,
+          "probability": 0.06404969859678092,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 4,
+          "row_index": 26,
+          "patient": "26",
+          "y_true": 1,
+          "probability": 0.6657401187785769,
+          "predicted_class_0_5": 1
+        },
+        {
+          "fold": 4,
+          "row_index": 31,
+          "patient": "31",
+          "y_true": 0,
+          "probability": 0.5438892352579587,
+          "predicted_class_0_5": 1
+        },
+        {
+          "fold": 4,
+          "row_index": 36,
+          "patient": "36",
+          "y_true": 0,
+          "probability": 0.21068421328231676,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 4,
+          "row_index": 41,
+          "patient": "41",
+          "y_true": 0,
+          "probability": 0.015415084595862312,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 4,
+          "row_index": 46,
+          "patient": "46",
+          "y_true": 0,
+          "probability": 0.32188059291244775,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 4,
+          "row_index": 51,
+          "patient": "51",
+          "y_true": 1,
+          "probability": 0.04969916099743741,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 4,
+          "row_index": 56,
+          "patient": "56",
+          "y_true": 0,
+          "probability": 0.03484070705870786,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 4,
+          "row_index": 61,
+          "patient": "61",
+          "y_true": 0,
+          "probability": 0.021223209501138596,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 5,
+          "row_index": 0,
+          "patient": "0",
+          "y_true": 0,
+          "probability": 0.1038154208581526,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 5,
+          "row_index": 5,
+          "patient": "5",
+          "y_true": 0,
+          "probability": 0.1218032931065921,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 5,
+          "row_index": 10,
+          "patient": "10",
+          "y_true": 0,
+          "probability": 0.005743835152415699,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 5,
+          "row_index": 15,
+          "patient": "15",
+          "y_true": 0,
+          "probability": 0.0310847964338145,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 5,
+          "row_index": 20,
+          "patient": "20",
+          "y_true": 0,
+          "probability": 0.09037512349017611,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 5,
+          "row_index": 25,
+          "patient": "25",
+          "y_true": 0,
+          "probability": 0.2649535094916622,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 5,
+          "row_index": 30,
+          "patient": "30",
+          "y_true": 0,
+          "probability": 0.019444158202062876,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 5,
+          "row_index": 35,
+          "patient": "35",
+          "y_true": 0,
+          "probability": 0.010871539116299416,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 5,
+          "row_index": 40,
+          "patient": "40",
+          "y_true": 1,
+          "probability": 0.3450532840066243,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 5,
+          "row_index": 45,
+          "patient": "45",
+          "y_true": 0,
+          "probability": 0.9980405356319322,
+          "predicted_class_0_5": 1
+        },
+        {
+          "fold": 5,
+          "row_index": 50,
+          "patient": "50",
+          "y_true": 0,
+          "probability": 0.004700773527433944,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 5,
+          "row_index": 55,
+          "patient": "55",
+          "y_true": 0,
+          "probability": 0.062170992805753986,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 5,
+          "row_index": 60,
+          "patient": "60",
+          "y_true": 0,
+          "probability": 0.13598931366017636,
+          "predicted_class_0_5": 0
+        }
+      ],
+      "debug_note": "fold_details contains train/test patients, selected features, fold coefficients and patient-level predicted probabilities. Use it to verify whether identical AUC values across pruning thresholds come from identical rankings or from different models with the same fold-wise ordering.",
+      "fold_details": [
+        {
+          "fold": 1,
+          "auc": 0.9166666666666666,
+          "n_train": 52,
+          "n_test": 13,
+          "train_indices": [
+            0,
+            1,
+            2,
+            3,
+            5,
+            6,
+            7,
+            8,
+            10,
+            11,
+            12,
+            13,
+            15,
+            16,
+            17,
+            18,
+            20,
+            21,
+            22,
+            23,
+            25,
+            26,
+            27,
+            28,
+            30,
+            31,
+            32,
+            33,
+            35,
+            36,
+            37,
+            38,
+            40,
+            41,
+            42,
+            43,
+            45,
+            46,
+            47,
+            48,
+            50,
+            51,
+            52,
+            53,
+            55,
+            56,
+            57,
+            58,
+            60,
+            61,
+            62,
+            63
+          ],
+          "test_indices": [
+            4,
+            9,
+            14,
+            19,
+            24,
+            29,
+            34,
+            39,
+            44,
+            49,
+            54,
+            59,
+            64
+          ],
+          "train_patients": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "5",
+            "6",
+            "7",
+            "8",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15",
+            "16",
+            "17",
+            "18",
+            "20",
+            "21",
+            "22",
+            "23",
+            "25",
+            "26",
+            "27",
+            "28",
+            "30",
+            "31",
+            "32",
+            "33",
+            "35",
+            "36",
+            "37",
+            "38",
+            "40",
+            "41",
+            "42",
+            "43",
+            "45",
+            "46",
+            "47",
+            "48",
+            "50",
+            "51",
+            "52",
+            "53",
+            "55",
+            "56",
+            "57",
+            "58",
+            "60",
+            "61",
+            "62",
+            "63"
+          ],
+          "test_patients": [
+            "4",
+            "9",
+            "14",
+            "19",
+            "24",
+            "29",
+            "34",
+            "39",
+            "44",
+            "49",
+            "54",
+            "59",
+            "64"
+          ],
+          "y_train_counts": {
+            "0": 43,
+            "1": 9
+          },
+          "y_test_counts": {
+            "0": 12,
+            "1": 1
+          },
+          "selected_features": [
+            "ngtdm_Contrast_mean",
+            "firstorder_10Percentile_mean",
+            "firstorder_Minimum_mean",
+            "glcm_Idmn_mean",
+            "firstorder_Entropy_mean",
+            "gldm_DependenceVariance_mean",
+            "firstorder_Energy_mean",
+            "shape_Flatness_mean",
+            "glszm_LargeAreaLowGrayLevelEmphasis_mean",
+            "shape_Elongation_mean"
+          ],
+          "selected_features_count": 10,
+          "lasso_selected_features_full": [
+            {
+              "feature": "ngtdm_Contrast_mean",
+              "coef": -0.8375943598027322
+            },
+            {
+              "feature": "firstorder_10Percentile_mean",
+              "coef": 0.6395955506507267
+            },
+            {
+              "feature": "firstorder_Minimum_mean",
+              "coef": -0.6103433893785569
+            },
+            {
+              "feature": "glcm_Idmn_mean",
+              "coef": 0.5989585539185551
+            },
+            {
+              "feature": "firstorder_Entropy_mean",
+              "coef": 0.4929571682166206
+            },
+            {
+              "feature": "gldm_DependenceVariance_mean",
+              "coef": -0.4061258568945063
+            },
+            {
+              "feature": "firstorder_Energy_mean",
+              "coef": 0.38513719890020887
+            },
+            {
+              "feature": "shape_Flatness_mean",
+              "coef": 0.190710436222311
+            },
+            {
+              "feature": "glszm_LargeAreaLowGrayLevelEmphasis_mean",
+              "coef": -0.17664085106048968
+            },
+            {
+              "feature": "shape_Elongation_mean",
+              "coef": 0.14783915954581167
+            },
+            {
+              "feature": "firstorder_Skewness_mean",
+              "coef": 0.0902211703280091
+            },
+            {
+              "feature": "shape_LeastAxisLength_mean",
+              "coef": 0.005733924524425804
+            }
+          ],
+          "final_model_intercept": -2.1632168247791927,
+          "final_model_coefficients": [
+            {
+              "feature": "ngtdm_Contrast_mean",
+              "coef": -0.9091999293015105
+            },
+            {
+              "feature": "firstorder_10Percentile_mean",
+              "coef": 0.5952854627180397
+            },
+            {
+              "feature": "firstorder_Minimum_mean",
+              "coef": -0.5903439114874083
+            },
+            {
+              "feature": "glcm_Idmn_mean",
+              "coef": 0.6066779784258036
+            },
+            {
+              "feature": "firstorder_Entropy_mean",
+              "coef": 0.524404861319638
+            },
+            {
+              "feature": "gldm_DependenceVariance_mean",
+              "coef": -0.46655538984297906
+            },
+            {
+              "feature": "firstorder_Energy_mean",
+              "coef": 0.37546713325866377
+            },
+            {
+              "feature": "shape_Flatness_mean",
+              "coef": 0.1982216532505639
+            },
+            {
+              "feature": "glszm_LargeAreaLowGrayLevelEmphasis_mean",
+              "coef": -0.15524039911419707
+            },
+            {
+              "feature": "shape_Elongation_mean",
+              "coef": 0.14302220627105977
+            }
+          ],
+          "predictions": [
+            {
+              "fold": 1,
+              "row_index": 4,
+              "patient": "4",
+              "y_true": 0,
+              "probability": 0.06143807815935853,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 1,
+              "row_index": 9,
+              "patient": "9",
+              "y_true": 0,
+              "probability": 0.0006829002884856536,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 1,
+              "row_index": 14,
+              "patient": "14",
+              "y_true": 0,
+              "probability": 0.09106622605876787,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 1,
+              "row_index": 19,
+              "patient": "19",
+              "y_true": 0,
+              "probability": 0.1852767609821952,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 1,
+              "row_index": 24,
+              "patient": "24",
+              "y_true": 0,
+              "probability": 0.5708373727634056,
+              "predicted_class_0_5": 1
+            },
+            {
+              "fold": 1,
+              "row_index": 29,
+              "patient": "29",
+              "y_true": 1,
+              "probability": 0.44226392197438336,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 1,
+              "row_index": 34,
+              "patient": "34",
+              "y_true": 0,
+              "probability": 0.024190910993844426,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 1,
+              "row_index": 39,
+              "patient": "39",
+              "y_true": 0,
+              "probability": 0.0988285163671471,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 1,
+              "row_index": 44,
+              "patient": "44",
+              "y_true": 0,
+              "probability": 0.040594503013107235,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 1,
+              "row_index": 49,
+              "patient": "49",
+              "y_true": 0,
+              "probability": 0.004318317229314589,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 1,
+              "row_index": 54,
+              "patient": "54",
+              "y_true": 0,
+              "probability": 0.008585200557193338,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 1,
+              "row_index": 59,
+              "patient": "59",
+              "y_true": 0,
+              "probability": 0.1533331780583527,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 1,
+              "row_index": 64,
+              "patient": "64",
+              "y_true": 0,
+              "probability": 0.16968191435533803,
+              "predicted_class_0_5": 0
+            }
+          ],
+          "predictions_sorted_by_probability": [
+            {
+              "fold": 1,
+              "row_index": 24,
+              "patient": "24",
+              "y_true": 0,
+              "probability": 0.5708373727634056,
+              "predicted_class_0_5": 1
+            },
+            {
+              "fold": 1,
+              "row_index": 29,
+              "patient": "29",
+              "y_true": 1,
+              "probability": 0.44226392197438336,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 1,
+              "row_index": 19,
+              "patient": "19",
+              "y_true": 0,
+              "probability": 0.1852767609821952,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 1,
+              "row_index": 64,
+              "patient": "64",
+              "y_true": 0,
+              "probability": 0.16968191435533803,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 1,
+              "row_index": 59,
+              "patient": "59",
+              "y_true": 0,
+              "probability": 0.1533331780583527,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 1,
+              "row_index": 39,
+              "patient": "39",
+              "y_true": 0,
+              "probability": 0.0988285163671471,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 1,
+              "row_index": 14,
+              "patient": "14",
+              "y_true": 0,
+              "probability": 0.09106622605876787,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 1,
+              "row_index": 4,
+              "patient": "4",
+              "y_true": 0,
+              "probability": 0.06143807815935853,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 1,
+              "row_index": 44,
+              "patient": "44",
+              "y_true": 0,
+              "probability": 0.040594503013107235,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 1,
+              "row_index": 34,
+              "patient": "34",
+              "y_true": 0,
+              "probability": 0.024190910993844426,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 1,
+              "row_index": 54,
+              "patient": "54",
+              "y_true": 0,
+              "probability": 0.008585200557193338,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 1,
+              "row_index": 49,
+              "patient": "49",
+              "y_true": 0,
+              "probability": 0.004318317229314589,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 1,
+              "row_index": 9,
+              "patient": "9",
+              "y_true": 0,
+              "probability": 0.0006829002884856536,
+              "predicted_class_0_5": 0
+            }
+          ]
+        },
+        {
+          "fold": 2,
+          "auc": 0.9545454545454545,
+          "n_train": 52,
+          "n_test": 13,
+          "train_indices": [
+            0,
+            1,
+            2,
+            4,
+            5,
+            6,
+            7,
+            9,
+            10,
+            11,
+            12,
+            14,
+            15,
+            16,
+            17,
+            19,
+            20,
+            21,
+            22,
+            24,
+            25,
+            26,
+            27,
+            29,
+            30,
+            31,
+            32,
+            34,
+            35,
+            36,
+            37,
+            39,
+            40,
+            41,
+            42,
+            44,
+            45,
+            46,
+            47,
+            49,
+            50,
+            51,
+            52,
+            54,
+            55,
+            56,
+            57,
+            59,
+            60,
+            61,
+            62,
+            64
+          ],
+          "test_indices": [
+            3,
+            8,
+            13,
+            18,
+            23,
+            28,
+            33,
+            38,
+            43,
+            48,
+            53,
+            58,
+            63
+          ],
+          "train_patients": [
+            "0",
+            "1",
+            "2",
+            "4",
+            "5",
+            "6",
+            "7",
+            "9",
+            "10",
+            "11",
+            "12",
+            "14",
+            "15",
+            "16",
+            "17",
+            "19",
+            "20",
+            "21",
+            "22",
+            "24",
+            "25",
+            "26",
+            "27",
+            "29",
+            "30",
+            "31",
+            "32",
+            "34",
+            "35",
+            "36",
+            "37",
+            "39",
+            "40",
+            "41",
+            "42",
+            "44",
+            "45",
+            "46",
+            "47",
+            "49",
+            "50",
+            "51",
+            "52",
+            "54",
+            "55",
+            "56",
+            "57",
+            "59",
+            "60",
+            "61",
+            "62",
+            "64"
+          ],
+          "test_patients": [
+            "3",
+            "8",
+            "13",
+            "18",
+            "23",
+            "28",
+            "33",
+            "38",
+            "43",
+            "48",
+            "53",
+            "58",
+            "63"
+          ],
+          "y_train_counts": {
+            "0": 44,
+            "1": 8
+          },
+          "y_test_counts": {
+            "0": 11,
+            "1": 2
+          },
+          "selected_features": [
+            "ngtdm_Contrast_mean",
+            "firstorder_10Percentile_mean",
+            "firstorder_Entropy_mean",
+            "firstorder_Minimum_mean",
+            "gldm_DependenceVariance_mean",
+            "shape_Elongation_mean",
+            "firstorder_Energy_mean",
+            "shape_LeastAxisLength_mean"
+          ],
+          "selected_features_count": 8,
+          "lasso_selected_features_full": [
+            {
+              "feature": "ngtdm_Contrast_mean",
+              "coef": -1.0804934373133446
+            },
+            {
+              "feature": "firstorder_10Percentile_mean",
+              "coef": 0.9627948780404874
+            },
+            {
+              "feature": "firstorder_Entropy_mean",
+              "coef": 0.7760136213756945
+            },
+            {
+              "feature": "firstorder_Minimum_mean",
+              "coef": -0.6757689091052542
+            },
+            {
+              "feature": "gldm_DependenceVariance_mean",
+              "coef": -0.4089979817016201
+            },
+            {
+              "feature": "shape_Elongation_mean",
+              "coef": 0.402799399125177
+            },
+            {
+              "feature": "firstorder_Energy_mean",
+              "coef": 0.11364239946949044
+            },
+            {
+              "feature": "shape_LeastAxisLength_mean",
+              "coef": 0.017173612111726223
+            }
+          ],
+          "final_model_intercept": -2.3454940278074297,
+          "final_model_coefficients": [
+            {
+              "feature": "ngtdm_Contrast_mean",
+              "coef": -1.0808508794374876
+            },
+            {
+              "feature": "firstorder_10Percentile_mean",
+              "coef": 0.9626417327165252
+            },
+            {
+              "feature": "firstorder_Entropy_mean",
+              "coef": 0.7763220230503759
+            },
+            {
+              "feature": "firstorder_Minimum_mean",
+              "coef": -0.6755652094663662
+            },
+            {
+              "feature": "gldm_DependenceVariance_mean",
+              "coef": -0.4090212297216234
+            },
+            {
+              "feature": "shape_Elongation_mean",
+              "coef": 0.4028308629478959
+            },
+            {
+              "feature": "firstorder_Energy_mean",
+              "coef": 0.11359311993970594
+            },
+            {
+              "feature": "shape_LeastAxisLength_mean",
+              "coef": 0.01720651599178869
+            }
+          ],
+          "predictions": [
+            {
+              "fold": 2,
+              "row_index": 3,
+              "patient": "3",
+              "y_true": 0,
+              "probability": 0.13007924246926542,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 2,
+              "row_index": 8,
+              "patient": "8",
+              "y_true": 0,
+              "probability": 0.04109592080042253,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 2,
+              "row_index": 13,
+              "patient": "13",
+              "y_true": 0,
+              "probability": 0.010696158878768527,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 2,
+              "row_index": 18,
+              "patient": "18",
+              "y_true": 1,
+              "probability": 0.2008447187018077,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 2,
+              "row_index": 23,
+              "patient": "23",
+              "y_true": 1,
+              "probability": 0.5295106057705701,
+              "predicted_class_0_5": 1
+            },
+            {
+              "fold": 2,
+              "row_index": 28,
+              "patient": "28",
+              "y_true": 0,
+              "probability": 0.04373833391975387,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 2,
+              "row_index": 33,
+              "patient": "33",
+              "y_true": 0,
+              "probability": 0.03226394932876068,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 2,
+              "row_index": 38,
+              "patient": "38",
+              "y_true": 0,
+              "probability": 0.141910885349689,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 2,
+              "row_index": 43,
+              "patient": "43",
+              "y_true": 0,
+              "probability": 0.18948829019214125,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 2,
+              "row_index": 48,
+              "patient": "48",
+              "y_true": 0,
+              "probability": 0.21942555435541908,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 2,
+              "row_index": 53,
+              "patient": "53",
+              "y_true": 0,
+              "probability": 0.1688449450901997,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 2,
+              "row_index": 58,
+              "patient": "58",
+              "y_true": 0,
+              "probability": 0.042045983367912605,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 2,
+              "row_index": 63,
+              "patient": "63",
+              "y_true": 0,
+              "probability": 0.15164149474416488,
+              "predicted_class_0_5": 0
+            }
+          ],
+          "predictions_sorted_by_probability": [
+            {
+              "fold": 2,
+              "row_index": 23,
+              "patient": "23",
+              "y_true": 1,
+              "probability": 0.5295106057705701,
+              "predicted_class_0_5": 1
+            },
+            {
+              "fold": 2,
+              "row_index": 48,
+              "patient": "48",
+              "y_true": 0,
+              "probability": 0.21942555435541908,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 2,
+              "row_index": 18,
+              "patient": "18",
+              "y_true": 1,
+              "probability": 0.2008447187018077,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 2,
+              "row_index": 43,
+              "patient": "43",
+              "y_true": 0,
+              "probability": 0.18948829019214125,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 2,
+              "row_index": 53,
+              "patient": "53",
+              "y_true": 0,
+              "probability": 0.1688449450901997,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 2,
+              "row_index": 63,
+              "patient": "63",
+              "y_true": 0,
+              "probability": 0.15164149474416488,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 2,
+              "row_index": 38,
+              "patient": "38",
+              "y_true": 0,
+              "probability": 0.141910885349689,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 2,
+              "row_index": 3,
+              "patient": "3",
+              "y_true": 0,
+              "probability": 0.13007924246926542,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 2,
+              "row_index": 28,
+              "patient": "28",
+              "y_true": 0,
+              "probability": 0.04373833391975387,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 2,
+              "row_index": 58,
+              "patient": "58",
+              "y_true": 0,
+              "probability": 0.042045983367912605,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 2,
+              "row_index": 8,
+              "patient": "8",
+              "y_true": 0,
+              "probability": 0.04109592080042253,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 2,
+              "row_index": 33,
+              "patient": "33",
+              "y_true": 0,
+              "probability": 0.03226394932876068,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 2,
+              "row_index": 13,
+              "patient": "13",
+              "y_true": 0,
+              "probability": 0.010696158878768527,
+              "predicted_class_0_5": 0
+            }
+          ]
+        },
+        {
+          "fold": 3,
+          "auc": 0.9166666666666667,
+          "n_train": 52,
+          "n_test": 13,
+          "train_indices": [
+            0,
+            1,
+            3,
+            4,
+            5,
+            6,
+            8,
+            9,
+            10,
+            11,
+            13,
+            14,
+            15,
+            16,
+            18,
+            19,
+            20,
+            21,
+            23,
+            24,
+            25,
+            26,
+            28,
+            29,
+            30,
+            31,
+            33,
+            34,
+            35,
+            36,
+            38,
+            39,
+            40,
+            41,
+            43,
+            44,
+            45,
+            46,
+            48,
+            49,
+            50,
+            51,
+            53,
+            54,
+            55,
+            56,
+            58,
+            59,
+            60,
+            61,
+            63,
+            64
+          ],
+          "test_indices": [
+            2,
+            7,
+            12,
+            17,
+            22,
+            27,
+            32,
+            37,
+            42,
+            47,
+            52,
+            57,
+            62
+          ],
+          "train_patients": [
+            "0",
+            "1",
+            "3",
+            "4",
+            "5",
+            "6",
+            "8",
+            "9",
+            "10",
+            "11",
+            "13",
+            "14",
+            "15",
+            "16",
+            "18",
+            "19",
+            "20",
+            "21",
+            "23",
+            "24",
+            "25",
+            "26",
+            "28",
+            "29",
+            "30",
+            "31",
+            "33",
+            "34",
+            "35",
+            "36",
+            "38",
+            "39",
+            "40",
+            "41",
+            "43",
+            "44",
+            "45",
+            "46",
+            "48",
+            "49",
+            "50",
+            "51",
+            "53",
+            "54",
+            "55",
+            "56",
+            "58",
+            "59",
+            "60",
+            "61",
+            "63",
+            "64"
+          ],
+          "test_patients": [
+            "2",
+            "7",
+            "12",
+            "17",
+            "22",
+            "27",
+            "32",
+            "37",
+            "42",
+            "47",
+            "52",
+            "57",
+            "62"
+          ],
+          "y_train_counts": {
+            "0": 46,
+            "1": 6
+          },
+          "y_test_counts": {
+            "0": 9,
+            "1": 4
+          },
+          "selected_features": [
+            "ngtdm_Contrast_mean",
+            "firstorder_Entropy_mean",
+            "firstorder_10Percentile_mean",
+            "firstorder_Minimum_mean",
+            "glszm_LargeAreaLowGrayLevelEmphasis_mean",
+            "shape_Flatness_mean",
+            "firstorder_Skewness_mean",
+            "shape_MajorAxisLength_mean",
+            "gldm_DependenceVariance_mean"
+          ],
+          "selected_features_count": 9,
+          "lasso_selected_features_full": [
+            {
+              "feature": "ngtdm_Contrast_mean",
+              "coef": -1.123975070875701
+            },
+            {
+              "feature": "firstorder_Entropy_mean",
+              "coef": 1.032868406451197
+            },
+            {
+              "feature": "firstorder_10Percentile_mean",
+              "coef": 0.6205024617542699
+            },
+            {
+              "feature": "firstorder_Minimum_mean",
+              "coef": -0.5891710308053776
+            },
+            {
+              "feature": "glszm_LargeAreaLowGrayLevelEmphasis_mean",
+              "coef": -0.412009484568441
+            },
+            {
+              "feature": "shape_Flatness_mean",
+              "coef": 0.22286242890124758
+            },
+            {
+              "feature": "firstorder_Skewness_mean",
+              "coef": 0.15501457014173867
+            },
+            {
+              "feature": "shape_MajorAxisLength_mean",
+              "coef": -0.08113712178968656
+            },
+            {
+              "feature": "gldm_DependenceVariance_mean",
+              "coef": -0.05483797850973484
+            }
+          ],
+          "final_model_intercept": -2.5246460186924113,
+          "final_model_coefficients": [
+            {
+              "feature": "ngtdm_Contrast_mean",
+              "coef": -1.124134592827971
+            },
+            {
+              "feature": "firstorder_Entropy_mean",
+              "coef": 1.0330646130214216
+            },
+            {
+              "feature": "firstorder_10Percentile_mean",
+              "coef": 0.6202124104991498
+            },
+            {
+              "feature": "firstorder_Minimum_mean",
+              "coef": -0.5889653302334604
+            },
+            {
+              "feature": "glszm_LargeAreaLowGrayLevelEmphasis_mean",
+              "coef": -0.4121189455728932
+            },
+            {
+              "feature": "shape_Flatness_mean",
+              "coef": 0.22285466961403397
+            },
+            {
+              "feature": "firstorder_Skewness_mean",
+              "coef": 0.15500924842173058
+            },
+            {
+              "feature": "shape_MajorAxisLength_mean",
+              "coef": -0.08126367934657762
+            },
+            {
+              "feature": "gldm_DependenceVariance_mean",
+              "coef": -0.054618082531134676
+            }
+          ],
+          "predictions": [
+            {
+              "fold": 3,
+              "row_index": 2,
+              "patient": "2",
+              "y_true": 1,
+              "probability": 0.6960542684537929,
+              "predicted_class_0_5": 1
+            },
+            {
+              "fold": 3,
+              "row_index": 7,
+              "patient": "7",
+              "y_true": 0,
+              "probability": 0.10676842111142061,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 3,
+              "row_index": 12,
+              "patient": "12",
+              "y_true": 0,
+              "probability": 0.08415918704427726,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 3,
+              "row_index": 17,
+              "patient": "17",
+              "y_true": 0,
+              "probability": 0.3076423136832884,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 3,
+              "row_index": 22,
+              "patient": "22",
+              "y_true": 0,
+              "probability": 0.035452620959933075,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 3,
+              "row_index": 27,
+              "patient": "27",
+              "y_true": 0,
+              "probability": 0.00041661942738029653,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 3,
+              "row_index": 32,
+              "patient": "32",
+              "y_true": 1,
+              "probability": 0.4323868431000797,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 3,
+              "row_index": 37,
+              "patient": "37",
+              "y_true": 0,
+              "probability": 0.022854696202762925,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 3,
+              "row_index": 42,
+              "patient": "42",
+              "y_true": 1,
+              "probability": 0.10763696454846494,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 3,
+              "row_index": 47,
+              "patient": "47",
+              "y_true": 0,
+              "probability": 0.07664698262184019,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 3,
+              "row_index": 52,
+              "patient": "52",
+              "y_true": 0,
+              "probability": 0.04840859148874506,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 3,
+              "row_index": 57,
+              "patient": "57",
+              "y_true": 0,
+              "probability": 0.40338054449234734,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 3,
+              "row_index": 62,
+              "patient": "62",
+              "y_true": 1,
+              "probability": 0.3131516215305108,
+              "predicted_class_0_5": 0
+            }
+          ],
+          "predictions_sorted_by_probability": [
+            {
+              "fold": 3,
+              "row_index": 2,
+              "patient": "2",
+              "y_true": 1,
+              "probability": 0.6960542684537929,
+              "predicted_class_0_5": 1
+            },
+            {
+              "fold": 3,
+              "row_index": 32,
+              "patient": "32",
+              "y_true": 1,
+              "probability": 0.4323868431000797,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 3,
+              "row_index": 57,
+              "patient": "57",
+              "y_true": 0,
+              "probability": 0.40338054449234734,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 3,
+              "row_index": 62,
+              "patient": "62",
+              "y_true": 1,
+              "probability": 0.3131516215305108,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 3,
+              "row_index": 17,
+              "patient": "17",
+              "y_true": 0,
+              "probability": 0.3076423136832884,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 3,
+              "row_index": 42,
+              "patient": "42",
+              "y_true": 1,
+              "probability": 0.10763696454846494,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 3,
+              "row_index": 7,
+              "patient": "7",
+              "y_true": 0,
+              "probability": 0.10676842111142061,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 3,
+              "row_index": 12,
+              "patient": "12",
+              "y_true": 0,
+              "probability": 0.08415918704427726,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 3,
+              "row_index": 47,
+              "patient": "47",
+              "y_true": 0,
+              "probability": 0.07664698262184019,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 3,
+              "row_index": 52,
+              "patient": "52",
+              "y_true": 0,
+              "probability": 0.04840859148874506,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 3,
+              "row_index": 22,
+              "patient": "22",
+              "y_true": 0,
+              "probability": 0.035452620959933075,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 3,
+              "row_index": 37,
+              "patient": "37",
+              "y_true": 0,
+              "probability": 0.022854696202762925,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 3,
+              "row_index": 27,
+              "patient": "27",
+              "y_true": 0,
+              "probability": 0.00041661942738029653,
+              "predicted_class_0_5": 0
+            }
+          ]
+        },
+        {
+          "fold": 4,
+          "auc": 0.7272727272727273,
+          "n_train": 52,
+          "n_test": 13,
+          "train_indices": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8,
+            9,
+            10,
+            12,
+            13,
+            14,
+            15,
+            17,
+            18,
+            19,
+            20,
+            22,
+            23,
+            24,
+            25,
+            27,
+            28,
+            29,
+            30,
+            32,
+            33,
+            34,
+            35,
+            37,
+            38,
+            39,
+            40,
+            42,
+            43,
+            44,
+            45,
+            47,
+            48,
+            49,
+            50,
+            52,
+            53,
+            54,
+            55,
+            57,
+            58,
+            59,
+            60,
+            62,
+            63,
+            64
+          ],
+          "test_indices": [
+            1,
+            6,
+            11,
+            16,
+            21,
+            26,
+            31,
+            36,
+            41,
+            46,
+            51,
+            56,
+            61
+          ],
+          "train_patients": [
+            "0",
+            "2",
+            "3",
+            "4",
+            "5",
+            "7",
+            "8",
+            "9",
+            "10",
+            "12",
+            "13",
+            "14",
+            "15",
+            "17",
+            "18",
+            "19",
+            "20",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29",
+            "30",
+            "32",
+            "33",
+            "34",
+            "35",
+            "37",
+            "38",
+            "39",
+            "40",
+            "42",
+            "43",
+            "44",
+            "45",
+            "47",
+            "48",
+            "49",
+            "50",
+            "52",
+            "53",
+            "54",
+            "55",
+            "57",
+            "58",
+            "59",
+            "60",
+            "62",
+            "63",
+            "64"
+          ],
+          "test_patients": [
+            "1",
+            "6",
+            "11",
+            "16",
+            "21",
+            "26",
+            "31",
+            "36",
+            "41",
+            "46",
+            "51",
+            "56",
+            "61"
+          ],
+          "y_train_counts": {
+            "0": 44,
+            "1": 8
+          },
+          "y_test_counts": {
+            "0": 11,
+            "1": 2
+          },
+          "selected_features": [
+            "glszm_LowGrayLevelZoneEmphasis_mean",
+            "ngtdm_Contrast_mean",
+            "firstorder_10Percentile_mean",
+            "firstorder_Minimum_mean",
+            "shape_Flatness_mean",
+            "glszm_SizeZoneNonUniformityNormalized_mean",
+            "shape_LeastAxisLength_mean",
+            "firstorder_Kurtosis_mean",
+            "shape_Sphericity_mean",
+            "firstorder_InterquartileRange_mean"
+          ],
+          "selected_features_count": 10,
+          "lasso_selected_features_full": [
+            {
+              "feature": "glszm_LowGrayLevelZoneEmphasis_mean",
+              "coef": -0.725406419923414
+            },
+            {
+              "feature": "ngtdm_Contrast_mean",
+              "coef": -0.6077536672934722
+            },
+            {
+              "feature": "firstorder_10Percentile_mean",
+              "coef": 0.5840455940091832
+            },
+            {
+              "feature": "firstorder_Minimum_mean",
+              "coef": -0.4327686378670119
+            },
+            {
+              "feature": "shape_Flatness_mean",
+              "coef": 0.41507938131996314
+            },
+            {
+              "feature": "glszm_SizeZoneNonUniformityNormalized_mean",
+              "coef": -0.37347919636668264
+            },
+            {
+              "feature": "shape_LeastAxisLength_mean",
+              "coef": 0.3072943437027707
+            },
+            {
+              "feature": "firstorder_Kurtosis_mean",
+              "coef": 0.24707581506187387
+            },
+            {
+              "feature": "shape_Sphericity_mean",
+              "coef": -0.2456087013317795
+            },
+            {
+              "feature": "firstorder_InterquartileRange_mean",
+              "coef": -0.17504557816014207
+            },
+            {
+              "feature": "glszm_LargeAreaLowGrayLevelEmphasis_mean",
+              "coef": -0.0703461412744831
+            }
+          ],
+          "final_model_intercept": -2.3975447569037973,
+          "final_model_coefficients": [
+            {
+              "feature": "glszm_LowGrayLevelZoneEmphasis_mean",
+              "coef": -0.7496916531915259
+            },
+            {
+              "feature": "ngtdm_Contrast_mean",
+              "coef": -0.5562649656388666
+            },
+            {
+              "feature": "firstorder_10Percentile_mean",
+              "coef": 0.6176581426541652
+            },
+            {
+              "feature": "firstorder_Minimum_mean",
+              "coef": -0.44196384452958476
+            },
+            {
+              "feature": "shape_Flatness_mean",
+              "coef": 0.4071700601101009
+            },
+            {
+              "feature": "glszm_SizeZoneNonUniformityNormalized_mean",
+              "coef": -0.3631217491873415
+            },
+            {
+              "feature": "shape_LeastAxisLength_mean",
+              "coef": 0.2897028665594036
+            },
+            {
+              "feature": "firstorder_Kurtosis_mean",
+              "coef": 0.22811445882353934
+            },
+            {
+              "feature": "shape_Sphericity_mean",
+              "coef": -0.20765540364847418
+            },
+            {
+              "feature": "firstorder_InterquartileRange_mean",
+              "coef": -0.21485619203370737
+            }
+          ],
+          "predictions": [
+            {
+              "fold": 4,
+              "row_index": 1,
+              "patient": "1",
+              "y_true": 0,
+              "probability": 0.033566772456858754,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 4,
+              "row_index": 6,
+              "patient": "6",
+              "y_true": 0,
+              "probability": 0.04701156480731846,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 4,
+              "row_index": 11,
+              "patient": "11",
+              "y_true": 0,
+              "probability": 0.948480241895393,
+              "predicted_class_0_5": 1
+            },
+            {
+              "fold": 4,
+              "row_index": 16,
+              "patient": "16",
+              "y_true": 0,
+              "probability": 0.018097999262811502,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 4,
+              "row_index": 21,
+              "patient": "21",
+              "y_true": 0,
+              "probability": 0.06404969859678092,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 4,
+              "row_index": 26,
+              "patient": "26",
+              "y_true": 1,
+              "probability": 0.6657401187785769,
+              "predicted_class_0_5": 1
+            },
+            {
+              "fold": 4,
+              "row_index": 31,
+              "patient": "31",
+              "y_true": 0,
+              "probability": 0.5438892352579587,
+              "predicted_class_0_5": 1
+            },
+            {
+              "fold": 4,
+              "row_index": 36,
+              "patient": "36",
+              "y_true": 0,
+              "probability": 0.21068421328231676,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 4,
+              "row_index": 41,
+              "patient": "41",
+              "y_true": 0,
+              "probability": 0.015415084595862312,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 4,
+              "row_index": 46,
+              "patient": "46",
+              "y_true": 0,
+              "probability": 0.32188059291244775,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 4,
+              "row_index": 51,
+              "patient": "51",
+              "y_true": 1,
+              "probability": 0.04969916099743741,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 4,
+              "row_index": 56,
+              "patient": "56",
+              "y_true": 0,
+              "probability": 0.03484070705870786,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 4,
+              "row_index": 61,
+              "patient": "61",
+              "y_true": 0,
+              "probability": 0.021223209501138596,
+              "predicted_class_0_5": 0
+            }
+          ],
+          "predictions_sorted_by_probability": [
+            {
+              "fold": 4,
+              "row_index": 11,
+              "patient": "11",
+              "y_true": 0,
+              "probability": 0.948480241895393,
+              "predicted_class_0_5": 1
+            },
+            {
+              "fold": 4,
+              "row_index": 26,
+              "patient": "26",
+              "y_true": 1,
+              "probability": 0.6657401187785769,
+              "predicted_class_0_5": 1
+            },
+            {
+              "fold": 4,
+              "row_index": 31,
+              "patient": "31",
+              "y_true": 0,
+              "probability": 0.5438892352579587,
+              "predicted_class_0_5": 1
+            },
+            {
+              "fold": 4,
+              "row_index": 46,
+              "patient": "46",
+              "y_true": 0,
+              "probability": 0.32188059291244775,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 4,
+              "row_index": 36,
+              "patient": "36",
+              "y_true": 0,
+              "probability": 0.21068421328231676,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 4,
+              "row_index": 21,
+              "patient": "21",
+              "y_true": 0,
+              "probability": 0.06404969859678092,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 4,
+              "row_index": 51,
+              "patient": "51",
+              "y_true": 1,
+              "probability": 0.04969916099743741,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 4,
+              "row_index": 6,
+              "patient": "6",
+              "y_true": 0,
+              "probability": 0.04701156480731846,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 4,
+              "row_index": 56,
+              "patient": "56",
+              "y_true": 0,
+              "probability": 0.03484070705870786,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 4,
+              "row_index": 1,
+              "patient": "1",
+              "y_true": 0,
+              "probability": 0.033566772456858754,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 4,
+              "row_index": 61,
+              "patient": "61",
+              "y_true": 0,
+              "probability": 0.021223209501138596,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 4,
+              "row_index": 16,
+              "patient": "16",
+              "y_true": 0,
+              "probability": 0.018097999262811502,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 4,
+              "row_index": 41,
+              "patient": "41",
+              "y_true": 0,
+              "probability": 0.015415084595862312,
+              "predicted_class_0_5": 0
+            }
+          ]
+        },
+        {
+          "fold": 5,
+          "auc": 0.9166666666666666,
+          "n_train": 52,
+          "n_test": 13,
+          "train_indices": [
+            1,
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            9,
+            11,
+            12,
+            13,
+            14,
+            16,
+            17,
+            18,
+            19,
+            21,
+            22,
+            23,
+            24,
+            26,
+            27,
+            28,
+            29,
+            31,
+            32,
+            33,
+            34,
+            36,
+            37,
+            38,
+            39,
+            41,
+            42,
+            43,
+            44,
+            46,
+            47,
+            48,
+            49,
+            51,
+            52,
+            53,
+            54,
+            56,
+            57,
+            58,
+            59,
+            61,
+            62,
+            63,
+            64
+          ],
+          "test_indices": [
+            0,
+            5,
+            10,
+            15,
+            20,
+            25,
+            30,
+            35,
+            40,
+            45,
+            50,
+            55,
+            60
+          ],
+          "train_patients": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "6",
+            "7",
+            "8",
+            "9",
+            "11",
+            "12",
+            "13",
+            "14",
+            "16",
+            "17",
+            "18",
+            "19",
+            "21",
+            "22",
+            "23",
+            "24",
+            "26",
+            "27",
+            "28",
+            "29",
+            "31",
+            "32",
+            "33",
+            "34",
+            "36",
+            "37",
+            "38",
+            "39",
+            "41",
+            "42",
+            "43",
+            "44",
+            "46",
+            "47",
+            "48",
+            "49",
+            "51",
+            "52",
+            "53",
+            "54",
+            "56",
+            "57",
+            "58",
+            "59",
+            "61",
+            "62",
+            "63",
+            "64"
+          ],
+          "test_patients": [
+            "0",
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "35",
+            "40",
+            "45",
+            "50",
+            "55",
+            "60"
+          ],
+          "y_train_counts": {
+            "0": 43,
+            "1": 9
+          },
+          "y_test_counts": {
+            "0": 12,
+            "1": 1
+          },
+          "selected_features": [
+            "firstorder_Maximum_mean",
+            "ngtdm_Contrast_mean",
+            "glcm_ClusterShade_mean",
+            "firstorder_Minimum_mean",
+            "firstorder_Entropy_mean",
+            "shape_Elongation_mean",
+            "gldm_DependenceVariance_mean",
+            "shape_SurfaceVolumeRatio_mean"
+          ],
+          "selected_features_count": 8,
+          "lasso_selected_features_full": [
+            {
+              "feature": "firstorder_Maximum_mean",
+              "coef": 1.3966721011110985
+            },
+            {
+              "feature": "ngtdm_Contrast_mean",
+              "coef": -1.3690148281178123
+            },
+            {
+              "feature": "glcm_ClusterShade_mean",
+              "coef": 0.36695483216390734
+            },
+            {
+              "feature": "firstorder_Minimum_mean",
+              "coef": -0.26482229527675033
+            },
+            {
+              "feature": "firstorder_Entropy_mean",
+              "coef": 0.15653723772677056
+            },
+            {
+              "feature": "shape_Elongation_mean",
+              "coef": 0.1464583530076496
+            },
+            {
+              "feature": "gldm_DependenceVariance_mean",
+              "coef": -0.06894360370812795
+            },
+            {
+              "feature": "shape_SurfaceVolumeRatio_mean",
+              "coef": -0.04899730172030279
+            }
+          ],
+          "final_model_intercept": -2.2978361481636234,
+          "final_model_coefficients": [
+            {
+              "feature": "firstorder_Maximum_mean",
+              "coef": 1.3980089828255193
+            },
+            {
+              "feature": "ngtdm_Contrast_mean",
+              "coef": -1.3684203842382368
+            },
+            {
+              "feature": "glcm_ClusterShade_mean",
+              "coef": 0.3670682863206932
+            },
+            {
+              "feature": "firstorder_Minimum_mean",
+              "coef": -0.2652398751507087
+            },
+            {
+              "feature": "firstorder_Entropy_mean",
+              "coef": 0.1550999122644937
+            },
+            {
+              "feature": "shape_Elongation_mean",
+              "coef": 0.14641154115156188
+            },
+            {
+              "feature": "gldm_DependenceVariance_mean",
+              "coef": -0.0691833426438154
+            },
+            {
+              "feature": "shape_SurfaceVolumeRatio_mean",
+              "coef": -0.048931133387318713
+            }
+          ],
+          "predictions": [
+            {
+              "fold": 5,
+              "row_index": 0,
+              "patient": "0",
+              "y_true": 0,
+              "probability": 0.1038154208581526,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 5,
+              "row_index": 5,
+              "patient": "5",
+              "y_true": 0,
+              "probability": 0.1218032931065921,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 5,
+              "row_index": 10,
+              "patient": "10",
+              "y_true": 0,
+              "probability": 0.005743835152415699,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 5,
+              "row_index": 15,
+              "patient": "15",
+              "y_true": 0,
+              "probability": 0.0310847964338145,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 5,
+              "row_index": 20,
+              "patient": "20",
+              "y_true": 0,
+              "probability": 0.09037512349017611,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 5,
+              "row_index": 25,
+              "patient": "25",
+              "y_true": 0,
+              "probability": 0.2649535094916622,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 5,
+              "row_index": 30,
+              "patient": "30",
+              "y_true": 0,
+              "probability": 0.019444158202062876,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 5,
+              "row_index": 35,
+              "patient": "35",
+              "y_true": 0,
+              "probability": 0.010871539116299416,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 5,
+              "row_index": 40,
+              "patient": "40",
+              "y_true": 1,
+              "probability": 0.3450532840066243,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 5,
+              "row_index": 45,
+              "patient": "45",
+              "y_true": 0,
+              "probability": 0.9980405356319322,
+              "predicted_class_0_5": 1
+            },
+            {
+              "fold": 5,
+              "row_index": 50,
+              "patient": "50",
+              "y_true": 0,
+              "probability": 0.004700773527433944,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 5,
+              "row_index": 55,
+              "patient": "55",
+              "y_true": 0,
+              "probability": 0.062170992805753986,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 5,
+              "row_index": 60,
+              "patient": "60",
+              "y_true": 0,
+              "probability": 0.13598931366017636,
+              "predicted_class_0_5": 0
+            }
+          ],
+          "predictions_sorted_by_probability": [
+            {
+              "fold": 5,
+              "row_index": 45,
+              "patient": "45",
+              "y_true": 0,
+              "probability": 0.9980405356319322,
+              "predicted_class_0_5": 1
+            },
+            {
+              "fold": 5,
+              "row_index": 40,
+              "patient": "40",
+              "y_true": 1,
+              "probability": 0.3450532840066243,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 5,
+              "row_index": 25,
+              "patient": "25",
+              "y_true": 0,
+              "probability": 0.2649535094916622,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 5,
+              "row_index": 60,
+              "patient": "60",
+              "y_true": 0,
+              "probability": 0.13598931366017636,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 5,
+              "row_index": 5,
+              "patient": "5",
+              "y_true": 0,
+              "probability": 0.1218032931065921,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 5,
+              "row_index": 0,
+              "patient": "0",
+              "y_true": 0,
+              "probability": 0.1038154208581526,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 5,
+              "row_index": 20,
+              "patient": "20",
+              "y_true": 0,
+              "probability": 0.09037512349017611,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 5,
+              "row_index": 55,
+              "patient": "55",
+              "y_true": 0,
+              "probability": 0.062170992805753986,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 5,
+              "row_index": 15,
+              "patient": "15",
+              "y_true": 0,
+              "probability": 0.0310847964338145,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 5,
+              "row_index": 30,
+              "patient": "30",
+              "y_true": 0,
+              "probability": 0.019444158202062876,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 5,
+              "row_index": 35,
+              "patient": "35",
+              "y_true": 0,
+              "probability": 0.010871539116299416,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 5,
+              "row_index": 10,
+              "patient": "10",
+              "y_true": 0,
+              "probability": 0.005743835152415699,
+              "predicted_class_0_5": 0
+            },
+            {
+              "fold": 5,
+              "row_index": 50,
+              "patient": "50",
+              "y_true": 0,
+              "probability": 0.004700773527433944,
+              "predicted_class_0_5": 0
+            }
+          ]
+        }
+      ]
+    },
+    "loocv": {
+      "auc": 0.869090909090909,
+      "sensitivity": 0.4,
+      "specificity": 0.9272727272727272,
+      "stable_features": [
+        [
+          "ngtdm_Contrast_mean",
+          65
+        ],
+        [
+          "firstorder_10Percentile_mean",
+          65
+        ],
+        [
+          "firstorder_Minimum_mean",
+          65
+        ],
+        [
+          "firstorder_Entropy_mean",
+          64
+        ],
+        [
+          "gldm_DependenceVariance_mean",
+          64
+        ],
+        [
+          "shape_Flatness_mean",
+          63
+        ],
+        [
+          "shape_Elongation_mean",
+          62
+        ],
+        [
+          "glszm_LargeAreaLowGrayLevelEmphasis_mean",
+          58
+        ],
+        [
+          "firstorder_Skewness_mean",
+          55
+        ],
+        [
+          "firstorder_Energy_mean",
+          55
+        ],
+        [
+          "shape_LeastAxisLength_mean",
+          5
+        ],
+        [
+          "gldm_SmallDependenceHighGrayLevelEmphasis_mean",
+          4
+        ],
+        [
+          "glcm_Idmn_mean",
+          2
+        ],
+        [
+          "firstorder_Kurtosis_mean",
+          1
+        ],
+        [
+          "shape_SurfaceVolumeRatio_mean",
+          1
+        ],
+        [
+          "firstorder_Maximum_mean",
+          1
+        ],
+        [
+          "glcm_ClusterShade_mean",
+          1
+        ],
+        [
+          "glszm_SizeZoneNonUniformityNormalized_mean",
+          1
+        ]
+      ]
+    },
+    "permutation": {
+      "observed_auc": 0.8863636363636365,
+      "mean_random_auc": 0.4615781818181819,
+      "std_random_auc": 0.13627952043229458,
+      "max_random_auc": 0.9236363636363636,
+      "p_value": 0.002
+    },
+    "note": "These are validation metrics. The final model is trained on all available patients only after validation is complete."
+  },
+  "warning": "apparent_training_auc is optimistic because the model is trained and evaluated on all available patients. Use GroupKFold, LOOCV and permutation results for validation."
+}

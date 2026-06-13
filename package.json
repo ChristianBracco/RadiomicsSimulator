@@ -1,0 +1,10 @@
+{
+  "name": "theradiomics-bun-python-bridge",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch server.ts",
+    "start": "bun server.ts"
+  },
+  "dependencies": {}
+}

@@ -9,7 +9,7 @@ import time
 import os
 from datetime import datetime
 
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File, Request
 from fastapi.responses import FileResponse, JSONResponse, PlainTextResponse
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -218,14 +218,17 @@ async def upload_dataset(file: UploadFile = File(...)):
 
 
 @app.post("/api/run-analysis")
-def run_analysis():
+async def run_analysis(request: Request):
     """
     Avvia run_analysis.py in background.
 
     A differenza della vecchia versione, NON usa subprocess.run().
     Usa invece subprocess.Popen() + python -u per avere stdout/stderr
     non bufferizzati e visibili in HTML durante il run.
+
+    Accetta parametri JSON dal frontend e li passa come variabili d'ambiente.
     """
+
     script = (
         BASE_DIR
         / "run_analysis.py"
@@ -239,6 +242,14 @@ def run_analysis():
             },
             status_code=404
         )
+
+    # Parse optional JSON body with run parameters from the dashboard form.
+    run_params = {}
+    if request is not None:
+        try:
+            run_params = await request.json()
+        except Exception:
+            run_params = {}
 
     with RUN_LOCK:
         if RUN_STATE["running"]:
@@ -265,6 +276,22 @@ def run_analysis():
     try:
         env = os.environ.copy()
         env["PYTHONUNBUFFERED"] = "1"
+
+        # Forward dashboard form parameters as environment variables
+        # so that run_analysis.py picks them up via _env_* helpers.
+        if run_params.get("pruning_threshold"):
+            env["THERADIOMICS_PRUNING_THRESHOLD"] = str(run_params["pruning_threshold"])
+        if run_params.get("top_n_final_model_features"):
+            env["THERADIOMICS_TOP_N_FINAL_MODEL_FEATURES"] = str(run_params["top_n_final_model_features"])
+        if run_params.get("n_sample_size_simulations"):
+            env["THERADIOMICS_N_SAMPLE_SIZE_SIMULATIONS"] = str(run_params["n_sample_size_simulations"])
+        if run_params.get("feature_selection_method"):
+            env["THERADIOMICS_FEATURE_SELECTION_METHOD"] = str(run_params["feature_selection_method"])
+
+        _append_log(
+            "system",
+            f"Run parameters from dashboard: {json.dumps(run_params)}"
+        )
 
         proc = subprocess.Popen(
             [

@@ -1,599 +1,104 @@
 <!doctype html>
 <html lang="it">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>THERADIOMICS — Guida semplice ma completa</title>
-  <style>
-    :root{
-      --bg:#07111f;
-      --panel:#0f1c2e;
-      --panel2:#13243a;
-      --text:#e9f2ff;
-      --muted:#9fb2c8;
-      --accent:#66e3c4;
-      --accent2:#7db8ff;
-      --warn:#ffd166;
-      --bad:#ff7b8a;
-      --good:#7ee787;
-      --line:rgba(255,255,255,.12);
-      --shadow:0 18px 60px rgba(0,0,0,.35);
-      --radius:22px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(circle at 10% 0%, rgba(102,227,196,.16), transparent 30%),
-        radial-gradient(circle at 90% 10%, rgba(125,184,255,.15), transparent 30%),
-        linear-gradient(180deg,#06101d,#0a1424 45%,#07111f);
-      line-height:1.62;
-    }
-    a{color:var(--accent)}
-    .hero{
-      max-width:1180px;
-      margin:0 auto;
-      padding:58px 22px 28px;
-    }
-    .hero-card{
-      background:linear-gradient(135deg,rgba(15,28,46,.96),rgba(19,36,58,.82));
-      border:1px solid var(--line);
-      border-radius:28px;
-      box-shadow:var(--shadow);
-      padding:34px;
-      position:relative;
-      overflow:hidden;
-    }
-    .hero-card:before{
-      content:"";
-      position:absolute;
-      right:-70px; top:-70px;
-      width:260px; height:260px;
-      background:radial-gradient(circle,rgba(102,227,196,.22),transparent 65%);
-      pointer-events:none;
-    }
-    h1{
-      font-size:clamp(2rem,4vw,4rem);
-      line-height:1.05;
-      margin:0 0 12px;
-      letter-spacing:-.04em;
-    }
-    h2{
-      margin:52px 0 14px;
-      font-size:clamp(1.4rem,2.4vw,2.2rem);
-      letter-spacing:-.02em;
-    }
-    h3{margin:30px 0 10px;font-size:1.25rem}
-    p{margin:12px 0;color:#dce8f8}
-    .subtitle{font-size:1.18rem;color:var(--muted);max-width:900px}
-    .badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-    .badge{
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
-      color:#dff7ff;
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:.92rem;
-    }
-    .layout{
-      max-width:1180px;
-      margin:0 auto;
-      padding:0 22px 80px;
-      display:grid;
-      grid-template-columns:300px 1fr;
-      gap:24px;
-      align-items:start;
-    }
-    nav{
-      position:sticky;
-      top:18px;
-      max-height:calc(100vh - 36px);
-      overflow:auto;
-      background:rgba(15,28,46,.82);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:16px;
-      box-shadow:var(--shadow);
-      backdrop-filter:blur(14px);
-    }
-    nav h3{margin:0 0 10px;font-size:1rem;color:var(--accent)}
-    nav a{
-      display:block;
-      text-decoration:none;
-      color:var(--muted);
-      padding:7px 8px;
-      border-radius:10px;
-      font-size:.92rem;
-    }
-    nav a:hover{background:rgba(255,255,255,.07);color:var(--text)}
-    main{
-      min-width:0;
-    }
-    section{
-      background:rgba(15,28,46,.72);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:24px;
-      margin-bottom:18px;
-      box-shadow:0 10px 36px rgba(0,0,0,.18);
-    }
-    .callout{
-      border-left:4px solid var(--accent);
-      background:rgba(102,227,196,.08);
-      padding:14px 16px;
-      border-radius:14px;
-      margin:18px 0;
-    }
-    .warning{
-      border-left-color:var(--warn);
-      background:rgba(255,209,102,.09);
-    }
-    .bad{
-      border-left-color:var(--bad);
-      background:rgba(255,123,138,.08);
-    }
-    .good{
-      border-left-color:var(--good);
-      background:rgba(126,231,135,.08);
-    }
-    code, pre{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-    }
-    pre{
-      overflow:auto;
-      background:#07101d;
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:15px;
-      color:#d8f8ff;
-    }
-    code{
-      color:#c9f5ff;
-      background:rgba(255,255,255,.07);
-      padding:.15rem .35rem;
-      border-radius:7px;
-    }
-    table{
-      width:100%;
-      border-collapse:collapse;
-      margin:16px 0;
-      overflow:hidden;
-      border-radius:14px;
-      border:1px solid var(--line);
-      font-size:.95rem;
-    }
-    th,td{
-      border-bottom:1px solid var(--line);
-      padding:11px 12px;
-      text-align:left;
-      vertical-align:top;
-    }
-    th{
-      background:rgba(125,184,255,.12);
-      color:#eaf5ff;
-    }
-    tr:last-child td{border-bottom:0}
-    .formula{
-      display:block;
-      text-align:center;
-      font-size:1.2rem;
-      padding:14px;
-      border-radius:16px;
-      background:rgba(255,255,255,.06);
-      margin:16px 0;
-      color:#f2fbff;
-    }
-    .mini-grid{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:12px;
-      margin-top:14px;
-    }
-    .mini-card{
-      background:rgba(255,255,255,.055);
-      border:1px solid var(--line);
-      padding:14px;
-      border-radius:16px;
-    }
-    .mini-card b{color:var(--accent)}
-    .cat{
-      font-size:1.08rem;
-      color:#f3fbff;
-    }
-    .topbar{
-      max-width:1180px;
-      margin:0 auto;
-      padding:16px 22px 0;
-      display:flex;
-      gap:10px;
-      justify-content:flex-end;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      text-decoration:none;
-      color:#06101d;
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
-      padding:10px 14px;
-      border-radius:999px;
-      font-weight:800;
-      box-shadow:0 8px 22px rgba(102,227,196,.2);
-    }
-    .btn.secondary{
-      color:var(--text);
-      background:rgba(255,255,255,.08);
-      border:1px solid var(--line);
-      box-shadow:none;
-    }
-    .footer{
-      color:var(--muted);
-      text-align:center;
-      padding:30px 22px 70px;
-    }
-    @media(max-width:920px){
-      .layout{grid-template-columns:1fr}
-      nav{position:static;max-height:none}
-      .mini-grid{grid-template-columns:1fr}
-      .hero-card{padding:24px}
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>THERADIOMICS — Guida dettagliata dashboard</title>
+<style>
+:root{--bg:#07111f;--card:#0f2136;--ink:#edf7ff;--muted:#aac1d8;--soft:#d6e7f8;--line:rgba(255,255,255,.13);--accent:#67e3c2;--accent2:#7db8ff;--warn:#ffd166;--ok:#7ee787;--shadow:0 18px 70px rgba(0,0,0,.35);--radius:22px;--mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;--sans:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--sans);color:var(--ink);background:radial-gradient(circle at 5% 5%,rgba(103,227,194,.17),transparent 27%),radial-gradient(circle at 92% 4%,rgba(125,184,255,.15),transparent 29%),linear-gradient(180deg,#06101d,#0b1626 45%,#07111f);line-height:1.7}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}p,li{color:var(--soft)}code{font-family:var(--mono);background:rgba(255,255,255,.075);color:#d8fbff;border:1px solid rgba(255,255,255,.08);padding:.13rem .38rem;border-radius:8px}
+.topbar{position:sticky;top:0;z-index:30;background:rgba(7,17,31,.80);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.topbar-inner{max-width:1400px;margin:0 auto;padding:12px 22px;display:flex;gap:10px;justify-content:space-between;align-items:center}.brand{display:flex;align-items:center;gap:10px;font-weight:900}.orb{width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 0 18px rgba(103,227,194,.55)}.btn{display:inline-flex;color:#06101d;background:linear-gradient(135deg,var(--accent),var(--accent2));padding:9px 13px;border-radius:999px;font-weight:800;text-decoration:none}.btn.secondary{color:var(--ink);background:rgba(255,255,255,.08);border:1px solid var(--line)}
+.hero{max-width:1400px;margin:0 auto;padding:54px 22px 26px}.hero-card{background:linear-gradient(135deg,rgba(15,33,54,.96),rgba(19,41,66,.83));border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow);padding:38px}h1{margin:0 0 14px;font-size:clamp(2.2rem,4.6vw,5.2rem);line-height:.98;letter-spacing:-.055em}.subtitle{max-width:1050px;font-size:1.16rem;color:var(--muted);margin:0}.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.badge{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.06);color:#ddf6ff;font-size:.93rem}
+.layout{max-width:1400px;margin:0 auto;padding:0 22px 90px;display:grid;grid-template-columns:340px minmax(0,1fr);gap:24px;align-items:start}nav{position:sticky;top:72px;max-height:calc(100vh - 90px);overflow:auto;background:rgba(15,33,54,.84);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}nav h3{margin:0 0 10px;color:var(--accent)}nav a{display:block;color:var(--muted);padding:6px 10px;border-radius:10px;font-size:.92rem}nav a:hover{background:rgba(255,255,255,.06);color:var(--ink);text-decoration:none}
+main{min-width:0}section{background:rgba(15,33,54,.76);border:1px solid var(--line);border-radius:var(--radius);padding:26px;margin-bottom:18px;box-shadow:0 12px 42px rgba(0,0,0,.20)}h2{margin:0 0 14px;font-size:clamp(1.45rem,2.55vw,2.35rem);line-height:1.15;letter-spacing:-.03em}h3{margin:28px 0 9px;font-size:1.22rem;color:#f2fbff}.callout{margin:18px 0;padding:15px 16px;border-radius:16px;border:1px solid rgba(103,227,194,.20);border-left:4px solid var(--accent);background:rgba(103,227,194,.085)}.warn{border-left-color:var(--warn);background:rgba(255,209,102,.09)}
+.pipeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0}.step{background:rgba(255,255,255,.055);border:1px solid var(--line);border-radius:16px;padding:14px}.num{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;color:#06101d;background:linear-gradient(135deg,var(--accent),var(--accent2));font-weight:900;margin-bottom:8px}.step b{display:block;color:#f3fbff}.step span{display:block;color:var(--muted);font-size:.92rem;margin-top:4px}
+table{width:100%;border-collapse:collapse;margin:17px 0;border:1px solid var(--line);border-radius:16px;overflow:hidden;font-size:.94rem}th,td{border-bottom:1px solid rgba(255,255,255,.10);padding:11px 12px;text-align:left;vertical-align:top}th{background:rgba(125,184,255,.13);color:#eef8ff;font-weight:900}tr:nth-child(even) td{background:rgba(255,255,255,.025)}tr:last-child td{border-bottom:0}.footer{color:var(--muted);text-align:center;padding:30px 22px 70px}
+@media(max-width:1040px){.layout{grid-template-columns:1fr}nav{position:static;max-height:none}.pipeline{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:650px){.hero-card,section{padding:22px}.pipeline{grid-template-columns:1fr}.topbar-inner{align-items:flex-start;flex-direction:column}}
+</style>
 </head>
 <body>
-  <div class="topbar">
-    <a class="btn secondary" href="/">← Dashboard</a>
-    <a class="btn" href="#checklist">Checklist finale</a>
-  </div>
-
-  <header class="hero">
-    <div class="hero-card">
-      <h1>THERADIOMICS<br>Guida semplice ma completa</h1>
-      <p class="subtitle">
-        Una guida per capire la dashboard anche quando sono passati dieci giorni,
-        hai fatto mille altre cose, e la tabella Monte Carlo sembra parlare in statistichese.
-      </p>
-      <div class="badge-row">
-        <span class="badge">Radiomica</span>
-        <span class="badge">Small sample</span>
-        <span class="badge">Monte Carlo</span>
-        <span class="badge">Guardrail analitici</span>
-        <span class="badge">Pruning sweep</span>
-        <span class="badge">A prova di gatto 🐾</span>
-      </div>
-    </div>
-  </header>
-
-  <div class="layout">
-    <nav>
-      <h3>Indice rapido</h3>
-      <a href="#scopo">1. A cosa serve</a>
-      <a href="#flusso">2. Flusso generale</a>
-      <a href="#dataset">3. Lesioni vs pazienti</a>
-      <a href="#outcome">4. Outcome e prevalenza</a>
-      <a href="#features">5. Feature radiomiche</a>
-      <a href="#pruning">6. Correlation pruning</a>
-      <a href="#lasso">7. LASSO</a>
-      <a href="#modello">8. Modello compatto</a>
-      <a href="#auc">9. AUC</a>
-      <a href="#nested">10. Nested CV</a>
-      <a href="#loocv">11. LOOCV</a>
-      <a href="#sensspec">12. Sensibilità e specificità</a>
-      <a href="#permutation">13. Permutation test</a>
-      <a href="#bootstrap">14. Bootstrap stability</a>
-      <a href="#candidate">15. Candidate models</a>
-      <a href="#montecarlo">16. Monte Carlo</a>
-      <a href="#guardrail">17. Guardrail analitici</a>
-      <a href="#kmax">18. k_max</a>
-      <a href="#sweep">19. Sweep pruning</a>
-      <a href="#parametri">20. Parametri</a>
-      <a href="#interpretazione">21. Interpretare risultati</a>
-      <a href="#checklist">22. Checklist</a>
-      <a href="#glossario">23. Glossario</a>
-    </nav>
-
-    <main>
-      <section id="scopo">
-        <h2>1. A cosa serve davvero THERADIOMICS?</h2>
-        <p>THERADIOMICS non è solo una dashboard che calcola AUC. È uno strumento di <b>study design radiomico</b>.</p>
-        <p>Serve a capire se un dataset è plausibile per sviluppare una firma predittiva binaria compatta, stabile e statisticamente difendibile.</p>
-        <div class="callout">
-          <b>Frase chiave:</b> non basta ottenere una bella AUC. Bisogna capire se quella AUC è credibile, riproducibile e difendibile.
-        </div>
-      </section>
-
-      <section id="flusso">
-        <h2>2. Il flusso generale</h2>
-        <p>La dashboard prende le feature radiomiche, le aggrega a livello paziente, elimina feature ridondanti, seleziona candidate feature, valuta modelli compatti, fa test di stabilità, simula la numerosità campionaria e aggiunge guardrail analitici.</p>
-        <pre>Dataset → patient-level aggregation → pruning → LASSO
-      → Nested CV / LOOCV / permutation / bootstrap
-      → candidate models
-      → Monte Carlo sample size
-      → analytical guardrails
-      → pruning threshold sweep</pre>
-        <div class="callout">
-          <span class="cat">Spiegazione felina:</span> prima togliamo i gomitoli uguali, poi vediamo quale gomitolo predice meglio la ciotola piena, poi controlliamo se il gatto ci arriva davvero o se è stato solo fortunato.
-        </div>
-      </section>
-
-      <section id="dataset">
-        <h2>3. Lesioni e pazienti non sono la stessa cosa</h2>
-        <p>Nel file iniziale puoi avere molte lesioni, per esempio <code>204</code>. Questo però non significa avere 204 osservazioni statisticamente indipendenti.</p>
-        <p>Se un paziente ha più lesioni, quelle lesioni condividono biologia, terapia, risposta clinica, imaging, rumore sistematico e criteri di etichettatura.</p>
-        <div class="warning callout">
-          <b>Regola d’oro:</b> per addestrare e validare modelli predittivi, il vero N è il numero di pazienti indipendenti, non il numero di lesioni.
-        </div>
-      </section>
-
-      <section id="outcome">
-        <h2>4. Outcome, evento e prevalenza</h2>
-        <p>La dashboard lavora con un outcome binario:</p>
-        <pre>0 = non evento / non responder
-1 = evento / responder</pre>
-        <p>La prevalenza è la quota di pazienti con outcome positivo.</p>
-        <span class="formula">prevalenza = numero eventi / numero totale pazienti</span>
-        <p>Esempio: <code>20 responder / 35 pazienti = 0.571 = 57.1%</code>.</p>
-        <div class="callout">
-          Un modello binario non ha bisogno solo di pazienti. Ha bisogno di abbastanza esempi in entrambe le classi.
-        </div>
-      </section>
-
-      <section id="features">
-        <h2>5. Feature radiomiche</h2>
-        <p>Una feature radiomica è un numero che descrive un aspetto quantitativo dell’immagine: forma, intensità, texture, eterogeneità, distribuzione dei voxel.</p>
-        <p>La radiomica genera molte feature, ma molte possono essere duplicate, correlate, instabili o rumorose.</p>
-        <div class="callout">
-          La domanda non è solo: “qual è la feature migliore?”. La domanda giusta è: “questa feature rimane importante se cambio leggermente il dataset?”.
-        </div>
-      </section>
-
-      <section id="pruning">
-        <h2>6. Correlation pruning</h2>
-        <p>Il pruning elimina feature troppo correlate tra loro. Se due feature dicono quasi la stessa cosa, tenerle entrambe aumenta il rischio di overfitting.</p>
-        <table>
-          <tr><th>Soglia</th><th>Effetto</th><th>Rischio</th></tr>
-          <tr><td>0.60</td><td>Pruning molto aggressivo</td><td>Può buttare via segnale utile</td></tr>
-          <tr><td>0.75</td><td>Forte riduzione</td><td>Utile per test conservativi</td></tr>
-          <tr><td>0.85</td><td>Compromesso ragionevole</td><td>Default pratico</td></tr>
-          <tr><td>0.90</td><td>Più feature disponibili</td><td>Più rischio ridondanza</td></tr>
-          <tr><td>0.95</td><td>Molte feature rimangono</td><td>Più rischio overfitting</td></tr>
-        </table>
-        <div class="warning callout">
-          Se la performance cambia drasticamente al cambiare della soglia di pruning, il risultato è fragile.
-        </div>
-      </section>
-
-      <section id="lasso">
-        <h2>7. LASSO in parole semplici</h2>
-        <p>LASSO è una regressione logistica con penalizzazione. Ogni feature che entra nel modello “costa”. Se una feature non serve davvero, il suo coefficiente viene spinto a zero.</p>
-        <div class="callout">
-          La selezione LASSO fatta sul dataset completo è descrittiva. La performance vera va stimata con la selezione rifatta dentro la cross-validation.
-        </div>
-      </section>
-
-      <section id="modello">
-        <h2>8. Modello finale compatto</h2>
-        <p>In radiomica small-sample, il modello finale deve essere piccolo.</p>
-        <table>
-          <tr><th>Numero feature finali</th><th>Uso consigliato</th></tr>
-          <tr><td>1</td><td>Modello primario più difendibile</td></tr>
-          <tr><td>2–3</td><td>Modello compatto esplorativo</td></tr>
-          <tr><td>5</td><td>Limite alto, da trattare con prudenza</td></tr>
-          <tr><td>10</td><td>Stress test / probabile overfitting</td></tr>
-        </table>
-      </section>
-
-      <section id="auc">
-        <h2>9. AUC: utile, ma non basta</h2>
-        <p>L’AUC misura quanto bene il modello ordina i pazienti. Se prendo un responder e un non-responder a caso, l’AUC è la probabilità che il modello assegni rischio più alto al responder.</p>
-        <table>
-          <tr><th>AUC</th><th>Interpretazione</th></tr>
-          <tr><td>0.50</td><td>Come tirare una moneta</td></tr>
-          <tr><td>0.60</td><td>Debole</td></tr>
-          <tr><td>0.70</td><td>Potenzialmente utile</td></tr>
-          <tr><td>0.80</td><td>Buona</td></tr>
-          <tr><td>0.90</td><td>Eccellente, ma sospetta se N è piccolo</td></tr>
-        </table>
-      </section>
-
-      <section id="nested">
-        <h2>10. Nested Cross-Validation</h2>
-        <p>La Nested CV è una validazione interna severa. In ogni fold separa training e test, seleziona le feature solo sul training, addestra il modello e predice il test.</p>
-        <div class="good callout">
-          Il test fold non deve mai partecipare alla selezione delle feature. Questo evita leakage.
-        </div>
-      </section>
-
-      <section id="loocv">
-        <h2>11. LOOCV</h2>
-        <p>LOOCV significa Leave-One-Out Cross-Validation: ogni volta si lascia fuori un paziente, si addestra sugli altri e si predice il paziente escluso.</p>
-        <p>È utile con dataset piccoli, ma può essere variabile. Va interpretata come confronto, non come verità assoluta.</p>
-      </section>
-
-      <section id="sensspec">
-        <h2>12. Sensibilità e specificità</h2>
-        <div class="mini-grid">
-          <div class="mini-card"><b>Sensibilità</b><br>Tra i veri eventi, quanti vengono riconosciuti?</div>
-          <div class="mini-card"><b>Specificità</b><br>Tra i veri non-eventi, quanti vengono riconosciuti?</div>
-        </div>
-        <p>Sensibilità e specificità dipendono dalla soglia di classificazione, spesso 0.5. L’AUC invece valuta l’ordinamento globale.</p>
-      </section>
-
-      <section id="permutation">
-        <h2>13. Permutation test</h2>
-        <p>Il permutation test mescola a caso le etichette e verifica se il modello riesce comunque a ottenere AUC simili.</p>
-        <div class="callout">
-          Se anche le etichette randomizzate danno spesso AUC alte, il risultato osservato non è convincente.
-        </div>
-        <p>Se durante una permutazione LASSO seleziona zero feature, la pipeline usa un modello solo-intercetta: quella permutazione non contiene segnale utile.</p>
-      </section>
-
-      <section id="bootstrap">
-        <h2>14. Bootstrap stability</h2>
-        <p>Il bootstrap ripete molte volte la selezione delle feature su campioni casuali con reinserimento. Se una feature compare spesso, è più stabile.</p>
-        <table>
-          <tr><th>Frequenza bootstrap</th><th>Interpretazione</th></tr>
-          <tr><td>&lt;20%</td><td>Instabile</td></tr>
-          <tr><td>20–50%</td><td>Debole/moderata</td></tr>
-          <tr><td>50–75%</td><td>Interessante</td></tr>
-          <tr><td>&gt;75%</td><td>Molto stabile</td></tr>
-        </table>
-      </section>
-
-      <section id="candidate">
-        <h2>15. Candidate models</h2>
-        <p>La dashboard confronta modelli candidati a 1, 3 e 5 feature, spesso derivate dalle feature più stabili al bootstrap.</p>
-        <div class="good callout">
-          Il modello più interessante non è sempre quello con AUC massima. Un modello piccolo, stabile e spiegabile può essere più pubblicabile di un modello più grande con AUC leggermente superiore.
-        </div>
-      </section>
-
-      <section id="montecarlo">
-        <h2>16. Monte Carlo sample-size simulation</h2>
-        <p>La simulazione Monte Carlo crea tanti dataset sintetici e chiede: se il vero segnale avesse una certa AUC attesa, con N pazienti quanto spesso riuscirei a osservarlo?</p>
-        <pre>N = 150
-power = 0.82</pre>
-        <p>Questo significa che, nelle simulazioni, con 150 pazienti l’82% degli esperimenti raggiungeva la soglia di successo definita.</p>
-      </section>
-
-      <section id="guardrail">
-        <h2>17. Guardrail analitici</h2>
-        <p>I guardrail analitici non sostituiscono il Monte Carlo. Lo affiancano.</p>
-        <div class="mini-grid">
-          <div class="mini-card"><b>Monte Carlo</b><br>Con questo N, quanto spesso ottengo una AUC utile?</div>
-          <div class="mini-card"><b>Guardrail</b><br>Questo N è difendibile rispetto a prevalenza, eventi, predittori e overfitting?</div>
-        </div>
-        <h3>N event-rate</h3>
-        <p>Numero minimo di pazienti necessario per stimare la prevalenza con un certo margine di errore.</p>
-        <table>
-          <tr><th>Margine</th><th>Interpretazione</th></tr>
-          <tr><td>±5%</td><td>Molto rigoroso</td></tr>
-          <tr><td>±7.5%</td><td>Intermedio</td></tr>
-          <tr><td>±10%</td><td>Realistico per feasibility</td></tr>
-        </table>
-        <h3>N shrinkage</h3>
-        <p>Numero minimo di pazienti necessario per controllare l’overfitting dato un certo numero di predittori.</p>
-      </section>
-
-      <section id="kmax">
-        <h2>18. k_max</h2>
-        <p><code>k_max</code> indica quanti predittori finali posso permettermi dato un certo N.</p>
-        <pre>N = 150
-k_max ≈ 2</pre>
-        <p>Significa che con 150 pazienti, sotto quelle ipotesi, il modello dovrebbe avere al massimo circa 2 predittori.</p>
-        <div class="warning callout">
-          Se il modello candidato ha 5 feature ma k_max è 2, la performance può essere interessante, ma il modello è troppo grande per quel N.
-        </div>
-      </section>
-
-      <section id="sweep">
-        <h2>19. Sweep delle soglie di pruning</h2>
-        <p>Lo sweep ripete l’analisi per più soglie di pruning.</p>
-        <pre>0.70,0.80,0.85,0.90</pre>
-        <table>
-          <tr><th>Risultato sweep</th><th>Significato</th></tr>
-          <tr><td>AUC stabile su più soglie</td><td>Segnale più credibile</td></tr>
-          <tr><td>AUC alta solo a una soglia</td><td>Possibile fragilità</td></tr>
-          <tr><td>Pruning basso distrugge AUC</td><td>Soglia troppo aggressiva</td></tr>
-          <tr><td>Pruning alto aumenta AUC ma con molte feature</td><td>Possibile overfitting</td></tr>
-        </table>
-      </section>
-
-      <section id="parametri">
-        <h2>20. Parametri modificabili</h2>
-        <h3>Dalla dashboard</h3>
-        <ul>
-          <li><b>Soglia pruning singola</b>: un solo run.</li>
-          <li><b>Sweep soglie pruning</b>: più run consecutivi.</li>
-          <li><b>Feature finali k</b>: consigliato 1, massimo prudente 3.</li>
-          <li><b>Simulazioni Monte Carlo</b>: 100 rapido, 500 buono, 1000 più stabile.</li>
-        </ul>
-        <h3>In Python</h3>
-        <pre>RISK_MARGIN = 0.10
-TARGET_SHRINKAGE = 0.90
-DELTA_NAGELKERKE = 0.05
-EXPECTED_R2_CS_ADJ = 0.113</pre>
-      </section>
-
-      <section id="interpretazione">
-        <h2>21. Come interpretare un risultato</h2>
-        <h3>Risultato interessante</h3>
-        <ul>
-          <li>Nested CV AUC ≥ 0.70.</li>
-          <li>LOOCV non contraddice completamente.</li>
-          <li>Permutation test convincente.</li>
-          <li>Bootstrap stability buona.</li>
-          <li>Modello a 1–3 feature.</li>
-          <li>k_max compatibile con il numero di predittori.</li>
-          <li>Sweep non instabile.</li>
-        </ul>
-        <h3>Risultato sospetto</h3>
-        <ul>
-          <li>AUC alta solo con 10 feature.</li>
-          <li>AUC alta solo a una soglia di pruning.</li>
-          <li>Feature instabili al bootstrap.</li>
-          <li>Permutation test non significativo.</li>
-          <li>k_max molto inferiore alle feature usate.</li>
-        </ul>
-      </section>
-
-      <section id="checklist">
-        <h2>22. Checklist finale</h2>
-        <ul>
-          <li>Quanti pazienti veri ho?</li>
-          <li>Quanti eventi e non-eventi ho?</li>
-          <li>Il modello usa 1–3 feature oppure troppe?</li>
-          <li>La feature principale è stabile al bootstrap?</li>
-          <li>La AUC regge in Nested CV?</li>
-          <li>Il permutation test è convincente?</li>
-          <li>Lo sweep pruning dà risultati coerenti?</li>
-          <li>k_max consente davvero quel numero di predittori?</li>
-          <li>La stima Monte Carlo è compatibile con i guardrail?</li>
-          <li>Riesco a spiegare il modello clinicamente?</li>
-        </ul>
-        <div class="good callout">
-          Se la risposta è sì alla maggior parte di queste domande, il modello è più difendibile.
-        </div>
-      </section>
-
-      <section id="glossario">
-        <h2>23. Mini glossario</h2>
-        <table>
-          <tr><th>Termine</th><th>Significato semplice</th></tr>
-          <tr><td>AUC</td><td>Capacità del modello di ordinare responder e non-responder.</td></tr>
-          <tr><td>Bootstrap</td><td>Ricampionamento per misurare stabilità.</td></tr>
-          <tr><td>Candidate model</td><td>Modello compatto candidato.</td></tr>
-          <tr><td>Correlation pruning</td><td>Eliminazione di feature troppo correlate.</td></tr>
-          <tr><td>Event rate</td><td>Prevalenza della classe positiva.</td></tr>
-          <tr><td>Feature</td><td>Numero quantitativo estratto dall’immagine.</td></tr>
-          <tr><td>Guardrail</td><td>Controllo metodologico di plausibilità.</td></tr>
-          <tr><td>k</td><td>Numero di predittori finali.</td></tr>
-          <tr><td>k_max</td><td>Numero massimo di predittori difendibile.</td></tr>
-          <tr><td>LASSO</td><td>Regressione penalizzata che seleziona feature.</td></tr>
-          <tr><td>LOOCV</td><td>Un paziente test alla volta.</td></tr>
-          <tr><td>Monte Carlo</td><td>Simulazioni ripetute per stimare probabilità di successo.</td></tr>
-          <tr><td>Nested CV</td><td>Validazione con selezione feature dentro il training fold.</td></tr>
-          <tr><td>Overfitting</td><td>Modello troppo adattato al dataset corrente.</td></tr>
-          <tr><td>Permutation test</td><td>Test con etichette mescolate a caso.</td></tr>
-          <tr><td>Prevalenza</td><td>Quota di pazienti con evento positivo.</td></tr>
-          <tr><td>Shrinkage</td><td>Controllo della tendenza del modello a essere troppo ottimista.</td></tr>
-          <tr><td>Sweep</td><td>Ripetizione dell’analisi su più valori di un parametro.</td></tr>
-        </table>
-      </section>
-
-      <section>
-        <h2>Frase da ricordare</h2>
-        <div class="good callout">
-          <b>THERADIOMICS non cerca solo la AUC più alta.</b><br>
-          Cerca il modello più piccolo, stabile, spiegabile e statisticamente difendibile.
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <footer class="footer">
-    THERADIOMICS Study Designer · guida approfondita · local-first · research use only
-  </footer>
+<div class="topbar"><div class="topbar-inner"><div class="brand"><span class="orb"></span><span>THERADIOMICS GUIDE</span></div><div><a class="btn secondary" href="/">← Dashboard</a> <a class="btn" href="#glossario">Glossario</a></div></div></div>
+<header class="hero"><div class="hero-card"><h1>Guida dettagliata<br>alla dashboard</h1><p class="subtitle">Manuale operativo e glossario esteso di THERADIOMICS Study Designer. Segue la pipeline dall'upload del dataset fino a Monte Carlo, guardrail analitici, sweep delle soglie e interpretazione finale.</p><div class="badges"><span class="badge">Ogni pulsante</span><span class="badge">Ogni input</span><span class="badge">Ogni output</span><span class="badge">Glossario esteso</span><span class="badge">Pipeline completa</span></div></div></header>
+<div class="layout">
+<nav><h3>Indice</h3><a href="#orientamento">0. Orientamento: come usare questa guida</a><a href="#frontend">1. Cosa succede quando usi la dashboard</a><a href="#pulsanti">2. Pulsanti della dashboard</a><a href="#input">3. Campi di input: cosa significano e come sceglierli</a><a href="#dataset">4. Dataset: lesioni, pazienti, eventi e prevalenza</a><a href="#pruning">5. Correlation pruning: perché togliere feature simili</a><a href="#feature-selection">6. Feature selection: scegliere i predittori candidati</a><a href="#validation">7. Validazione: Nested CV, LOOCV, permutation e bootstrap</a><a href="#candidate">8. Candidate models e final model</a><a href="#montecarlo">9. Monte Carlo e sample size: quanti pazienti servono?</a><a href="#guardrail">10. Guardrail analitici: event-rate, shrinkage e k_max</a><a href="#sweep">11. Pruning-threshold sweep</a><a href="#interpretazione">12. Come interpretare un run</a><a href="#glossario">Glossario statistico esteso</a><a href="#funzioni">Funzioni e moduli</a></nav>
+<main>
+<section><h2>Mappa rapida</h2><div class="pipeline"><div class="step"><span class="num">1</span><b>Upload</b><span>Carica Excel</span></div><div class="step"><span class="num">2</span><b>Patient-level</b><span>Una riga per paziente</span></div><div class="step"><span class="num">3</span><b>Pruning</b><span>Toglie ridondanza</span></div><div class="step"><span class="num">4</span><b>Selection</b><span>Sceglie feature</span></div><div class="step"><span class="num">5</span><b>Logistic</b><span>Predice evento</span></div><div class="step"><span class="num">6</span><b>Validation</b><span>Misura robustezza</span></div><div class="step"><span class="num">7</span><b>Sample size</b><span>Stima N futuro</span></div><div class="step"><span class="num">8</span><b>Sweep</b><span>Testa soglie</span></div></div><div class="callout"><b>Idea centrale:</b> il modello migliore non è quello con la AUC più alta, ma quello più piccolo, stabile, validato e coerente con i limiti statistici del dataset.</div></section>
+<section id="orientamento"><h2>0. Orientamento: come usare questa guida</h2>
+<p>Questa guida è pensata per essere letta in due modi: come manuale completo, seguendo la pipeline dall&#x27;inizio alla fine, oppure come dizionario quando nella dashboard compare un termine non immediato.</p>
+<p>La dashboard THERADIOMICS non è un semplice visualizzatore di risultati. È un ambiente di progettazione di studio: ti aiuta a capire se un dataset radiomico piccolo può sostenere un modello predittivo binario, quali feature sembrano promettenti, quanto sono stabili, e quanti pazienti servirebbero per rendere il risultato più difendibile.</p>
+<p>La frase più importante è questa: una AUC alta non basta. In radiomica, soprattutto con pochi pazienti e molte feature, una AUC alta può essere il risultato di overfitting, selezione fortunata o leakage. Per questo la dashboard affianca AUC, validazione, bootstrap, permutation test, Monte Carlo e guardrail analitici.</p>
+<div class="callout"><b>Da ricordare</b><ul><li>Se vuoi capire rapidamente se un run è buono, leggi Overview, Candidate models, Bootstrap stability, Permutation test e Guardrail.</li><li>Se vuoi capire se una soglia di pruning è affidabile, guarda lo sweep e verifica che il risultato non compaia solo per una soglia isolata.</li><li>Se vuoi preparare un articolo, concentrati su modelli compatti, idealmente 1 feature primaria o massimo 2–3 feature in sensitivity analysis.</li></ul></div>
+</section><section id="frontend"><h2>1. Cosa succede quando usi la dashboard</h2>
+<p>La dashboard è il pannello di controllo. Il lavoro statistico pesante viene fatto da Python; Bun serve l&#x27;interfaccia web, riceve i comandi dal browser, lancia gli script Python e legge i JSON prodotti.</p>
+<p>Quando premi un pulsante non stai solo aggiornando una pagina: spesso stai chiedendo al server Bun di avviare un processo Python. I log che compaiono nella dashboard sono lo stdout e lo stderr di Python letti in tempo reale.</p>
+<p>La dashboard è quindi divisa concettualmente in tre livelli: input utente, motore Python, risultati renderizzati.</p>
+<table><thead><tr><th>Livello</th><th>Cosa contiene</th><th>Esempio</th></tr></thead><tbody><tr><td>Frontend HTML</td><td>Pulsanti, campi input, tabelle, grafici, guida</td><td>Soglia pruning, metodo selezione, Aggiorna risultati</td></tr><tr><td>Backend Bun</td><td>API locali, upload, avvio processi, log live, lettura JSON</td><td>server.ts, /api/run-analysis, /api/results</td></tr><tr><td>Motore Python</td><td>Analisi radiomica e statistica</td><td>run_analysis.py, nested CV, Monte Carlo, guardrail</td></tr></tbody></table>
+</section><section id="pulsanti"><h2>2. Pulsanti della dashboard</h2>
+<p>Ogni pulsante ha un ruolo preciso. Alcuni lanciano calcoli nuovi, altri leggono semplicemente file già esistenti. Questa distinzione è fondamentale per non confondere risultati vecchi con risultati appena prodotti.</p>
+<table><thead><tr><th>Pulsante</th><th>Cosa fa</th><th>Cosa NON fa</th><th>Quando usarlo</th></tr></thead><tbody><tr><td>Carica dataset / Upload</td><td>Invia un file Excel al backend e lo salva come data/uploads/Features_all.xlsx. Se esiste già un dataset, può crearne una copia di backup.</td><td>Non lancia automaticamente l&#x27;analisi, salvo che la dashboard sia stata modificata per farlo.</td><td>Quando cambi dataset o vuoi sostituire Features_all.xlsx.</td></tr><tr><td>Avvia analisi</td><td>Lancia run_analysis.py con i parametri inseriti nella dashboard. Produce nuovi JSON e nuovi modelli.</td><td>Non confronta più soglie se il campo sweep è vuoto.</td><td>Per analizzare una singola soglia di pruning.</td></tr><tr><td>Avvia sweep / Avvia analisi con sweep compilato</td><td>Lancia run_threshold_sweep.py e ripete la pipeline per ogni soglia richiesta.</td><td>Non è un run rapido: ripete molte parti della pipeline più volte.</td><td>Quando vuoi vedere se i risultati dipendono dalla soglia di pruning.</td></tr><tr><td>Stop</td><td>Chiede al backend di interrompere il processo Python attivo.</td><td>Non cancella i risultati già scritti.</td><td>Se hai lanciato uno sweep troppo lungo o un run bloccato.</td></tr><tr><td>Aggiorna risultati</td><td>Rilegge i JSON presenti in python/results e aggiorna le tabelle.</td><td>Non rilancia Python. Non ricalcola nulla.</td><td>Dopo un run completato o dopo aver riaperto la dashboard.</td></tr><tr><td>Guida</td><td>Apre guide.html.</td><td>Non modifica parametri o risultati.</td><td>Quando vuoi capire pulsanti, output o termini statistici.</td></tr><tr><td>Debug paths</td><td>Mostra i percorsi effettivi usati dal server.</td><td>Non verifica la correttezza statistica dei risultati.</td><td>Quando la dashboard non trova file, JSON, modelli o HTML.</td></tr></tbody></table>
+<div class="callout warn"><b>Attenzione.</b> Se un run fallisce e poi premi Aggiorna risultati, potresti visualizzare i JSON dell&#x27;ultimo run completato. Le versioni recenti della dashboard mostrano lo stato dell&#x27;ultimo processo per ridurre questo rischio, ma resta buona pratica guardare il return code.</div>
+</section><section id="input"><h2>3. Campi di input: cosa significano e come sceglierli</h2>
+<p>I campi di input servono a cambiare il comportamento della pipeline senza modificare a mano il codice Python. Alcuni parametri cambiano la riduzione delle feature, altri cambiano il metodo di selezione, altri ancora controllano la durata e la stabilità delle simulazioni.</p>
+<p>Non tutti i parametri hanno lo stesso peso metodologico. La soglia di pruning e il numero di feature finali influenzano pesantemente il rischio di overfitting. Il numero di simulazioni Monte Carlo influenza soprattutto la stabilità numerica delle stime.</p>
+<table><thead><tr><th>Campo</th><th>Esempio</th><th>Significato</th><th>Consiglio pratico</th></tr></thead><tbody><tr><td>Soglia pruning singola</td><td>0.85</td><td>Soglia oltre la quale due feature sono considerate troppo correlate. Se la correlazione assoluta supera questa soglia, una feature viene eliminata.</td><td>Usa 0.85 come default; prova 0.75 e 0.90 per sensitivity analysis.</td></tr><tr><td>Sweep soglie pruning</td><td>0.70,0.80,0.85,0.90</td><td>Lista di soglie da testare in sequenza. Permette di valutare robustezza del modello rispetto al pruning.</td><td>Inizia con 0.80,0.85,0.90; amplia solo se il run è stabile.</td></tr><tr><td>Metodo selezione feature</td><td>pearson / spearman / auc / lasso</td><td>Decide come ordinare e scegliere le feature candidate dopo il pruning.</td><td>Con N piccolo confronta più metodi. Non affidarti solo a uno.</td></tr><tr><td>Feature finali k</td><td>1</td><td>Numero di feature del modello primario o del modello finale salvato.</td><td>Per il nostro contesto: 1 come primario; 2–3 come esplorativo.</td></tr><tr><td>Simulazioni Monte Carlo</td><td>100 / 500 / 1000</td><td>Numero di dataset sintetici simulati per ogni N e ogni scenario AUC.</td><td>100 per test rapido, 500 per run serio, 1000 per risultati più stabili.</td></tr></tbody></table>
+<div class="callout"><b>Da ricordare</b><ul><li>Se vuoi un run veloce: pruning 0.85, k=1, Monte Carlo=100.</li><li>Se vuoi un run più serio: pruning sweep 0.80,0.85,0.90, k=1, Monte Carlo=500.</li><li>Se vuoi esplorare selettori: ripeti gli stessi parametri con pearson, spearman, auc e lasso.</li></ul></div>
+</section><section id="dataset"><h2>4. Dataset: lesioni, pazienti, eventi e prevalenza</h2>
+<p>Il dataset iniziale è tipicamente lesion-level: una riga per lesione. Questo è utile perché in radiomica spesso ogni lesione ha le sue feature. Però le lesioni dello stesso paziente non sono osservazioni indipendenti.</p>
+<p>Se un paziente ha cinque lesioni, non hai cinque pazienti. Hai un paziente con cinque misurazioni correlate. Trattarle come cinque osservazioni indipendenti gonfierebbe artificialmente la numerosità e renderebbe troppo ottimista la validazione.</p>
+<p>Per questo la pipeline aggrega le lesioni a livello paziente e costruisce una matrice patient-level. In questa matrice ogni paziente conta una volta.</p>
+<table><thead><tr><th>Termine</th><th>Significato</th><th>Perché conta</th></tr></thead><tbody><tr><td>Lesions</td><td>Numero totale di lesioni nel file.</td><td>Descrive la ricchezza lesion-level, ma non è il vero N indipendente.</td></tr><tr><td>Patients</td><td>Numero di pazienti dopo aggregazione.</td><td>È il vero numero di osservazioni indipendenti per il modello.</td></tr><tr><td>Responders</td><td>Pazienti con outcome positivo.</td><td>Sono gli eventi se la classe positiva è responder.</td></tr><tr><td>Non responders</td><td>Pazienti con outcome negativo.</td><td>Servono per stimare specificità e discriminazione.</td></tr><tr><td>Observed prevalence</td><td>Responders / pazienti totali.</td><td>Entra nei guardrail e nella simulazione Monte Carlo.</td></tr></tbody></table>
+<div class="callout warn"><b>Attenzione.</b> La numerosità scientifica principale è Patients, non Lesions. Se in dashboard vedi 204 lesioni ma 35 pazienti, il modello ha N=35 dal punto di vista della validazione.</div>
+</section><section id="pruning"><h2>5. Correlation pruning: perché togliere feature simili</h2>
+<p>La radiomica produce molte feature, spesso fortemente correlate. Due feature correlate possono descrivere quasi la stessa proprietà dell&#x27;immagine. Tenerle entrambe può far sembrare il modello più informativo, ma spesso aggiunge solo ridondanza.</p>
+<p>Il correlation pruning serve a ridurre la dimensionalità prima della selezione. La pipeline calcola la correlazione tra feature e rimuove quelle che superano la soglia scelta.</p>
+<p>Il pruning è una scelta metodologica sensibile: troppo aggressivo può eliminare segnale utile; troppo permissivo può lasciare ridondanza e aumentare overfitting.</p>
+<table><thead><tr><th>Soglia</th><th>Effetto</th><th>Interpretazione</th></tr></thead><tbody><tr><td>0.60</td><td>Molto aggressiva</td><td>Rimangono poche feature; utile come stress test conservativo, ma può buttare via segnale.</td></tr><tr><td>0.75</td><td>Aggressiva</td><td>Riduce molto la ridondanza; può essere adatta a dataset piccoli.</td></tr><tr><td>0.85</td><td>Moderata</td><td>Buon compromesso iniziale.</td></tr><tr><td>0.90</td><td>Permissiva</td><td>Tiene più feature; può migliorare performance ma aumenta rischio ridondanza.</td></tr><tr><td>0.95</td><td>Molto permissiva</td><td>Tiene molte feature; utile per confronto, ma attenzione all&#x27;overfitting.</td></tr></tbody></table>
+<div class="callout"><b>Da ricordare</b><ul><li>Se a 0.60 la AUC crolla, probabilmente il pruning è troppo aggressivo.</li><li>Se a 0.95 la AUC sale molto ma k_max è basso, il risultato può essere overfitting.</li><li>Un segnale credibile dovrebbe rimanere almeno parzialmente stabile tra soglie vicine.</li></ul></div>
+</section><section id="feature-selection"><h2>6. Feature selection: scegliere i predittori candidati</h2>
+<p>Dopo il pruning, la pipeline deve scegliere quali feature usare. Questa fase è delicata perché con poche osservazioni e molte feature è facile selezionare variabili per puro caso.</p>
+<p>La dashboard permette di confrontare più metodi. Il classificatore finale resta una regressione logistica; ciò che cambia è il criterio con cui vengono scelte le feature.</p>
+<p>La regola fondamentale è che la selezione deve essere rifatta dentro ogni fold di validazione. Se scegli le feature usando tutto il dataset e poi fai CV, hai leakage.</p>
+<table><thead><tr><th>Metodo</th><th>Spiegazione più lunga</th><th>Quando è utile</th><th>Rischio</th></tr></thead><tbody><tr><td>lasso</td><td>Regressione logistica penalizzata L1. La penalizzazione spinge a zero i coefficienti meno utili, lasciando attive solo alcune feature.</td><td>Quando vuoi una selezione multivariata standard.</td><td>Con N piccolo può essere instabile: piccole variazioni dei dati possono cambiare le feature scelte.</td></tr><tr><td>pearson</td><td>Correlazione lineare tra feature continua e outcome 0/1. Con outcome binario equivale alla correlazione point-biserial.</td><td>Quando vuoi un criterio semplice e spiegabile.</td><td>Vede soprattutto relazioni lineari ed è sensibile agli outlier.</td></tr><tr><td>spearman</td><td>Correlazione calcolata sui ranghi. Valuta relazioni monotone, non necessariamente lineari.</td><td>Quando le feature hanno distribuzioni non gaussiane o outlier.</td><td>Non misura direttamente la capacità classificativa.</td></tr><tr><td>auc</td><td>Calcola l&#x27;AUC di ogni singola feature come classificatore univariato.</td><td>Molto intuitivo per outcome binari.</td><td>Ignora interazioni e combinazioni tra feature.</td></tr><tr><td>mannwhitney</td><td>Test non parametrico che confronta le distribuzioni della feature nei due gruppi.</td><td>Utile se non vuoi assumere normalità.</td><td>Un p-value piccolo non garantisce un buon modello predittivo.</td></tr><tr><td>mutual_info</td><td>Misura dipendenza statistica anche non lineare tra feature e outcome.</td><td>Utile come esplorazione di segnali non lineari.</td><td>Meno immediato da spiegare e più sensibile alla stima.</td></tr></tbody></table>
+<div class="callout"><b>Da ricordare</b><ul><li>Se la stessa feature emerge con Pearson, Spearman, AUC e bootstrap, diventa molto più interessante.</li><li>Se una feature emerge solo con LASSO e mai con metodi univariati o bootstrap, va trattata con prudenza.</li><li>Per un articolo, una selezione trasparente e stabile è spesso più difendibile di una selezione complessa ma fragile.</li></ul></div>
+</section><section id="validation"><h2>7. Validazione: Nested CV, LOOCV, permutation e bootstrap</h2>
+<p>La dashboard usa più strumenti perché nessuno, da solo, basta. Nested CV stima la performance; LOOCV dà un confronto paziente-per-paziente; permutation test verifica se il risultato supera il caso; bootstrap misura stabilità delle feature.</p>
+<p>Queste procedure rispondono a domande diverse. Leggerle insieme è molto più informativo che guardare una singola AUC.</p>
+<table><thead><tr><th>Procedura</th><th>Domanda a cui risponde</th><th>Output principale</th></tr></thead><tbody><tr><td>Nested CV</td><td>Quanto performa il modello quando la selezione feature avviene correttamente dentro i fold?</td><td>mean_auc, std_auc, folds, stable_features</td></tr><tr><td>LOOCV</td><td>Cosa succede lasciando fuori un paziente alla volta?</td><td>auc, sensitivity, specificity, stable_features</td></tr><tr><td>Permutation test</td><td>Il risultato è migliore di quello ottenibile mescolando a caso le etichette?</td><td>p_value, mean_random_auc, max_random_auc</td></tr><tr><td>Bootstrap stability</td><td>Le feature scelte sono stabili o cambiano continuamente?</td><td>frequency delle feature</td></tr></tbody></table>
+<div class="callout warn"><b>Attenzione.</b> Una AUC alta senza stabilità al bootstrap e senza permutation test convincente è sospetta, soprattutto con pochi pazienti.</div>
+</section><section id="candidate"><h2>8. Candidate models e final model</h2>
+<p>I candidate models sono modelli compatti costruiti per confrontare diverse strategie di selezione e diversi numeri di feature. Di solito includono modelli a 1, 3 e 5 feature.</p>
+<p>Il final model è diverso: viene addestrato su tutti i pazienti disponibili e salvato come file .joblib. Serve per riuso futuro, non per stimare performance.</p>
+<p>La performance da citare è quella validata, non l&#x27;apparente training AUC del modello finale.</p>
+<table><thead><tr><th>Campo</th><th>Significato</th></tr></thead><tbody><tr><td>model_id</td><td>Identificativo tecnico del modello candidato.</td></tr><tr><td>label</td><td>Nome leggibile mostrato in dashboard.</td></tr><tr><td>family</td><td>Famiglia del modello, per esempio bootstrap-stable o top-k del selettore.</td></tr><tr><td>selection_source</td><td>Origine delle feature: bootstrap, LASSO, Pearson, AUC, ecc.</td></tr><tr><td>features</td><td>Lista delle feature usate.</td></tr><tr><td>n_features</td><td>Numero di feature del modello.</td></tr><tr><td>group_cv_mean_auc</td><td>AUC media in validazione Group/Nested CV.</td></tr><tr><td>loocv_auc</td><td>AUC Leave-One-Out.</td></tr><tr><td>apparent_training_auc</td><td>AUC sul dataset completo: utile come diagnostica, non come validazione.</td></tr></tbody></table>
+<div class="callout"><b>Da ricordare</b><ul><li>Un modello a 1 feature con AUC leggermente più bassa ma stabile può essere migliore di un modello a 5 feature instabile.</li><li>Se k_max è 1 o 2, un modello a 5 feature va considerato esplorativo anche se performa bene.</li></ul></div>
+</section><section id="montecarlo"><h2>9. Monte Carlo e sample size: quanti pazienti servono?</h2>
+<p>La simulazione Monte Carlo genera dataset sintetici con una certa AUC attesa e una certa prevalenza. Per ogni N, ripete molte simulazioni e misura quanto spesso il modello raggiunge una soglia di successo.</p>
+<p>Prima la simulazione era più semplice e assumeva classi bilanciate. Ora usa la prevalenza osservata o di design, quindi produce eventi e non-eventi attesi coerenti con il problema clinico.</p>
+<p>Il risultato non è un singolo numero magico, ma una curva: al crescere di N aumenta la probabilità di ottenere una performance utile.</p>
+<table><thead><tr><th>Colonna</th><th>Significato dettagliato</th></tr></thead><tbody><tr><td>N</td><td>Numero di pazienti simulati. È la numerosità ipotetica dello studio futuro.</td></tr><tr><td>mean_auc</td><td>AUC media ottenuta nelle simulazioni per quello scenario.</td></tr><tr><td>std_auc</td><td>Variabilità dell&#x27;AUC tra simulazioni. Alta variabilità significa risultato incerto.</td></tr><tr><td>ci95_low / ci95_high</td><td>Intervallo empirico 2.5–97.5 percentile delle AUC simulate.</td></tr><tr><td>power</td><td>Quota di simulazioni che superano la soglia di successo. È una potenza operativa, non una potenza classica da test statistico.</td></tr><tr><td>auc_target</td><td>AUC teorica assunta per generare il segnale sintetico.</td></tr><tr><td>success_threshold_auc</td><td>Soglia usata per dichiarare una simulazione riuscita.</td></tr><tr><td>prevalence</td><td>Prevalenza usata per generare eventi e non-eventi.</td></tr><tr><td>expected_events</td><td>Numero atteso di eventi: N × prevalence.</td></tr><tr><td>expected_nonevents</td><td>Numero atteso di non-eventi: N × (1 - prevalence).</td></tr><tr><td>k_max</td><td>Numero massimo di predittori finali difendibile a quel N.</td></tr><tr><td>n_event_rate</td><td>N richiesto per stimare la prevalenza con il margine scelto.</td></tr><tr><td>n_shrinkage</td><td>N richiesto per controllare overfitting dato il numero di predittori.</td></tr><tr><td>design_label</td><td>Etichetta di lettura: exploratory, plausible, robust o simile.</td></tr></tbody></table>
+<div class="callout"><b>Da ricordare</b><ul><li>Se il Monte Carlo dice 150–200 pazienti ma k_max è 1–2, significa: sì, ma solo per un modello molto compatto.</li><li>Se vuoi 5–10 predittori, il numero di pazienti richiesto cresce molto.</li><li>La simulazione Monte Carlo e i guardrail devono essere letti insieme.</li></ul></div>
+</section><section id="guardrail"><h2>10. Guardrail analitici: event-rate, shrinkage e k_max</h2>
+<p>I guardrail sono controlli analitici aggiunti per evitare che la simulazione Monte Carlo venga interpretata in modo troppo ottimistico.</p>
+<p>Servono a rispondere a tre domande: ho abbastanza pazienti per stimare la prevalenza? Ho abbastanza pazienti per il numero di predittori che voglio usare? Dato il mio N, quanti predittori posso permettermi?</p>
+<p>Questi controlli sono ispirati ai framework moderni di sample-size per modelli predittivi binari.</p>
+<table><thead><tr><th>Parametro</th><th>Spiegazione</th></tr></thead><tbody><tr><td>N event-rate</td><td>Numero minimo di pazienti necessario per stimare la prevalenza dell&#x27;evento con un certo margine di errore. Margine ±5% è severo; ±10% è più realistico per studi pilota.</td></tr><tr><td>N shrinkage</td><td>Numero minimo di pazienti necessario per limitare overfitting dato k predittori finali.</td></tr><tr><td>k_max</td><td>Numero massimo di predittori difendibile dato N e le ipotesi statistiche.</td></tr><tr><td>target_shrinkage</td><td>Valore desiderato di shrinkage globale. 0.90 è una scelta comune e prudente.</td></tr><tr><td>delta_nagelkerke</td><td>Differenza massima accettata tra performance apparente e corretta su scala Nagelkerke.</td></tr><tr><td>R² Cox-Snell adjusted</td><td>Parametro che rappresenta la forza attesa del modello nei calcoli analitici. Valori più bassi implicano più pazienti richiesti.</td></tr></tbody></table>
+<div class="callout warn"><b>Attenzione.</b> Se Monte Carlo sembra favorevole ma k_max è inferiore al numero di feature del modello, il modello non è metodologicamente difendibile come modello multivariato robusto.</div>
+</section><section id="sweep"><h2>11. Pruning-threshold sweep</h2>
+<p>Lo sweep ripete l&#x27;intera analisi per più soglie di pruning. È uno dei controlli più importanti per capire se il modello dipende da una scelta arbitraria.</p>
+<p>Se un modello funziona bene solo a una soglia e fallisce o cambia completamente alle soglie vicine, il segnale è fragile. Se invece le stesse feature o performance simili emergono su più soglie, il risultato è più credibile.</p>
+<table><thead><tr><th>Colonna</th><th>Significato</th></tr></thead><tbody><tr><td>threshold</td><td>Soglia di pruning testata.</td></tr><tr><td>status</td><td>ok, failed o altro stato del run.</td></tr><tr><td>features_after_pruning</td><td>Numero di feature rimaste a quella soglia.</td></tr><tr><td>nested_cv_auc</td><td>AUC Nested CV ottenuta per quella soglia.</td></tr><tr><td>loocv_auc</td><td>AUC LOOCV per quella soglia.</td></tr><tr><td>best_model_id</td><td>Miglior candidate model secondo scoring interno.</td></tr><tr><td>feature_selection_method</td><td>Metodo di selezione feature usato nello sweep.</td></tr><tr><td>result_file</td><td>JSON specifico salvato per quella soglia.</td></tr><tr><td>error</td><td>Messaggio di errore se la soglia fallisce.</td></tr></tbody></table>
+<div class="callout"><b>Da ricordare</b><ul><li>Una soglia fallita non va ignorata: è un&#x27;informazione di instabilità.</li><li>Lo sweep va interpretato come mappa di robustezza, non come gara a trovare la soglia più fortunata.</li></ul></div>
+</section><section id="interpretazione"><h2>12. Come interpretare un run</h2>
+<p>Un run interessante non è necessariamente quello con la AUC più alta. È quello in cui i pezzi si tengono insieme: AUC valida, feature stabili, permutation convincente, modello compatto, k_max coerente, sweep non fragile.</p>
+<p>In un dataset piccolo, un modello a 1 feature stabile è spesso più credibile di un modello a 5 feature con AUC più alta ma instabilità evidente.</p>
+<table><thead><tr><th>Segnale</th><th>Interpretazione</th></tr></thead><tbody><tr><td>Nested CV AUC ≥ 0.70</td><td>Potenzialmente utile, ma va confermata dagli altri controlli.</td></tr><tr><td>LOOCV molto diversa dalla Nested CV</td><td>Possibile instabilità dovuta al piccolo N.</td></tr><tr><td>Permutation p-value basso</td><td>Il risultato supera meglio il caso.</td></tr><tr><td>Bootstrap feature frequency alta</td><td>Feature più stabile e interessante.</td></tr><tr><td>k_max inferiore a n_features</td><td>Modello troppo grande per la numerosità.</td></tr><tr><td>AUC alta solo a una soglia di pruning</td><td>Possibile tuning fortunato o fragilità.</td></tr><tr><td>Apparent AUC molto alta ma CV bassa</td><td>Overfitting probabile.</td></tr></tbody></table>
+</section>
+<section id="glossario"><h2>Glossario statistico esteso</h2><p>Qui trovi una spiegazione più lunga dei termini che compaiono nella dashboard. L'obiettivo è rendere leggibili anche i concetti che di solito nei paper vengono dati per scontati.</p><table><thead><tr><th>Termine</th><th>Spiegazione estesa</th><th>Uso nella dashboard</th></tr></thead><tbody><tr><td>AUC</td><td>Area Under the ROC Curve. Misura la capacità del modello di ordinare correttamente eventi e non-eventi. Una AUC di 0.50 equivale al caso; 0.70 è moderata; 0.80 buona; 0.90 eccellente ma sospetta se ottenuta con pochi pazienti e molte feature.</td><td>È il numero più visibile, ma non deve essere letto da solo. Va interpretato con CV, permutation test, bootstrap e k_max.</td></tr><tr><td>Accuracy</td><td>Percentuale totale di classificazioni corrette. Dipende dalla soglia scelta e dalla prevalenza delle classi.</td><td>Meno centrale della AUC perché in dataset sbilanciati può essere fuorviante.</td></tr><tr><td>Apparent training AUC</td><td>AUC calcolata sullo stesso dataset usato per addestrare il modello. Tende a essere ottimistica perché il modello ha già visto quei dati.</td><td>Compare nei metadata del final model ma non va citata come validazione.</td></tr><tr><td>Binary outcome</td><td>Outcome con due classi: 0/1, no/sì, non responder/responder.</td><td>La pipeline è costruita per predire una classe positiva e una negativa.</td></tr><tr><td>Bootstrap</td><td>Procedura di ricampionamento con reinserimento: si estraggono molti dataset della stessa dimensione del dataset originale, permettendo che alcuni pazienti compaiano più volte e altri non compaiano.</td><td>Serve a misurare la stabilità della selezione feature.</td></tr><tr><td>Bootstrap stability</td><td>Frequenza con cui una feature viene selezionata nei campioni bootstrap.</td><td>Una feature selezionata spesso è più credibile di una scelta una sola volta.</td></tr><tr><td>Calibration</td><td>Accordo tra probabilità predette e probabilità reali. Un modello può avere buona AUC ma essere mal calibrato.</td><td>Non è ancora il cuore della dashboard, ma è importante per studi futuri.</td></tr><tr><td>Candidate model</td><td>Modello candidato compatto, spesso costruito con 1, 3 o 5 feature.</td><td>Serve a confrontare strategie e dimensioni del modello.</td></tr><tr><td>Class imbalance</td><td>Situazione in cui eventi e non-eventi non sono distribuiti in modo simile.</td><td>Influenza sensibilità, specificità, training e interpretazione.</td></tr><tr><td>Coefficient</td><td>Peso stimato dalla regressione logistica per una feature. Segno positivo aumenta log-odds dell&#x27;evento, segno negativo li riduce.</td><td>Da interpretare con cautela se N è piccolo.</td></tr><tr><td>Correlation pruning</td><td>Rimozione di feature troppo correlate tra loro.</td><td>Riduce ridondanza e rischio di overfitting.</td></tr><tr><td>Cross-validation</td><td>Strategia per stimare performance dividendo più volte i dati in training e test.</td><td>Usata per evitare di valutare il modello sugli stessi dati con cui è stato costruito.</td></tr><tr><td>Delta Nagelkerke</td><td>Parametro che limita la differenza accettabile tra performance apparente e corretta nei calcoli analitici.</td><td>Default tipico 0.05.</td></tr><tr><td>Endpoint</td><td>Risultato clinico o biologico che si vuole predire.</td><td>Nel progetto può essere responder/non responder.</td></tr><tr><td>Event</td><td>Classe positiva dell&#x27;outcome. Non significa necessariamente evento negativo.</td><td>Se responder=1, allora responder è l&#x27;evento.</td></tr><tr><td>Event rate</td><td>Quota di eventi nella popolazione o nel dataset.</td><td>Usato nei guardrail e nel Monte Carlo.</td></tr><tr><td>Feature</td><td>Variabile numerica estratta dall&#x27;immagine.</td><td>Unità di base della radiomica.</td></tr><tr><td>Feature selection</td><td>Procedura per scegliere quali feature usare nel modello.</td><td>Può essere LASSO, Pearson, Spearman, AUC, Mann-Whitney o mutual information.</td></tr><tr><td>Fold</td><td>Una suddivisione train/test nella cross-validation.</td><td>La Nested CV produce metriche fold-by-fold.</td></tr><tr><td>Guardrail</td><td>Controllo metodologico che non sostituisce la performance, ma avverte se il modello è troppo ambizioso per i dati disponibili.</td><td>Event-rate, shrinkage e k_max sono guardrail.</td></tr><tr><td>k</td><td>Numero di predittori finali del modello.</td><td>In small-sample dovrebbe essere molto basso.</td></tr><tr><td>k_max</td><td>Numero massimo di predittori difendibile dato N, prevalenza e ipotesi di performance.</td><td>Se il modello usa più predittori di k_max, è probabilmente troppo complesso.</td></tr><tr><td>LASSO</td><td>Regressione con penalizzazione L1. Può portare alcuni coefficienti a zero, funzionando come metodo di selezione.</td><td>Utile ma potenzialmente instabile con pochi pazienti.</td></tr><tr><td>Leakage</td><td>Errore metodologico in cui informazioni del test set entrano nel training o nella selezione feature.</td><td>Da evitare facendo selezione e scaling solo nel training fold.</td></tr><tr><td>LOOCV</td><td>Leave-One-Out Cross-Validation: ogni paziente viene lasciato fuori una volta.</td><td>Utile con piccoli dataset ma può essere variabile.</td></tr><tr><td>Logistic regression</td><td>Modello statistico per outcome binari. Predice la probabilità dell&#x27;evento tramite una funzione logistica.</td><td>È il classificatore comune della pipeline.</td></tr><tr><td>Mann-Whitney</td><td>Test non parametrico che confronta due distribuzioni senza assumere normalità.</td><td>Usato come selettore univariato.</td></tr><tr><td>Monte Carlo</td><td>Simulazioni ripetute molte volte per stimare distribuzioni di risultati.</td><td>Serve a stimare probabilità di successo al crescere di N.</td></tr><tr><td>Mutual information</td><td>Misura generale di dipendenza tra variabili, anche non lineare.</td><td>Selettore esplorativo.</td></tr><tr><td>Nested CV</td><td>Cross-validation in cui la selezione feature avviene dentro ciascun training fold.</td><td>È la validazione più importante per evitare leakage.</td></tr><tr><td>Non-event</td><td>Classe negativa dell&#x27;outcome.</td><td>Per esempio non responder se responder è evento.</td></tr><tr><td>Overfitting</td><td>Il modello impara dettagli specifici del dataset corrente invece del segnale generalizzabile.</td><td>Rischio alto in radiomica con molte feature e pochi pazienti.</td></tr><tr><td>Pearson</td><td>Correlazione lineare. Con outcome binario è equivalente a una correlazione point-biserial.</td><td>Selettore semplice e spiegabile.</td></tr><tr><td>Permutation test</td><td>Test in cui le etichette vengono mescolate casualmente e la pipeline ripetuta.</td><td>Stima quanto la performance osservata superi il caso.</td></tr><tr><td>Power Monte Carlo</td><td>Quota di simulazioni che raggiunge la soglia di successo.</td><td>È una potenza operativa della simulazione, non identica alla potenza di un test classico.</td></tr><tr><td>Prevalence</td><td>Eventi diviso totale pazienti.</td><td>Determina eventi attesi e non-eventi attesi nelle simulazioni.</td></tr><tr><td>R² Cox-Snell adjusted</td><td>Parametro di forza attesa del modello usato nei calcoli di sample size.</td><td>Più è basso, più pazienti servono.</td></tr><tr><td>ROC curve</td><td>Curva che mostra sensibilità e 1-specificità al variare della soglia.</td><td>L&#x27;AUC è l&#x27;area sotto questa curva.</td></tr><tr><td>Sensitivity</td><td>Veri positivi diviso tutti gli eventi.</td><td>Capacità di riconoscere responder/eventi.</td></tr><tr><td>Specificity</td><td>Veri negativi diviso tutti i non-eventi.</td><td>Capacità di riconoscere non responder/non-eventi.</td></tr><tr><td>Spearman</td><td>Correlazione calcolata sui ranghi, adatta a relazioni monotone.</td><td>Più robusta agli outlier di Pearson.</td></tr><tr><td>Shrinkage</td><td>Contrazione dei coefficienti per ridurre l&#x27;ottimismo del modello.</td><td>Target 0.90 significa voler limitare overfitting.</td></tr><tr><td>StandardScaler</td><td>Trasforma ogni feature sottraendo la media e dividendo per la deviazione standard.</td><td>Necessario perché le feature radiomiche hanno scale diverse.</td></tr><tr><td>Sweep</td><td>Ripetizione dell&#x27;analisi per diversi valori dello stesso parametro.</td><td>Qui usato per soglie di pruning.</td></tr></tbody></table></section>
+<section id="funzioni"><h2>Glossario delle funzioni e dei moduli</h2><p>Questi sono i principali componenti tecnici della pipeline. Sono utili quando devi modificare il codice o capire dove nasce un output.</p><table><thead><tr><th>Modulo/funzione</th><th>Cosa fa</th></tr></thead><tbody><tr><td>server.ts</td><td>Server Bun locale. Espone la dashboard, riceve upload, avvia Python, legge log e restituisce JSON/modelli.</td></tr><tr><td>run_analysis.py</td><td>Script principale per un singolo run. Coordina dataset, pruning, feature selection, validazione, modelli, Monte Carlo e salvataggio risultati.</td></tr><tr><td>run_threshold_sweep.py</td><td>Script che ripete run_analysis.py per una lista di soglie di pruning e aggrega i risultati.</td></tr><tr><td>load_dataset</td><td>Legge il file Excel e prepara le colonne, incluso BinaryOutcome.</td></tr><tr><td>aggregate_by_patient</td><td>Aggrega le righe lesion-level in una matrice patient-level.</td></tr><tr><td>correlation_pruning</td><td>Elimina feature con correlazione assoluta sopra la soglia.</td></tr><tr><td>univariate_selection.py</td><td>Contiene selettori Pearson, Spearman, AUC, Mann-Whitney e mutual information.</td></tr><tr><td>lasso_selection</td><td>Selezione feature tramite regressione logistica penalizzata L1.</td></tr><tr><td>run_nested_cv</td><td>Esegue cross-validation con selezione feature dentro i fold.</td></tr><tr><td>permutation_test</td><td>Ripete la pipeline su etichette random per stimare p-value empirico.</td></tr><tr><td>bootstrap_stability</td><td>Ripete la selezione su campioni bootstrap e conta le feature.</td></tr><tr><td>run_loocv</td><td>Esegue Leave-One-Out Cross-Validation.</td></tr><tr><td>compare_candidate_models</td><td>Costruisce e confronta modelli candidati compatti.</td></tr><tr><td>sample_size_simulation</td><td>Esegue la simulazione Monte Carlo della numerosità.</td></tr><tr><td>sample_size_guardrail</td><td>Calcola N event-rate, N shrinkage e k_max.</td></tr><tr><td>train_final_model_from_data</td><td>Addestra e salva il modello finale su tutti i pazienti.</td></tr><tr><td>train_and_save_candidate_models</td><td>Addestra e salva i candidate models.</td></tr></tbody></table></section>
+<section><h2>Frase finale da ricordare</h2><div class="callout"><b>THERADIOMICS serve a trasformare una AUC interessante in una domanda scientifica più solida:</b> questo segnale resta credibile quando controllo stabilità, overfitting, numero di eventi, numero di predittori e soglie di pruning?</div></section>
+</main>
+</div>
+<footer class="footer">THERADIOMICS Study Designer · guida dettagliata · generata 2026-06-14</footer>
 </body>
 </html>

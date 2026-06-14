@@ -6,7 +6,7 @@ from core.dataset_loader import load_dataset
 from core.patient_aggregation import aggregate_by_patient
 from core.feature_pruning import correlation_pruning
 
-from analysis.lasso_selection import lasso_selection
+from analysis.univariate_selection import select_features, normalize_selection_method, selection_method_label
 from analysis.nested_logistic_cv import run_nested_cv
 from analysis.permutation_test import permutation_test
 from analysis.bootstrap_stability import bootstrap_stability
@@ -73,6 +73,25 @@ def _env_float_list(name, default):
             print(f"[WARN] Ignoring invalid value in {name}: {part!r}")
     return out or default
 
+
+def _env_str(name, default):
+    raw = os.environ.get(name)
+    if raw is None or str(raw).strip() == "":
+        return default
+    return str(raw).strip()
+
+
+def _env_str_list(name, default):
+    raw = os.environ.get(name)
+    if raw is None or str(raw).strip() == "":
+        return default
+    out = []
+    for part in str(raw).replace(";", ",").split(","):
+        part = part.strip()
+        if part:
+            out.append(part)
+    return out or default
+
 # ============================================================
 # CONFIGURATION
 # ============================================================
@@ -83,6 +102,14 @@ N_BOOTSTRAP = _env_int("THERADIOMICS_N_BOOTSTRAP", 500)
 N_SAMPLE_SIZE_SIMULATIONS = _env_int("THERADIOMICS_N_SAMPLE_SIZE_SIMULATIONS", 100)
 TOP_N_FINAL_MODEL_FEATURES = _env_int("THERADIOMICS_TOP_N_FINAL_MODEL_FEATURES", 1)
 PRIMARY_MODEL_FEATURES = _env_int("THERADIOMICS_PRIMARY_MODEL_FEATURES", TOP_N_FINAL_MODEL_FEATURES)
+FEATURE_SELECTION_METHOD = normalize_selection_method(_env_str("THERADIOMICS_FEATURE_SELECTION_METHOD", "lasso"))
+SELECTION_METHODS_TO_COMPARE = [
+    normalize_selection_method(x)
+    for x in _env_str_list(
+        "THERADIOMICS_SELECTION_METHODS_TO_COMPARE",
+        ["pearson", "spearman", "auc", "mannwhitney", "mutual_info", "lasso"]
+    )
+]
 
 # Analytical sample-size guardrail settings inspired by the
 # shrinkage/event-rate framework for binary radiomics prediction models.
@@ -159,6 +186,7 @@ print("\n============================================================")
 print("THERADIOMICS STUDY DESIGNER")
 print("============================================================")
 print(f"Pruning threshold: {PRUNING_THRESHOLD}")
+print(f"Feature selection method: {FEATURE_SELECTION_METHOD} ({selection_method_label(FEATURE_SELECTION_METHOD)})")
 print(f"Final model features: {TOP_N_FINAL_MODEL_FEATURES}")
 
 print("\nLooking for dataset:")
@@ -310,29 +338,43 @@ print(
 
 
 # ============================================================
-# 5. DESCRIPTIVE LASSO FEATURE SELECTION
+# 5. DESCRIPTIVE FEATURE SELECTION
 # ============================================================
 
 print("\n------------------------------------------------------------")
-print("5. LASSO FEATURE SELECTION")
+print("5. DESCRIPTIVE FEATURE SELECTION")
 print("------------------------------------------------------------")
+print(f"Primary selector: {FEATURE_SELECTION_METHOD} ({selection_method_label(FEATURE_SELECTION_METHOD)})")
 
-selected = lasso_selection(
+selected = select_features(
     X_pruned,
-    y
+    y,
+    method=FEATURE_SELECTION_METHOD
 )
+
+selected_feature_selection_method_used = FEATURE_SELECTION_METHOD
+
+if len(selected) == 0:
+    print("[WARN] Primary selector returned zero features on the full dataset. Falling back to univariate AUC for final-model ranking.")
+    selected = select_features(
+        X_pruned,
+        y,
+        method="auc"
+    )
+    selected_feature_selection_method_used = "auc_fallback"
 
 top_features = [
     item["feature"]
     for item in selected[:10]
 ]
 
-print("\nTop LASSO features:")
+print("\nTop selected features:")
 
 for item in selected[:10]:
+    metric = item.get("coef", item.get("correlation", item.get("oriented_auc", item.get("score"))))
     print(
         f" - {item['feature']} "
-        f"(coef={item['coef']:.3f})"
+        f"(method={item.get('method', FEATURE_SELECTION_METHOD)}, score={item.get('score', None)}, metric={metric})"
     )
 
 
@@ -350,6 +392,7 @@ cv = run_nested_cv(
     groups,
     n_splits=5,
     top_n_features=PRIMARY_MODEL_FEATURES,
+    selection_method=FEATURE_SELECTION_METHOD,
     return_fold_details=True,
     verbose=True
 )
@@ -373,7 +416,8 @@ perm = permutation_test(
     groups,
     cv["mean_auc"],
     n_permutations=N_PERMUTATIONS,
-    top_n_features=PRIMARY_MODEL_FEATURES
+    top_n_features=PRIMARY_MODEL_FEATURES,
+    selection_method=FEATURE_SELECTION_METHOD
 )
 
 print(
@@ -404,7 +448,9 @@ print("------------------------------------------------------------")
 bootstrap = bootstrap_stability(
     X_pruned,
     y,
-    n_bootstrap=N_BOOTSTRAP
+    n_bootstrap=N_BOOTSTRAP,
+    top_n_features=10,
+    selection_method=FEATURE_SELECTION_METHOD
 )
 
 print("\nTop bootstrap-stable features:")
@@ -427,7 +473,8 @@ print("------------------------------------------------------------")
 loocv = run_loocv(
     X_pruned,
     y,
-    top_n_features=PRIMARY_MODEL_FEATURES
+    top_n_features=PRIMARY_MODEL_FEATURES,
+    selection_method=FEATURE_SELECTION_METHOD
 )
 
 print(
@@ -458,7 +505,9 @@ candidate_models = compare_candidate_models(
     selected_features_detail=selected,
     bootstrap_features_detail=bootstrap,
     n_splits=5,
-    return_details=True
+    return_details=True,
+    selection_method=FEATURE_SELECTION_METHOD,
+    selection_methods_to_compare=SELECTION_METHODS_TO_COMPARE
 )
 
 print("\nCandidate model comparison:")
@@ -504,6 +553,8 @@ dataset_summary = {
     "observed_prevalence": float(observed_prevalence),
     "design_prevalence": float(prevalence_for_design),
     "primary_model_features": int(PRIMARY_MODEL_FEATURES),
+    "feature_selection_method": FEATURE_SELECTION_METHOD,
+    "selected_feature_selection_method_used": selected_feature_selection_method_used,
     "features_before_pruning": int(X.shape[1]),
     "features_after_pruning": int(X_pruned.shape[1])
 }
@@ -518,7 +569,8 @@ model_info = train_final_model_from_data(
     pruning_threshold=PRUNING_THRESHOLD,
     top_n_features=TOP_N_FINAL_MODEL_FEATURES,
     dataset_summary=dataset_summary,
-    validation_summary=validation_summary
+    validation_summary=validation_summary,
+    feature_selection_method=selected_feature_selection_method_used
 )
 
 print("Final model saved:")
@@ -622,12 +674,17 @@ result = {
     "observed_prevalence": float(observed_prevalence),
     "design_prevalence": float(prevalence_for_design),
     "primary_model_features": int(PRIMARY_MODEL_FEATURES),
+    "feature_selection_method": FEATURE_SELECTION_METHOD,
+    "selected_feature_selection_method_used": selected_feature_selection_method_used,
     "pruning_threshold": PRUNING_THRESHOLD,
     "run_configuration": {
         "pruning_threshold": float(PRUNING_THRESHOLD),
         "pruning_threshold_source": "env" if os.environ.get("THERADIOMICS_PRUNING_THRESHOLD") else "default",
         "top_n_final_model_features": int(TOP_N_FINAL_MODEL_FEATURES),
         "primary_model_features": int(PRIMARY_MODEL_FEATURES),
+        "feature_selection_method": FEATURE_SELECTION_METHOD,
+        "selected_feature_selection_method_used": selected_feature_selection_method_used,
+        "selection_methods_compared": SELECTION_METHODS_TO_COMPARE,
         "n_permutations": int(N_PERMUTATIONS),
         "n_bootstrap": int(N_BOOTSTRAP),
         "n_sample_size_simulations": int(N_SAMPLE_SIZE_SIMULATIONS),
@@ -655,7 +712,7 @@ result = {
     "saved_candidate_models": saved_candidate_models,
     "model_explanation": {
         "classifier": "StandardScaler + LogisticRegression",
-        "feature_selection": "LASSO / L1 logistic regression",
+        "feature_selection": selected_feature_selection_method_used,
         "saved_model": model_info["model_path"],
         "saved_metadata": model_info["metadata_path"],
         "important_note": (
@@ -819,7 +876,7 @@ with open(
     f.write("FINAL SAVED MODEL\n")
     f.write("-----------------\n")
     f.write("Classifier: StandardScaler + LogisticRegression\n")
-    f.write("Feature selection: LASSO / L1 logistic regression\n")
+    f.write(f"Feature selection: {selected_feature_selection_method_used}\n")
     f.write(f"Model file: {model_info['model_path']}\n")
     f.write(f"Metadata file: {model_info['metadata_path']}\n")
     f.write(f"Apparent training AUC: {model_info['apparent_training_auc']:.3f}\n")
@@ -831,13 +888,14 @@ with open(
     for feature in model_info["selected_features"]:
         f.write(f"{feature}\n")
 
-    f.write("\nTOP LASSO FEATURES\n")
-    f.write("------------------\n")
+    f.write("\nTOP SELECTED FEATURES\n")
+    f.write("---------------------\n")
 
     for item in selected[:10]:
+        metric = item.get("coef", item.get("correlation", item.get("oriented_auc", item.get("score"))))
         f.write(
             f"{item['feature']} "
-            f"(coef={item['coef']:.3f})\n"
+            f"(method={item.get('method', selected_feature_selection_method_used)}, score={item.get('score')}, metric={metric})\n"
         )
 
     f.write("\nBOOTSTRAP STABILITY\n")
@@ -952,6 +1010,7 @@ print(f"Non Responders: {(y == 0).sum()}")
 print(f"Observed prevalence: {observed_prevalence:.3f}")
 print(f"Design prevalence: {prevalence_for_design:.3f}")
 print(f"Primary model features: {PRIMARY_MODEL_FEATURES}")
+print(f"Feature selection method: {FEATURE_SELECTION_METHOD}")
 print(f"Pruning threshold: {PRUNING_THRESHOLD}")
 print(f"Features before pruning: {X.shape[1]}")
 print(f"Features after pruning: {X_pruned.shape[1]}")

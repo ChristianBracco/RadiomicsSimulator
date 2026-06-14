@@ -43,8 +43,8 @@ def run_cv(
         )
 
         model = LogisticRegression(
-            l1_ratio=1.0,
             solver="liblinear",
+            l1_ratio=1.0,
             C=1.0,
             max_iter=5000
         )

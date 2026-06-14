@@ -78,6 +78,7 @@ def _make_pipeline():
             "model",
             LogisticRegression(
                 solver="liblinear",
+                l1_ratio=0.0,
                 class_weight="balanced",
                 C=1.0,
                 max_iter=5000

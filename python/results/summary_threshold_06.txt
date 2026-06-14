@@ -4,7 +4,7 @@ THERADIOMICS STUDY DESIGNER
 
 DATASET
 -------
-Input file: /Users/cbracco/Downloads/RadiomicsSimulator-main/data/uploads/Features_all.xlsx
+Input file: /mnt/data/work_uni/data/uploads/Features_all.xlsx
 Lesions: 204
 Patients: 35
 Responders: 20
@@ -19,9 +19,9 @@ Removed features: 209
 
 MODEL PERFORMANCE
 -----------------
-Nested CV AUC: 0.507 ± 0.189
-Nested CV debug file: /Users/cbracco/Downloads/RadiomicsSimulator-main/python/results/nested_cv_fold_details.json
-LOOCV AUC: 0.547
+Nested CV AUC: 0.573 ± 0.090
+Nested CV debug file: /mnt/data/work_uni/python/results/nested_cv_fold_details.json
+LOOCV AUC: 0.567
 LOOCV Sensitivity: 0.650
 LOOCV Specificity: 0.333
 
@@ -29,33 +29,69 @@ CANDIDATE MODEL BENCHMARK
 -------------------------
 1 feature - top bootstrap-stable | features=1 | GroupCV AUC=0.623 ± 0.104 | LOOCV AUC=0.607 | Sens=0.600 | Spec=0.600
     Features: original__shape__Elongation_mean
-3 feature - top bootstrap-stable | features=3 | GroupCV AUC=0.560 ± 0.274 | LOOCV AUC=0.563 | Sens=0.600 | Spec=0.533
-    Features: original__shape__Elongation_mean, original__shape__LeastAxisLength_mean, original__shape__Elongation_max
+3 feature - top bootstrap-stable | features=3 | GroupCV AUC=0.517 ± 0.266 | LOOCV AUC=0.550 | Sens=0.650 | Spec=0.533
+    Features: original__shape__Elongation_mean, original__shape__LeastAxisLength_mean, original__firstorder__10Percentile_mean
 5 feature - top bootstrap-stable | features=5 | GroupCV AUC=0.333 ± 0.183 | LOOCV AUC=0.470 | Sens=0.550 | Spec=0.467
-    Features: original__shape__Elongation_mean, original__shape__LeastAxisLength_mean, original__shape__Elongation_max, original__firstorder__10Percentile_mean, original__firstorder__Kurtosis_mean
-3 feature - top LASSO current run | features=3 | GroupCV AUC=0.517 ± 0.266 | LOOCV AUC=0.550 | Sens=0.650 | Spec=0.533
+    Features: original__shape__Elongation_mean, original__shape__LeastAxisLength_mean, original__firstorder__10Percentile_mean, original__shape__Elongation_max, original__firstorder__Kurtosis_mean
+1 feature - primary Univariate ROC-AUC | features=1 | GroupCV AUC=0.623 ± 0.104 | LOOCV AUC=0.607 | Sens=0.600 | Spec=0.600
+    Features: original__shape__Elongation_mean
+3 feature - primary Univariate ROC-AUC | features=3 | GroupCV AUC=0.483 ± 0.138 | LOOCV AUC=0.490 | Sens=0.450 | Spec=0.400
+    Features: original__shape__Elongation_mean, original__shape__Elongation_max, original__firstorder__Kurtosis_mean
+5 feature - primary Univariate ROC-AUC | features=5 | GroupCV AUC=0.333 ± 0.183 | LOOCV AUC=0.470 | Sens=0.550 | Spec=0.467
+    Features: original__shape__Elongation_mean, original__shape__Elongation_max, original__firstorder__Kurtosis_mean, original__firstorder__10Percentile_mean, original__shape__LeastAxisLength_mean
+1 feature - Pearson / point-biserial | features=1 | GroupCV AUC=0.623 ± 0.104 | LOOCV AUC=0.607 | Sens=0.600 | Spec=0.600
+    Features: original__shape__Elongation_mean
+3 feature - Pearson / point-biserial | features=3 | GroupCV AUC=0.560 ± 0.274 | LOOCV AUC=0.563 | Sens=0.600 | Spec=0.533
+    Features: original__shape__Elongation_mean, original__shape__Elongation_max, original__shape__LeastAxisLength_mean
+5 feature - Pearson / point-biserial | features=5 | GroupCV AUC=0.333 ± 0.183 | LOOCV AUC=0.470 | Sens=0.550 | Spec=0.467
+    Features: original__shape__Elongation_mean, original__shape__Elongation_max, original__shape__LeastAxisLength_mean, original__firstorder__10Percentile_mean, original__firstorder__Kurtosis_mean
+1 feature - Spearman rank correlation | features=1 | GroupCV AUC=0.623 ± 0.104 | LOOCV AUC=0.607 | Sens=0.600 | Spec=0.600
+    Features: original__shape__Elongation_mean
+3 feature - Spearman rank correlation | features=3 | GroupCV AUC=0.483 ± 0.138 | LOOCV AUC=0.490 | Sens=0.450 | Spec=0.400
+    Features: original__shape__Elongation_mean, original__shape__Elongation_max, original__firstorder__Kurtosis_mean
+5 feature - Spearman rank correlation | features=5 | GroupCV AUC=0.333 ± 0.183 | LOOCV AUC=0.470 | Sens=0.550 | Spec=0.467
+    Features: original__shape__Elongation_mean, original__shape__Elongation_max, original__firstorder__Kurtosis_mean, original__firstorder__10Percentile_mean, original__shape__LeastAxisLength_mean
+1 feature - Univariate ROC-AUC | features=1 | GroupCV AUC=0.623 ± 0.104 | LOOCV AUC=0.607 | Sens=0.600 | Spec=0.600
+    Features: original__shape__Elongation_mean
+3 feature - Univariate ROC-AUC | features=3 | GroupCV AUC=0.483 ± 0.138 | LOOCV AUC=0.490 | Sens=0.450 | Spec=0.400
+    Features: original__shape__Elongation_mean, original__shape__Elongation_max, original__firstorder__Kurtosis_mean
+5 feature - Univariate ROC-AUC | features=5 | GroupCV AUC=0.333 ± 0.183 | LOOCV AUC=0.470 | Sens=0.550 | Spec=0.467
+    Features: original__shape__Elongation_mean, original__shape__Elongation_max, original__firstorder__Kurtosis_mean, original__firstorder__10Percentile_mean, original__shape__LeastAxisLength_mean
+1 feature - Mann-Whitney / rank-biserial | features=1 | GroupCV AUC=0.623 ± 0.104 | LOOCV AUC=0.607 | Sens=0.600 | Spec=0.600
+    Features: original__shape__Elongation_mean
+3 feature - Mann-Whitney / rank-biserial | features=3 | GroupCV AUC=0.483 ± 0.138 | LOOCV AUC=0.490 | Sens=0.450 | Spec=0.400
+    Features: original__shape__Elongation_mean, original__shape__Elongation_max, original__firstorder__Kurtosis_mean
+5 feature - Mann-Whitney / rank-biserial | features=5 | GroupCV AUC=0.333 ± 0.183 | LOOCV AUC=0.470 | Sens=0.550 | Spec=0.467
+    Features: original__shape__Elongation_mean, original__shape__Elongation_max, original__firstorder__Kurtosis_mean, original__firstorder__10Percentile_mean, original__shape__LeastAxisLength_mean
+1 feature - Mutual information | features=1 | GroupCV AUC=0.133 ± 0.194 | LOOCV AUC=0.433 | Sens=0.500 | Spec=0.600
+    Features: original__firstorder__10Percentile_mean
+3 feature - Mutual information | features=3 | GroupCV AUC=0.357 ± 0.247 | LOOCV AUC=0.537 | Sens=0.650 | Spec=0.467
+    Features: original__firstorder__10Percentile_mean, original__shape__Elongation_mean, original__shape__Elongation_max
+5 feature - Mutual information | features=5 | GroupCV AUC=0.333 ± 0.183 | LOOCV AUC=0.470 | Sens=0.550 | Spec=0.467
+    Features: original__firstorder__10Percentile_mean, original__shape__Elongation_mean, original__shape__Elongation_max, original__shape__LeastAxisLength_mean, original__firstorder__Kurtosis_mean
+1 feature - LASSO / L1 logistic | features=1 | GroupCV AUC=0.623 ± 0.104 | LOOCV AUC=0.607 | Sens=0.600 | Spec=0.600
+    Features: original__shape__Elongation_mean
+3 feature - LASSO / L1 logistic | features=3 | GroupCV AUC=0.517 ± 0.266 | LOOCV AUC=0.550 | Sens=0.650 | Spec=0.533
     Features: original__shape__Elongation_mean, original__shape__LeastAxisLength_mean, original__firstorder__10Percentile_mean
-5 feature - top LASSO current run | features=3 | GroupCV AUC=0.517 ± 0.266 | LOOCV AUC=0.550 | Sens=0.650 | Spec=0.533
-    Features: original__shape__Elongation_mean, original__shape__LeastAxisLength_mean, original__firstorder__10Percentile_mean
-10 feature - top LASSO current run | features=3 | GroupCV AUC=0.517 ± 0.266 | LOOCV AUC=0.550 | Sens=0.650 | Spec=0.533
+5 feature - LASSO / L1 logistic | features=3 | GroupCV AUC=0.517 ± 0.266 | LOOCV AUC=0.550 | Sens=0.650 | Spec=0.533
     Features: original__shape__Elongation_mean, original__shape__LeastAxisLength_mean, original__firstorder__10Percentile_mean
 
-Candidate model comparison JSON: /Users/cbracco/Downloads/RadiomicsSimulator-main/python/results/candidate_model_comparison.json
-Candidate model files metadata: /Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_06_candidate_models_metadata.json
+Candidate model comparison JSON: /mnt/data/work_uni/python/results/candidate_model_comparison.json
+Candidate model files metadata: /mnt/data/work_uni/models/theradiomics_threshold_06_candidate_models_metadata.json
 
 PERMUTATION TEST
 ----------------
-Observed AUC: 0.507
-Mean Random AUC: 0.432
-Max Random AUC: 0.840
-P-value: 0.3
+Observed AUC: 0.573
+Mean Random AUC: 0.382
+Max Random AUC: 0.450
+P-value: < 0.5000 (0/2 permutations exceeded observed AUC)
 
 FINAL SAVED MODEL
 -----------------
 Classifier: StandardScaler + LogisticRegression
-Feature selection: LASSO / L1 logistic regression
-Model file: /Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_06.joblib
-Metadata file: /Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_06_metadata.json
+Feature selection: auc
+Model file: /mnt/data/work_uni/models/theradiomics_threshold_06.joblib
+Metadata file: /mnt/data/work_uni/models/theradiomics_threshold_06_metadata.json
 Apparent training AUC: 0.643
 Warning: apparent training AUC is optimistic and is not validation performance.
 
@@ -63,19 +99,21 @@ TOP FINAL MODEL FEATURES
 ------------------------
 original__shape__Elongation_mean
 
-TOP LASSO FEATURES
-------------------
-original__shape__Elongation_mean (coef=0.643)
-original__shape__LeastAxisLength_mean (coef=-0.382)
-original__firstorder__10Percentile_mean (coef=-0.002)
+TOP SELECTED FEATURES
+---------------------
+original__shape__Elongation_mean (method=auc, score=0.6433333333333333, metric=0.6433333333333333)
+original__shape__Elongation_max (method=auc, score=0.59, metric=0.59)
+original__firstorder__Kurtosis_mean (method=auc, score=0.5633333333333334, metric=0.5633333333333334)
+original__firstorder__10Percentile_mean (method=auc, score=0.54, metric=0.54)
+original__shape__LeastAxisLength_mean (method=auc, score=0.51, metric=0.51)
 
 BOOTSTRAP STABILITY
 -------------------
-original__shape__Elongation_mean (94.8%)
-original__shape__LeastAxisLength_mean (89.4%)
-original__shape__Elongation_max (72.8%)
-original__firstorder__10Percentile_mean (72.4%)
-original__firstorder__Kurtosis_mean (71.4%)
+original__shape__Elongation_mean (100.0%)
+original__shape__LeastAxisLength_mean (100.0%)
+original__firstorder__10Percentile_mean (100.0%)
+original__shape__Elongation_max (100.0%)
+original__firstorder__Kurtosis_mean (100.0%)
 
 STABLE FEATURES IN LOOCV
 ------------------------
@@ -85,102 +123,102 @@ SAMPLE SIZE ESTIMATION
 ----------------------
 
 Scenario: Theoretical AUC 0.70
-N= 20 | Events= 11 | Non-events=  9 | AUC=0.701 | POWER=54.0% | k_max=0.19 | Design=exploratory_only
-N= 30 | Events= 17 | Non-events= 13 | AUC=0.692 | POWER=52.0% | k_max=0.28 | Design=exploratory_only
-N= 40 | Events= 23 | Non-events= 17 | AUC=0.697 | POWER=53.0% | k_max=0.37 | Design=exploratory_only
-N= 50 | Events= 29 | Non-events= 21 | AUC=0.706 | POWER=55.0% | k_max=0.47 | Design=exploratory_only
-N= 75 | Events= 43 | Non-events= 32 | AUC=0.703 | POWER=56.0% | k_max=0.70 | Design=exploratory_only
-N=100 | Events= 57 | Non-events= 43 | AUC=0.696 | POWER=52.0% | k_max=0.93 | Design=exploratory_only
-N=125 | Events= 71 | Non-events= 54 | AUC=0.699 | POWER=52.0% | k_max=1.16 | Design=analytically_supported
-N=150 | Events= 86 | Non-events= 64 | AUC=0.696 | POWER=47.0% | k_max=1.40 | Design=analytically_supported
-N=175 | Events=100 | Non-events= 75 | AUC=0.711 | POWER=61.0% | k_max=1.63 | Design=analytically_supported
-N=200 | Events=114 | Non-events= 86 | AUC=0.702 | POWER=55.0% | k_max=1.86 | Design=analytically_supported
-N=250 | Events=143 | Non-events=107 | AUC=0.704 | POWER=55.0% | k_max=2.33 | Design=analytically_supported
-N=300 | Events=171 | Non-events=129 | AUC=0.697 | POWER=47.0% | k_max=2.79 | Design=analytically_supported
-N=350 | Events=200 | Non-events=150 | AUC=0.697 | POWER=48.0% | k_max=3.26 | Design=analytically_supported
-N=400 | Events=229 | Non-events=171 | AUC=0.704 | POWER=57.0% | k_max=3.72 | Design=analytically_supported
-N=500 | Events=286 | Non-events=214 | AUC=0.701 | POWER=51.0% | k_max=4.65 | Design=analytically_supported
-N=600 | Events=343 | Non-events=257 | AUC=0.697 | POWER=43.0% | k_max=5.59 | Design=analytically_supported
+N= 20 | Events= 11 | Non-events=  9 | AUC=0.756 | POWER=60.0% | k_max=0.19 | Design=exploratory_only
+N= 30 | Events= 17 | Non-events= 13 | AUC=0.642 | POWER=60.0% | k_max=0.28 | Design=exploratory_only
+N= 40 | Events= 23 | Non-events= 17 | AUC=0.669 | POWER=40.0% | k_max=0.37 | Design=exploratory_only
+N= 50 | Events= 29 | Non-events= 21 | AUC=0.722 | POWER=60.0% | k_max=0.47 | Design=exploratory_only
+N= 75 | Events= 43 | Non-events= 32 | AUC=0.698 | POWER=40.0% | k_max=0.70 | Design=exploratory_only
+N=100 | Events= 57 | Non-events= 43 | AUC=0.669 | POWER=20.0% | k_max=0.93 | Design=exploratory_only
+N=125 | Events= 71 | Non-events= 54 | AUC=0.673 | POWER=20.0% | k_max=1.16 | Design=analytically_supported
+N=150 | Events= 86 | Non-events= 64 | AUC=0.733 | POWER=60.0% | k_max=1.40 | Design=analytically_supported
+N=175 | Events=100 | Non-events= 75 | AUC=0.694 | POWER=60.0% | k_max=1.63 | Design=analytically_supported
+N=200 | Events=114 | Non-events= 86 | AUC=0.702 | POWER=60.0% | k_max=1.86 | Design=analytically_supported
+N=250 | Events=143 | Non-events=107 | AUC=0.703 | POWER=60.0% | k_max=2.33 | Design=analytically_supported
+N=300 | Events=171 | Non-events=129 | AUC=0.694 | POWER=40.0% | k_max=2.79 | Design=analytically_supported
+N=350 | Events=200 | Non-events=150 | AUC=0.660 | POWER=40.0% | k_max=3.26 | Design=analytically_supported
+N=400 | Events=229 | Non-events=171 | AUC=0.696 | POWER=60.0% | k_max=3.72 | Design=analytically_supported
+N=500 | Events=286 | Non-events=214 | AUC=0.684 | POWER=20.0% | k_max=4.65 | Design=analytically_supported
+N=600 | Events=343 | Non-events=257 | AUC=0.702 | POWER=60.0% | k_max=5.59 | Design=analytically_supported
 
 Minimum sample size for 80% power: not reached in simulated range
 
 Scenario: Theoretical AUC 0.80
-N= 20 | Events= 11 | Non-events=  9 | AUC=0.813 | POWER=72.0% | k_max=0.19 | Design=exploratory_only
-N= 30 | Events= 17 | Non-events= 13 | AUC=0.796 | POWER=70.0% | k_max=0.28 | Design=exploratory_only
-N= 40 | Events= 23 | Non-events= 17 | AUC=0.804 | POWER=81.0% | k_max=0.37 | Design=exploratory_only
-N= 50 | Events= 29 | Non-events= 21 | AUC=0.800 | POWER=82.0% | k_max=0.47 | Design=exploratory_only
-N= 75 | Events= 43 | Non-events= 32 | AUC=0.798 | POWER=85.0% | k_max=0.70 | Design=exploratory_only
-N=100 | Events= 57 | Non-events= 43 | AUC=0.796 | POWER=82.0% | k_max=0.93 | Design=exploratory_only
-N=125 | Events= 71 | Non-events= 54 | AUC=0.804 | POWER=93.0% | k_max=1.16 | Design=analytically_supported
-N=150 | Events= 86 | Non-events= 64 | AUC=0.800 | POWER=94.0% | k_max=1.40 | Design=analytically_supported
-N=175 | Events=100 | Non-events= 75 | AUC=0.804 | POWER=94.0% | k_max=1.63 | Design=analytically_supported
-N=200 | Events=114 | Non-events= 86 | AUC=0.797 | POWER=92.0% | k_max=1.86 | Design=analytically_supported
-N=250 | Events=143 | Non-events=107 | AUC=0.795 | POWER=95.0% | k_max=2.33 | Design=analytically_supported
-N=300 | Events=171 | Non-events=129 | AUC=0.798 | POWER=98.0% | k_max=2.79 | Design=analytically_supported
-N=350 | Events=200 | Non-events=150 | AUC=0.800 | POWER=95.0% | k_max=3.26 | Design=analytically_supported
-N=400 | Events=229 | Non-events=171 | AUC=0.798 | POWER=100.0% | k_max=3.72 | Design=analytically_supported
-N=500 | Events=286 | Non-events=214 | AUC=0.804 | POWER=100.0% | k_max=4.65 | Design=analytically_supported
-N=600 | Events=343 | Non-events=257 | AUC=0.798 | POWER=100.0% | k_max=5.59 | Design=analytically_supported
-
-Minimum sample size for 80% power: 40 patients
-
-Scenario: Theoretical AUC 0.90
-N= 20 | Events= 11 | Non-events=  9 | AUC=0.885 | POWER=69.0% | k_max=0.19 | Design=exploratory_only
-N= 30 | Events= 17 | Non-events= 13 | AUC=0.909 | POWER=88.0% | k_max=0.28 | Design=exploratory_only
-N= 40 | Events= 23 | Non-events= 17 | AUC=0.904 | POWER=88.0% | k_max=0.37 | Design=exploratory_only
-N= 50 | Events= 29 | Non-events= 21 | AUC=0.893 | POWER=81.0% | k_max=0.47 | Design=exploratory_only
-N= 75 | Events= 43 | Non-events= 32 | AUC=0.904 | POWER=95.0% | k_max=0.70 | Design=exploratory_only
-N=100 | Events= 57 | Non-events= 43 | AUC=0.899 | POWER=94.0% | k_max=0.93 | Design=exploratory_only
-N=125 | Events= 71 | Non-events= 54 | AUC=0.902 | POWER=98.0% | k_max=1.16 | Design=analytically_supported
-N=150 | Events= 86 | Non-events= 64 | AUC=0.896 | POWER=97.0% | k_max=1.40 | Design=analytically_supported
-N=175 | Events=100 | Non-events= 75 | AUC=0.900 | POWER=98.0% | k_max=1.63 | Design=analytically_supported
-N=200 | Events=114 | Non-events= 86 | AUC=0.897 | POWER=98.0% | k_max=1.86 | Design=analytically_supported
-N=250 | Events=143 | Non-events=107 | AUC=0.899 | POWER=99.0% | k_max=2.33 | Design=analytically_supported
-N=300 | Events=171 | Non-events=129 | AUC=0.904 | POWER=100.0% | k_max=2.79 | Design=analytically_supported
-N=350 | Events=200 | Non-events=150 | AUC=0.901 | POWER=100.0% | k_max=3.26 | Design=analytically_supported
-N=400 | Events=229 | Non-events=171 | AUC=0.899 | POWER=100.0% | k_max=3.72 | Design=analytically_supported
-N=500 | Events=286 | Non-events=214 | AUC=0.898 | POWER=100.0% | k_max=4.65 | Design=analytically_supported
-N=600 | Events=343 | Non-events=257 | AUC=0.898 | POWER=100.0% | k_max=5.59 | Design=analytically_supported
+N= 20 | Events= 11 | Non-events=  9 | AUC=0.768 | POWER=60.0% | k_max=0.19 | Design=exploratory_only
+N= 30 | Events= 17 | Non-events= 13 | AUC=0.820 | POWER=80.0% | k_max=0.28 | Design=exploratory_only
+N= 40 | Events= 23 | Non-events= 17 | AUC=0.808 | POWER=100.0% | k_max=0.37 | Design=exploratory_only
+N= 50 | Events= 29 | Non-events= 21 | AUC=0.836 | POWER=80.0% | k_max=0.47 | Design=exploratory_only
+N= 75 | Events= 43 | Non-events= 32 | AUC=0.795 | POWER=80.0% | k_max=0.70 | Design=exploratory_only
+N=100 | Events= 57 | Non-events= 43 | AUC=0.784 | POWER=80.0% | k_max=0.93 | Design=exploratory_only
+N=125 | Events= 71 | Non-events= 54 | AUC=0.800 | POWER=100.0% | k_max=1.16 | Design=analytically_supported
+N=150 | Events= 86 | Non-events= 64 | AUC=0.792 | POWER=100.0% | k_max=1.40 | Design=analytically_supported
+N=175 | Events=100 | Non-events= 75 | AUC=0.801 | POWER=100.0% | k_max=1.63 | Design=analytically_supported
+N=200 | Events=114 | Non-events= 86 | AUC=0.783 | POWER=100.0% | k_max=1.86 | Design=analytically_supported
+N=250 | Events=143 | Non-events=107 | AUC=0.840 | POWER=100.0% | k_max=2.33 | Design=analytically_supported
+N=300 | Events=171 | Non-events=129 | AUC=0.813 | POWER=100.0% | k_max=2.79 | Design=analytically_supported
+N=350 | Events=200 | Non-events=150 | AUC=0.802 | POWER=100.0% | k_max=3.26 | Design=analytically_supported
+N=400 | Events=229 | Non-events=171 | AUC=0.788 | POWER=100.0% | k_max=3.72 | Design=analytically_supported
+N=500 | Events=286 | Non-events=214 | AUC=0.796 | POWER=100.0% | k_max=4.65 | Design=analytically_supported
+N=600 | Events=343 | Non-events=257 | AUC=0.804 | POWER=100.0% | k_max=5.59 | Design=analytically_supported
 
 Minimum sample size for 80% power: 30 patients
 
-Scenario: Observed Nested CV AUC 0.507
-N= 20 | Events= 11 | Non-events=  9 | AUC=0.528 | POWER=10.0% | k_max=0.19 | Design=exploratory_only
-N= 30 | Events= 17 | Non-events= 13 | AUC=0.501 | POWER=5.0% | k_max=0.28 | Design=exploratory_only
-N= 40 | Events= 23 | Non-events= 17 | AUC=0.514 | POWER=3.0% | k_max=0.37 | Design=exploratory_only
-N= 50 | Events= 29 | Non-events= 21 | AUC=0.490 | POWER=0.0% | k_max=0.47 | Design=exploratory_only
-N= 75 | Events= 43 | Non-events= 32 | AUC=0.516 | POWER=0.0% | k_max=0.70 | Design=exploratory_only
-N=100 | Events= 57 | Non-events= 43 | AUC=0.505 | POWER=0.0% | k_max=0.93 | Design=exploratory_only
-N=125 | Events= 71 | Non-events= 54 | AUC=0.504 | POWER=0.0% | k_max=1.16 | Design=analytically_supported
-N=150 | Events= 86 | Non-events= 64 | AUC=0.521 | POWER=0.0% | k_max=1.40 | Design=analytically_supported
-N=175 | Events=100 | Non-events= 75 | AUC=0.506 | POWER=0.0% | k_max=1.63 | Design=analytically_supported
-N=200 | Events=114 | Non-events= 86 | AUC=0.510 | POWER=0.0% | k_max=1.86 | Design=analytically_supported
-N=250 | Events=143 | Non-events=107 | AUC=0.506 | POWER=0.0% | k_max=2.33 | Design=analytically_supported
-N=300 | Events=171 | Non-events=129 | AUC=0.502 | POWER=0.0% | k_max=2.79 | Design=analytically_supported
-N=350 | Events=200 | Non-events=150 | AUC=0.511 | POWER=0.0% | k_max=3.26 | Design=analytically_supported
-N=400 | Events=229 | Non-events=171 | AUC=0.504 | POWER=0.0% | k_max=3.72 | Design=analytically_supported
-N=500 | Events=286 | Non-events=214 | AUC=0.511 | POWER=0.0% | k_max=4.65 | Design=analytically_supported
-N=600 | Events=343 | Non-events=257 | AUC=0.510 | POWER=0.0% | k_max=5.59 | Design=analytically_supported
+Scenario: Theoretical AUC 0.90
+N= 20 | Events= 11 | Non-events=  9 | AUC=0.885 | POWER=80.0% | k_max=0.19 | Design=exploratory_only
+N= 30 | Events= 17 | Non-events= 13 | AUC=0.881 | POWER=60.0% | k_max=0.28 | Design=exploratory_only
+N= 40 | Events= 23 | Non-events= 17 | AUC=0.862 | POWER=80.0% | k_max=0.37 | Design=exploratory_only
+N= 50 | Events= 29 | Non-events= 21 | AUC=0.913 | POWER=80.0% | k_max=0.47 | Design=exploratory_only
+N= 75 | Events= 43 | Non-events= 32 | AUC=0.892 | POWER=100.0% | k_max=0.70 | Design=exploratory_only
+N=100 | Events= 57 | Non-events= 43 | AUC=0.903 | POWER=100.0% | k_max=0.93 | Design=exploratory_only
+N=125 | Events= 71 | Non-events= 54 | AUC=0.889 | POWER=80.0% | k_max=1.16 | Design=analytically_supported
+N=150 | Events= 86 | Non-events= 64 | AUC=0.900 | POWER=100.0% | k_max=1.40 | Design=analytically_supported
+N=175 | Events=100 | Non-events= 75 | AUC=0.901 | POWER=100.0% | k_max=1.63 | Design=analytically_supported
+N=200 | Events=114 | Non-events= 86 | AUC=0.904 | POWER=100.0% | k_max=1.86 | Design=analytically_supported
+N=250 | Events=143 | Non-events=107 | AUC=0.904 | POWER=100.0% | k_max=2.33 | Design=analytically_supported
+N=300 | Events=171 | Non-events=129 | AUC=0.894 | POWER=100.0% | k_max=2.79 | Design=analytically_supported
+N=350 | Events=200 | Non-events=150 | AUC=0.899 | POWER=100.0% | k_max=3.26 | Design=analytically_supported
+N=400 | Events=229 | Non-events=171 | AUC=0.907 | POWER=100.0% | k_max=3.72 | Design=analytically_supported
+N=500 | Events=286 | Non-events=214 | AUC=0.893 | POWER=100.0% | k_max=4.65 | Design=analytically_supported
+N=600 | Events=343 | Non-events=257 | AUC=0.901 | POWER=100.0% | k_max=5.59 | Design=analytically_supported
+
+Minimum sample size for 80% power: 20 patients
+
+Scenario: Observed Nested CV AUC 0.573
+N= 20 | Events= 11 | Non-events=  9 | AUC=0.578 | POWER=0.0% | k_max=0.19 | Design=exploratory_only
+N= 30 | Events= 17 | Non-events= 13 | AUC=0.595 | POWER=20.0% | k_max=0.28 | Design=exploratory_only
+N= 40 | Events= 23 | Non-events= 17 | AUC=0.564 | POWER=20.0% | k_max=0.37 | Design=exploratory_only
+N= 50 | Events= 29 | Non-events= 21 | AUC=0.576 | POWER=20.0% | k_max=0.47 | Design=exploratory_only
+N= 75 | Events= 43 | Non-events= 32 | AUC=0.624 | POWER=0.0% | k_max=0.70 | Design=exploratory_only
+N=100 | Events= 57 | Non-events= 43 | AUC=0.545 | POWER=0.0% | k_max=0.93 | Design=exploratory_only
+N=125 | Events= 71 | Non-events= 54 | AUC=0.545 | POWER=0.0% | k_max=1.16 | Design=analytically_supported
+N=150 | Events= 86 | Non-events= 64 | AUC=0.607 | POWER=0.0% | k_max=1.40 | Design=analytically_supported
+N=175 | Events=100 | Non-events= 75 | AUC=0.590 | POWER=0.0% | k_max=1.63 | Design=analytically_supported
+N=200 | Events=114 | Non-events= 86 | AUC=0.603 | POWER=0.0% | k_max=1.86 | Design=analytically_supported
+N=250 | Events=143 | Non-events=107 | AUC=0.563 | POWER=0.0% | k_max=2.33 | Design=analytically_supported
+N=300 | Events=171 | Non-events=129 | AUC=0.581 | POWER=0.0% | k_max=2.79 | Design=analytically_supported
+N=350 | Events=200 | Non-events=150 | AUC=0.566 | POWER=0.0% | k_max=3.26 | Design=analytically_supported
+N=400 | Events=229 | Non-events=171 | AUC=0.566 | POWER=0.0% | k_max=3.72 | Design=analytically_supported
+N=500 | Events=286 | Non-events=214 | AUC=0.572 | POWER=0.0% | k_max=4.65 | Design=analytically_supported
+N=600 | Events=343 | Non-events=257 | AUC=0.580 | POWER=0.0% | k_max=5.59 | Design=analytically_supported
 
 Minimum sample size for 80% power: not reached in simulated range
 
-Scenario: Observed LOOCV AUC 0.547
-N= 20 | Events= 11 | Non-events=  9 | AUC=0.566 | POWER=19.0% | k_max=0.19 | Design=exploratory_only
-N= 30 | Events= 17 | Non-events= 13 | AUC=0.526 | POWER=4.0% | k_max=0.28 | Design=exploratory_only
-N= 40 | Events= 23 | Non-events= 17 | AUC=0.546 | POWER=3.0% | k_max=0.37 | Design=exploratory_only
-N= 50 | Events= 29 | Non-events= 21 | AUC=0.543 | POWER=3.0% | k_max=0.47 | Design=exploratory_only
-N= 75 | Events= 43 | Non-events= 32 | AUC=0.543 | POWER=3.0% | k_max=0.70 | Design=exploratory_only
-N=100 | Events= 57 | Non-events= 43 | AUC=0.550 | POWER=0.0% | k_max=0.93 | Design=exploratory_only
-N=125 | Events= 71 | Non-events= 54 | AUC=0.543 | POWER=0.0% | k_max=1.16 | Design=analytically_supported
-N=150 | Events= 86 | Non-events= 64 | AUC=0.545 | POWER=0.0% | k_max=1.40 | Design=analytically_supported
-N=175 | Events=100 | Non-events= 75 | AUC=0.539 | POWER=0.0% | k_max=1.63 | Design=analytically_supported
-N=200 | Events=114 | Non-events= 86 | AUC=0.543 | POWER=0.0% | k_max=1.86 | Design=analytically_supported
+Scenario: Observed LOOCV AUC 0.567
+N= 20 | Events= 11 | Non-events=  9 | AUC=0.552 | POWER=0.0% | k_max=0.19 | Design=exploratory_only
+N= 30 | Events= 17 | Non-events= 13 | AUC=0.641 | POWER=40.0% | k_max=0.28 | Design=exploratory_only
+N= 40 | Events= 23 | Non-events= 17 | AUC=0.544 | POWER=0.0% | k_max=0.37 | Design=exploratory_only
+N= 50 | Events= 29 | Non-events= 21 | AUC=0.542 | POWER=0.0% | k_max=0.47 | Design=exploratory_only
+N= 75 | Events= 43 | Non-events= 32 | AUC=0.583 | POWER=20.0% | k_max=0.70 | Design=exploratory_only
+N=100 | Events= 57 | Non-events= 43 | AUC=0.529 | POWER=0.0% | k_max=0.93 | Design=exploratory_only
+N=125 | Events= 71 | Non-events= 54 | AUC=0.589 | POWER=0.0% | k_max=1.16 | Design=analytically_supported
+N=150 | Events= 86 | Non-events= 64 | AUC=0.575 | POWER=0.0% | k_max=1.40 | Design=analytically_supported
+N=175 | Events=100 | Non-events= 75 | AUC=0.550 | POWER=0.0% | k_max=1.63 | Design=analytically_supported
+N=200 | Events=114 | Non-events= 86 | AUC=0.529 | POWER=0.0% | k_max=1.86 | Design=analytically_supported
 N=250 | Events=143 | Non-events=107 | AUC=0.546 | POWER=0.0% | k_max=2.33 | Design=analytically_supported
-N=300 | Events=171 | Non-events=129 | AUC=0.546 | POWER=0.0% | k_max=2.79 | Design=analytically_supported
-N=350 | Events=200 | Non-events=150 | AUC=0.546 | POWER=0.0% | k_max=3.26 | Design=analytically_supported
-N=400 | Events=229 | Non-events=171 | AUC=0.548 | POWER=0.0% | k_max=3.72 | Design=analytically_supported
-N=500 | Events=286 | Non-events=214 | AUC=0.550 | POWER=0.0% | k_max=4.65 | Design=analytically_supported
-N=600 | Events=343 | Non-events=257 | AUC=0.543 | POWER=0.0% | k_max=5.59 | Design=analytically_supported
+N=300 | Events=171 | Non-events=129 | AUC=0.550 | POWER=0.0% | k_max=2.79 | Design=analytically_supported
+N=350 | Events=200 | Non-events=150 | AUC=0.595 | POWER=0.0% | k_max=3.26 | Design=analytically_supported
+N=400 | Events=229 | Non-events=171 | AUC=0.542 | POWER=0.0% | k_max=3.72 | Design=analytically_supported
+N=500 | Events=286 | Non-events=214 | AUC=0.566 | POWER=0.0% | k_max=4.65 | Design=analytically_supported
+N=600 | Events=343 | Non-events=257 | AUC=0.562 | POWER=0.0% | k_max=5.59 | Design=analytically_supported
 
 Minimum sample size for 80% power: not reached in simulated range
 

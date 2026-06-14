@@ -1,29 +1,21 @@
 {
-  "pruning_threshold": 0.8,
-  "mean_auc": 0.6166666666666666,
-  "std_auc": 0.16532795690182991,
+  "pruning_threshold": 0.6,
+  "mean_auc": 0.5066666666666666,
+  "std_auc": 0.18903262505010432,
   "folds": [
     0.6666666666666666,
-    0.9,
-    0.6,
+    0.7,
     0.5,
-    0.4166666666666667
+    0.5,
+    0.16666666666666669
   ],
   "stable_features": [
     [
-      "original__ngtdm__Complexity_mean",
-      2
-    ],
-    [
-      "original__glcm__Contrast_mean",
-      1
-    ],
-    [
       "original__shape__Elongation_mean",
-      1
+      4
     ],
     [
-      "original__glcm__DifferenceEntropy_max",
+      "original__shape__LeastAxisLength_mean",
       1
     ]
   ],
@@ -33,23 +25,23 @@
       "row_index": 4,
       "patient": "ANON24466",
       "y_true": 1,
-      "probability": 0.4883115649941287,
-      "predicted_class_0_5": 0
+      "probability": 0.653348628005991,
+      "predicted_class_0_5": 1
     },
     {
       "fold": 1,
       "row_index": 9,
       "patient": "ANON39031",
       "y_true": 0,
-      "probability": 0.6865620582270564,
-      "predicted_class_0_5": 1
+      "probability": 0.4393620062918197,
+      "predicted_class_0_5": 0
     },
     {
       "fold": 1,
       "row_index": 14,
       "patient": "ANON48611",
       "y_true": 0,
-      "probability": 0.5137888423185581,
+      "probability": 0.6642799821479295,
       "predicted_class_0_5": 1
     },
     {
@@ -57,7 +49,7 @@
       "row_index": 19,
       "patient": "ANON62995",
       "y_true": 0,
-      "probability": 0.7208102386540611,
+      "probability": 0.637392077843962,
       "predicted_class_0_5": 1
     },
     {
@@ -65,7 +57,7 @@
       "row_index": 24,
       "patient": "ANON75224",
       "y_true": 1,
-      "probability": 0.7505863911665493,
+      "probability": 0.5932042771210464,
       "predicted_class_0_5": 1
     },
     {
@@ -73,7 +65,7 @@
       "row_index": 29,
       "patient": "ANON82809",
       "y_true": 0,
-      "probability": 0.5156161474920434,
+      "probability": 0.5957116319306144,
       "predicted_class_0_5": 1
     },
     {
@@ -81,7 +73,7 @@
       "row_index": 34,
       "patient": "ANON90961",
       "y_true": 1,
-      "probability": 0.7571493964476685,
+      "probability": 0.75310067361127,
       "predicted_class_0_5": 1
     },
     {
@@ -89,15 +81,15 @@
       "row_index": 3,
       "patient": "ANON18198",
       "y_true": 1,
-      "probability": 0.6544915399476102,
-      "predicted_class_0_5": 1
+      "probability": 0.4541898486951427,
+      "predicted_class_0_5": 0
     },
     {
       "fold": 2,
       "row_index": 8,
       "patient": "ANON38529",
       "y_true": 0,
-      "probability": 0.22652201502642294,
+      "probability": 0.3610162222255044,
       "predicted_class_0_5": 0
     },
     {
@@ -105,7 +97,7 @@
       "row_index": 13,
       "patient": "ANON47609",
       "y_true": 1,
-      "probability": 0.6361833786202246,
+      "probability": 0.7278743881125217,
       "predicted_class_0_5": 1
     },
     {
@@ -113,47 +105,47 @@
       "row_index": 18,
       "patient": "ANON57821",
       "y_true": 0,
-      "probability": 0.08422595964121124,
-      "predicted_class_0_5": 0
+      "probability": 0.6857687240864756,
+      "predicted_class_0_5": 1
     },
     {
       "fold": 2,
       "row_index": 23,
       "patient": "ANON71293",
       "y_true": 1,
-      "probability": 0.3069642881033193,
-      "predicted_class_0_5": 0
+      "probability": 0.6254905335622208,
+      "predicted_class_0_5": 1
     },
     {
       "fold": 2,
       "row_index": 28,
       "patient": "ANON82646",
       "y_true": 1,
-      "probability": 0.13013483835707826,
-      "predicted_class_0_5": 0
+      "probability": 0.7132657149382581,
+      "predicted_class_0_5": 1
     },
     {
       "fold": 2,
       "row_index": 33,
       "patient": "ANON89597",
       "y_true": 1,
-      "probability": 0.3978127465127868,
-      "predicted_class_0_5": 0
+      "probability": 0.5494259808185141,
+      "predicted_class_0_5": 1
     },
     {
       "fold": 3,
       "row_index": 2,
       "patient": "ANON17952",
       "y_true": 0,
-      "probability": 0.5918192737087768,
-      "predicted_class_0_5": 1
+      "probability": 0.44629075573745414,
+      "predicted_class_0_5": 0
     },
     {
       "fold": 3,
       "row_index": 7,
       "patient": "ANON37943",
       "y_true": 1,
-      "probability": 0.5162804535799185,
+      "probability": 0.5800889717558081,
       "predicted_class_0_5": 1
     },
     {
@@ -161,47 +153,47 @@
       "row_index": 12,
       "patient": "ANON44468",
       "y_true": 1,
-      "probability": 0.49518435369806035,
-      "predicted_class_0_5": 0
+      "probability": 0.5784051143644178,
+      "predicted_class_0_5": 1
     },
     {
       "fold": 3,
       "row_index": 17,
       "patient": "ANON56684",
       "y_true": 1,
-      "probability": 0.7230725372528213,
-      "predicted_class_0_5": 1
+      "probability": 0.2854068592343156,
+      "predicted_class_0_5": 0
     },
     {
       "fold": 3,
       "row_index": 22,
       "patient": "ANON69454",
       "y_true": 1,
-      "probability": 0.535848782069967,
-      "predicted_class_0_5": 1
+      "probability": 0.44856347622154924,
+      "predicted_class_0_5": 0
     },
     {
       "fold": 3,
       "row_index": 27,
       "patient": "ANON78958",
       "y_true": 0,
-      "probability": 0.3645379638538065,
-      "predicted_class_0_5": 0
+      "probability": 0.5037780313334125,
+      "predicted_class_0_5": 1
     },
     {
       "fold": 3,
       "row_index": 32,
       "patient": "ANON88599",
       "y_true": 1,
-      "probability": 0.5733458263683655,
-      "predicted_class_0_5": 1
+      "probability": 0.43331350980696665,
+      "predicted_class_0_5": 0
     },
     {
       "fold": 4,
       "row_index": 1,
       "patient": "ANON14062",
       "y_true": 0,
-      "probability": 0.5928886286401509,
+      "probability": 0.6188510482788367,
       "predicted_class_0_5": 1
     },
     {
@@ -209,7 +201,7 @@
       "row_index": 6,
       "patient": "ANON26962",
       "y_true": 1,
-      "probability": 0.5830617014950594,
+      "probability": 0.6080281272304496,
       "predicted_class_0_5": 1
     },
     {
@@ -217,7 +209,7 @@
       "row_index": 11,
       "patient": "ANON43989",
       "y_true": 0,
-      "probability": 0.6489592787127276,
+      "probability": 0.6798507241797138,
       "predicted_class_0_5": 1
     },
     {
@@ -225,7 +217,7 @@
       "row_index": 16,
       "patient": "ANON53712",
       "y_true": 0,
-      "probability": 0.6256511949492882,
+      "probability": 0.6546621905924693,
       "predicted_class_0_5": 1
     },
     {
@@ -233,7 +225,7 @@
       "row_index": 21,
       "patient": "ANON63892",
       "y_true": 1,
-      "probability": 0.6989708850048388,
+      "probability": 0.732933071656477,
       "predicted_class_0_5": 1
     },
     {
@@ -241,7 +233,7 @@
       "row_index": 26,
       "patient": "ANON78234",
       "y_true": 1,
-      "probability": 0.4270635623319867,
+      "probability": 0.4331687948406203,
       "predicted_class_0_5": 0
     },
     {
@@ -249,7 +241,7 @@
       "row_index": 31,
       "patient": "ANON88214",
       "y_true": 0,
-      "probability": 0.4037424412950208,
+      "probability": 0.4068476282959822,
       "predicted_class_0_5": 0
     },
     {
@@ -257,7 +249,7 @@
       "row_index": 0,
       "patient": "ANON13320",
       "y_true": 0,
-      "probability": 0.5633887521617277,
+      "probability": 0.6165369655039423,
       "predicted_class_0_5": 1
     },
     {
@@ -265,39 +257,39 @@
       "row_index": 5,
       "patient": "ANON25835",
       "y_true": 0,
-      "probability": 0.13429136716049592,
-      "predicted_class_0_5": 0
+      "probability": 0.6460744229227575,
+      "predicted_class_0_5": 1
     },
     {
       "fold": 5,
       "row_index": 10,
       "patient": "ANON40374",
       "y_true": 1,
-      "probability": 0.4780415660518979,
-      "predicted_class_0_5": 0
+      "probability": 0.5194381189455771,
+      "predicted_class_0_5": 1
     },
     {
       "fold": 5,
       "row_index": 15,
       "patient": "ANON50016",
       "y_true": 1,
-      "probability": 0.5095600947422791,
-      "predicted_class_0_5": 1
+      "probability": 0.48376082228670136,
+      "predicted_class_0_5": 0
     },
     {
       "fold": 5,
       "row_index": 20,
       "patient": "ANON63191",
       "y_true": 1,
-      "probability": 0.6416041969025607,
-      "predicted_class_0_5": 1
+      "probability": 0.4918958528460437,
+      "predicted_class_0_5": 0
     },
     {
       "fold": 5,
       "row_index": 25,
       "patient": "ANON77500",
       "y_true": 1,
-      "probability": 0.501587018171825,
+      "probability": 0.6400399547825967,
       "predicted_class_0_5": 1
     },
     {
@@ -305,7 +297,7 @@
       "row_index": 30,
       "patient": "ANON85851",
       "y_true": 0,
-      "probability": 0.7049018609855481,
+      "probability": 0.5802147088690164,
       "predicted_class_0_5": 1
     }
   ],
@@ -401,53 +393,63 @@
         "0": 4,
         "1": 3
       },
+      "selection_method": "lasso",
       "selected_features": [
-        "original__ngtdm__Complexity_mean"
+        "original__shape__Elongation_mean"
       ],
       "selected_features_count": 1,
-      "lasso_selected_features_full": [
-        {
-          "feature": "original__ngtdm__Complexity_mean",
-          "coef": 0.9677572606495395
-        },
-        {
-          "feature": "original__glcm__ClusterTendency_max",
-          "coef": 0.7808584080916561
-        },
-        {
-          "feature": "original__glcm__DifferenceEntropy_max",
-          "coef": 0.7599595688597087
-        },
+      "intercept_only": false,
+      "selected_features_full": [
         {
           "feature": "original__shape__Elongation_mean",
-          "coef": 0.4924510681358312
+          "method": "lasso",
+          "score": 0.5464554955762602,
+          "coef": 0.5464554955762602,
+          "direction": 1
         },
         {
-          "feature": "original__glcm__MCC_max",
-          "coef": 0.3991902378807258
+          "feature": "original__shape__LeastAxisLength_mean",
+          "method": "lasso",
+          "score": 0.28799273713029316,
+          "coef": -0.28799273713029316,
+          "direction": -1
         },
         {
-          "feature": "original__shape__LeastAxisLength_max",
-          "coef": 0.3878620383382075
-        },
-        {
-          "feature": "original__glcm__Autocorrelation_max",
-          "coef": 0.143829894097222
-        },
-        {
-          "feature": "original__firstorder__10Percentile_max",
-          "coef": 0.06713441401049325
-        },
-        {
-          "feature": "original__glcm__Contrast_mean",
-          "coef": 0.0029406756346873598
+          "feature": "original__firstorder__10Percentile_mean",
+          "method": "lasso",
+          "score": 0.05604150663402917,
+          "coef": 0.05604150663402917,
+          "direction": 1
         }
       ],
-      "final_model_intercept": 0.2923764455639018,
+      "lasso_selected_features_full": [
+        {
+          "feature": "original__shape__Elongation_mean",
+          "method": "lasso",
+          "score": 0.5464554955762602,
+          "coef": 0.5464554955762602,
+          "direction": 1
+        },
+        {
+          "feature": "original__shape__LeastAxisLength_mean",
+          "method": "lasso",
+          "score": 0.28799273713029316,
+          "coef": -0.28799273713029316,
+          "direction": -1
+        },
+        {
+          "feature": "original__firstorder__10Percentile_mean",
+          "method": "lasso",
+          "score": 0.05604150663402917,
+          "coef": 0.05604150663402917,
+          "direction": 1
+        }
+      ],
+      "final_model_intercept": 0.40125617743387587,
       "final_model_coefficients": [
         {
-          "feature": "original__ngtdm__Complexity_mean",
-          "coef": 1.3789903017237921
+          "feature": "original__shape__Elongation_mean",
+          "coef": 0.5294873480685047
         }
       ],
       "predictions": [
@@ -456,23 +458,23 @@
           "row_index": 4,
           "patient": "ANON24466",
           "y_true": 1,
-          "probability": 0.4883115649941287,
-          "predicted_class_0_5": 0
+          "probability": 0.653348628005991,
+          "predicted_class_0_5": 1
         },
         {
           "fold": 1,
           "row_index": 9,
           "patient": "ANON39031",
           "y_true": 0,
-          "probability": 0.6865620582270564,
-          "predicted_class_0_5": 1
+          "probability": 0.4393620062918197,
+          "predicted_class_0_5": 0
         },
         {
           "fold": 1,
           "row_index": 14,
           "patient": "ANON48611",
           "y_true": 0,
-          "probability": 0.5137888423185581,
+          "probability": 0.6642799821479295,
           "predicted_class_0_5": 1
         },
         {
@@ -480,7 +482,7 @@
           "row_index": 19,
           "patient": "ANON62995",
           "y_true": 0,
-          "probability": 0.7208102386540611,
+          "probability": 0.637392077843962,
           "predicted_class_0_5": 1
         },
         {
@@ -488,7 +490,7 @@
           "row_index": 24,
           "patient": "ANON75224",
           "y_true": 1,
-          "probability": 0.7505863911665493,
+          "probability": 0.5932042771210464,
           "predicted_class_0_5": 1
         },
         {
@@ -496,7 +498,7 @@
           "row_index": 29,
           "patient": "ANON82809",
           "y_true": 0,
-          "probability": 0.5156161474920434,
+          "probability": 0.5957116319306144,
           "predicted_class_0_5": 1
         },
         {
@@ -504,7 +506,7 @@
           "row_index": 34,
           "patient": "ANON90961",
           "y_true": 1,
-          "probability": 0.7571493964476685,
+          "probability": 0.75310067361127,
           "predicted_class_0_5": 1
         }
       ],
@@ -514,39 +516,7 @@
           "row_index": 34,
           "patient": "ANON90961",
           "y_true": 1,
-          "probability": 0.7571493964476685,
-          "predicted_class_0_5": 1
-        },
-        {
-          "fold": 1,
-          "row_index": 24,
-          "patient": "ANON75224",
-          "y_true": 1,
-          "probability": 0.7505863911665493,
-          "predicted_class_0_5": 1
-        },
-        {
-          "fold": 1,
-          "row_index": 19,
-          "patient": "ANON62995",
-          "y_true": 0,
-          "probability": 0.7208102386540611,
-          "predicted_class_0_5": 1
-        },
-        {
-          "fold": 1,
-          "row_index": 9,
-          "patient": "ANON39031",
-          "y_true": 0,
-          "probability": 0.6865620582270564,
-          "predicted_class_0_5": 1
-        },
-        {
-          "fold": 1,
-          "row_index": 29,
-          "patient": "ANON82809",
-          "y_true": 0,
-          "probability": 0.5156161474920434,
+          "probability": 0.75310067361127,
           "predicted_class_0_5": 1
         },
         {
@@ -554,7 +524,7 @@
           "row_index": 14,
           "patient": "ANON48611",
           "y_true": 0,
-          "probability": 0.5137888423185581,
+          "probability": 0.6642799821479295,
           "predicted_class_0_5": 1
         },
         {
@@ -562,14 +532,46 @@
           "row_index": 4,
           "patient": "ANON24466",
           "y_true": 1,
-          "probability": 0.4883115649941287,
+          "probability": 0.653348628005991,
+          "predicted_class_0_5": 1
+        },
+        {
+          "fold": 1,
+          "row_index": 19,
+          "patient": "ANON62995",
+          "y_true": 0,
+          "probability": 0.637392077843962,
+          "predicted_class_0_5": 1
+        },
+        {
+          "fold": 1,
+          "row_index": 29,
+          "patient": "ANON82809",
+          "y_true": 0,
+          "probability": 0.5957116319306144,
+          "predicted_class_0_5": 1
+        },
+        {
+          "fold": 1,
+          "row_index": 24,
+          "patient": "ANON75224",
+          "y_true": 1,
+          "probability": 0.5932042771210464,
+          "predicted_class_0_5": 1
+        },
+        {
+          "fold": 1,
+          "row_index": 9,
+          "patient": "ANON39031",
+          "y_true": 0,
+          "probability": 0.4393620062918197,
           "predicted_class_0_5": 0
         }
       ]
     },
     {
       "fold": 2,
-      "auc": 0.9,
+      "auc": 0.7,
       "n_train": 28,
       "n_test": 7,
       "train_indices": [
@@ -658,53 +660,49 @@
         "1": 5,
         "0": 2
       },
+      "selection_method": "lasso",
       "selected_features": [
-        "original__ngtdm__Complexity_mean"
+        "original__shape__Elongation_mean"
       ],
       "selected_features_count": 1,
-      "lasso_selected_features_full": [
-        {
-          "feature": "original__ngtdm__Complexity_mean",
-          "coef": 2.1126868003398207
-        },
-        {
-          "feature": "original__glcm__ClusterTendency_max",
-          "coef": 0.6957138595535262
-        },
+      "intercept_only": false,
+      "selected_features_full": [
         {
           "feature": "original__shape__Elongation_mean",
-          "coef": 0.3352679379517834
+          "method": "lasso",
+          "score": 0.422870569441826,
+          "coef": 0.422870569441826,
+          "direction": 1
         },
         {
-          "feature": "original__firstorder__InterquartileRange_max",
-          "coef": -0.25301038907346496
-        },
-        {
-          "feature": "original__shape__Sphericity_max",
-          "coef": 0.2429833144271235
-        },
-        {
-          "feature": "original__shape__Flatness_max",
-          "coef": -0.15318387736321784
-        },
-        {
-          "feature": "original__shape__LeastAxisLength_mean",
-          "coef": 0.053678250606680605
-        },
-        {
-          "feature": "original__glcm__DifferenceEntropy_max",
-          "coef": 0.04945703364253455
-        },
-        {
-          "feature": "original__glcm__Correlation_max",
-          "coef": 0.04089773517294606
+          "feature": "original__firstorder__Kurtosis_mean",
+          "method": "lasso",
+          "score": 0.09518019840067926,
+          "coef": -0.09518019840067926,
+          "direction": -1
         }
       ],
-      "final_model_intercept": 0.0,
+      "lasso_selected_features_full": [
+        {
+          "feature": "original__shape__Elongation_mean",
+          "method": "lasso",
+          "score": 0.422870569441826,
+          "coef": 0.422870569441826,
+          "direction": 1
+        },
+        {
+          "feature": "original__firstorder__Kurtosis_mean",
+          "method": "lasso",
+          "score": 0.09518019840067926,
+          "coef": -0.09518019840067926,
+          "direction": -1
+        }
+      ],
+      "final_model_intercept": 0.1320016855255778,
       "final_model_coefficients": [
         {
-          "feature": "original__ngtdm__Complexity_mean",
-          "coef": 1.5736286057113067
+          "feature": "original__shape__Elongation_mean",
+          "coef": 0.4940349982923054
         }
       ],
       "predictions": [
@@ -713,15 +711,15 @@
           "row_index": 3,
           "patient": "ANON18198",
           "y_true": 1,
-          "probability": 0.6544915399476102,
-          "predicted_class_0_5": 1
+          "probability": 0.4541898486951427,
+          "predicted_class_0_5": 0
         },
         {
           "fold": 2,
           "row_index": 8,
           "patient": "ANON38529",
           "y_true": 0,
-          "probability": 0.22652201502642294,
+          "probability": 0.3610162222255044,
           "predicted_class_0_5": 0
         },
         {
@@ -729,7 +727,7 @@
           "row_index": 13,
           "patient": "ANON47609",
           "y_true": 1,
-          "probability": 0.6361833786202246,
+          "probability": 0.7278743881125217,
           "predicted_class_0_5": 1
         },
         {
@@ -737,49 +735,65 @@
           "row_index": 18,
           "patient": "ANON57821",
           "y_true": 0,
-          "probability": 0.08422595964121124,
-          "predicted_class_0_5": 0
+          "probability": 0.6857687240864756,
+          "predicted_class_0_5": 1
         },
         {
           "fold": 2,
           "row_index": 23,
           "patient": "ANON71293",
           "y_true": 1,
-          "probability": 0.3069642881033193,
-          "predicted_class_0_5": 0
+          "probability": 0.6254905335622208,
+          "predicted_class_0_5": 1
         },
         {
           "fold": 2,
           "row_index": 28,
           "patient": "ANON82646",
           "y_true": 1,
-          "probability": 0.13013483835707826,
-          "predicted_class_0_5": 0
+          "probability": 0.7132657149382581,
+          "predicted_class_0_5": 1
         },
         {
           "fold": 2,
           "row_index": 33,
           "patient": "ANON89597",
           "y_true": 1,
-          "probability": 0.3978127465127868,
-          "predicted_class_0_5": 0
+          "probability": 0.5494259808185141,
+          "predicted_class_0_5": 1
         }
       ],
       "predictions_sorted_by_probability": [
         {
           "fold": 2,
-          "row_index": 3,
-          "patient": "ANON18198",
+          "row_index": 13,
+          "patient": "ANON47609",
           "y_true": 1,
-          "probability": 0.6544915399476102,
+          "probability": 0.7278743881125217,
           "predicted_class_0_5": 1
         },
         {
           "fold": 2,
-          "row_index": 13,
-          "patient": "ANON47609",
+          "row_index": 28,
+          "patient": "ANON82646",
           "y_true": 1,
-          "probability": 0.6361833786202246,
+          "probability": 0.7132657149382581,
+          "predicted_class_0_5": 1
+        },
+        {
+          "fold": 2,
+          "row_index": 18,
+          "patient": "ANON57821",
+          "y_true": 0,
+          "probability": 0.6857687240864756,
+          "predicted_class_0_5": 1
+        },
+        {
+          "fold": 2,
+          "row_index": 23,
+          "patient": "ANON71293",
+          "y_true": 1,
+          "probability": 0.6254905335622208,
           "predicted_class_0_5": 1
         },
         {
@@ -787,15 +801,15 @@
           "row_index": 33,
           "patient": "ANON89597",
           "y_true": 1,
-          "probability": 0.3978127465127868,
-          "predicted_class_0_5": 0
+          "probability": 0.5494259808185141,
+          "predicted_class_0_5": 1
         },
         {
           "fold": 2,
-          "row_index": 23,
-          "patient": "ANON71293",
+          "row_index": 3,
+          "patient": "ANON18198",
           "y_true": 1,
-          "probability": 0.3069642881033193,
+          "probability": 0.4541898486951427,
           "predicted_class_0_5": 0
         },
         {
@@ -803,30 +817,14 @@
           "row_index": 8,
           "patient": "ANON38529",
           "y_true": 0,
-          "probability": 0.22652201502642294,
-          "predicted_class_0_5": 0
-        },
-        {
-          "fold": 2,
-          "row_index": 28,
-          "patient": "ANON82646",
-          "y_true": 1,
-          "probability": 0.13013483835707826,
-          "predicted_class_0_5": 0
-        },
-        {
-          "fold": 2,
-          "row_index": 18,
-          "patient": "ANON57821",
-          "y_true": 0,
-          "probability": 0.08422595964121124,
+          "probability": 0.3610162222255044,
           "predicted_class_0_5": 0
         }
       ]
     },
     {
       "fold": 3,
-      "auc": 0.6,
+      "auc": 0.5,
       "n_train": 28,
       "n_test": 7,
       "train_indices": [
@@ -915,57 +913,77 @@
         "1": 5,
         "0": 2
       },
+      "selection_method": "lasso",
       "selected_features": [
-        "original__glcm__Contrast_mean"
+        "original__shape__Elongation_mean"
       ],
       "selected_features_count": 1,
-      "lasso_selected_features_full": [
-        {
-          "feature": "original__glcm__Contrast_mean",
-          "coef": 1.0665914325204677
-        },
-        {
-          "feature": "original__ngtdm__Complexity_mean",
-          "coef": 1.0537846048193238
-        },
-        {
-          "feature": "original__glcm__Correlation_max",
-          "coef": 1.0141944268374135
-        },
-        {
-          "feature": "original__glcm__DifferenceEntropy_max",
-          "coef": 0.6053292806076571
-        },
-        {
-          "feature": "original__shape__Elongation_max",
-          "coef": 0.49056429697702814
-        },
-        {
-          "feature": "original__firstorder__InterquartileRange_max",
-          "coef": -0.4764326345081527
-        },
+      "intercept_only": false,
+      "selected_features_full": [
         {
           "feature": "original__shape__Elongation_mean",
-          "coef": 0.40408606636507827
+          "method": "lasso",
+          "score": 0.7871198095461523,
+          "coef": 0.7871198095461523,
+          "direction": 1
         },
         {
           "feature": "original__firstorder__10Percentile_mean",
-          "coef": -0.14620870971661115
+          "method": "lasso",
+          "score": 0.4378829391748801,
+          "coef": -0.4378829391748801,
+          "direction": -1
         },
         {
-          "feature": "original__shape__Sphericity_max",
-          "coef": 0.10956192551492944
+          "feature": "original__shape__LeastAxisLength_mean",
+          "method": "lasso",
+          "score": 0.19474299530005837,
+          "coef": -0.19474299530005837,
+          "direction": -1
         },
         {
-          "feature": "original__firstorder__90Percentile_max",
-          "coef": -0.05572061304927935
+          "feature": "original__shape__Elongation_max",
+          "method": "lasso",
+          "score": 0.015129616161701638,
+          "coef": 0.015129616161701638,
+          "direction": 1
         }
       ],
-      "final_model_intercept": 0.0,
+      "lasso_selected_features_full": [
+        {
+          "feature": "original__shape__Elongation_mean",
+          "method": "lasso",
+          "score": 0.7871198095461523,
+          "coef": 0.7871198095461523,
+          "direction": 1
+        },
+        {
+          "feature": "original__firstorder__10Percentile_mean",
+          "method": "lasso",
+          "score": 0.4378829391748801,
+          "coef": -0.4378829391748801,
+          "direction": -1
+        },
+        {
+          "feature": "original__shape__LeastAxisLength_mean",
+          "method": "lasso",
+          "score": 0.19474299530005837,
+          "coef": -0.19474299530005837,
+          "direction": -1
+        },
+        {
+          "feature": "original__shape__Elongation_max",
+          "method": "lasso",
+          "score": 0.015129616161701638,
+          "coef": 0.015129616161701638,
+          "direction": 1
+        }
+      ],
+      "final_model_intercept": 0.13543513351147837,
       "final_model_coefficients": [
         {
-          "feature": "original__glcm__Contrast_mean",
-          "coef": 0.5270744375747327
+          "feature": "original__shape__Elongation_mean",
+          "coef": 0.7223466664540803
         }
       ],
       "predictions": [
@@ -974,15 +992,15 @@
           "row_index": 2,
           "patient": "ANON17952",
           "y_true": 0,
-          "probability": 0.5918192737087768,
-          "predicted_class_0_5": 1
+          "probability": 0.44629075573745414,
+          "predicted_class_0_5": 0
         },
         {
           "fold": 3,
           "row_index": 7,
           "patient": "ANON37943",
           "y_true": 1,
-          "probability": 0.5162804535799185,
+          "probability": 0.5800889717558081,
           "predicted_class_0_5": 1
         },
         {
@@ -990,23 +1008,57 @@
           "row_index": 12,
           "patient": "ANON44468",
           "y_true": 1,
-          "probability": 0.49518435369806035,
-          "predicted_class_0_5": 0
+          "probability": 0.5784051143644178,
+          "predicted_class_0_5": 1
         },
         {
           "fold": 3,
           "row_index": 17,
           "patient": "ANON56684",
           "y_true": 1,
-          "probability": 0.7230725372528213,
-          "predicted_class_0_5": 1
+          "probability": 0.2854068592343156,
+          "predicted_class_0_5": 0
         },
         {
           "fold": 3,
           "row_index": 22,
           "patient": "ANON69454",
           "y_true": 1,
-          "probability": 0.535848782069967,
+          "probability": 0.44856347622154924,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 3,
+          "row_index": 27,
+          "patient": "ANON78958",
+          "y_true": 0,
+          "probability": 0.5037780313334125,
+          "predicted_class_0_5": 1
+        },
+        {
+          "fold": 3,
+          "row_index": 32,
+          "patient": "ANON88599",
+          "y_true": 1,
+          "probability": 0.43331350980696665,
+          "predicted_class_0_5": 0
+        }
+      ],
+      "predictions_sorted_by_probability": [
+        {
+          "fold": 3,
+          "row_index": 7,
+          "patient": "ANON37943",
+          "y_true": 1,
+          "probability": 0.5800889717558081,
+          "predicted_class_0_5": 1
+        },
+        {
+          "fold": 3,
+          "row_index": 12,
+          "patient": "ANON44468",
+          "y_true": 1,
+          "probability": 0.5784051143644178,
           "predicted_class_0_5": 1
         },
         {
@@ -1014,73 +1066,39 @@
           "row_index": 27,
           "patient": "ANON78958",
           "y_true": 0,
-          "probability": 0.3645379638538065,
-          "predicted_class_0_5": 0
+          "probability": 0.5037780313334125,
+          "predicted_class_0_5": 1
         },
         {
           "fold": 3,
-          "row_index": 32,
-          "patient": "ANON88599",
+          "row_index": 22,
+          "patient": "ANON69454",
           "y_true": 1,
-          "probability": 0.5733458263683655,
-          "predicted_class_0_5": 1
-        }
-      ],
-      "predictions_sorted_by_probability": [
-        {
-          "fold": 3,
-          "row_index": 17,
-          "patient": "ANON56684",
-          "y_true": 1,
-          "probability": 0.7230725372528213,
-          "predicted_class_0_5": 1
+          "probability": 0.44856347622154924,
+          "predicted_class_0_5": 0
         },
         {
           "fold": 3,
           "row_index": 2,
           "patient": "ANON17952",
           "y_true": 0,
-          "probability": 0.5918192737087768,
-          "predicted_class_0_5": 1
+          "probability": 0.44629075573745414,
+          "predicted_class_0_5": 0
         },
         {
           "fold": 3,
           "row_index": 32,
           "patient": "ANON88599",
           "y_true": 1,
-          "probability": 0.5733458263683655,
-          "predicted_class_0_5": 1
-        },
-        {
-          "fold": 3,
-          "row_index": 22,
-          "patient": "ANON69454",
-          "y_true": 1,
-          "probability": 0.535848782069967,
-          "predicted_class_0_5": 1
-        },
-        {
-          "fold": 3,
-          "row_index": 7,
-          "patient": "ANON37943",
-          "y_true": 1,
-          "probability": 0.5162804535799185,
-          "predicted_class_0_5": 1
-        },
-        {
-          "fold": 3,
-          "row_index": 12,
-          "patient": "ANON44468",
-          "y_true": 1,
-          "probability": 0.49518435369806035,
+          "probability": 0.43331350980696665,
           "predicted_class_0_5": 0
         },
         {
           "fold": 3,
-          "row_index": 27,
-          "patient": "ANON78958",
-          "y_true": 0,
-          "probability": 0.3645379638538065,
+          "row_index": 17,
+          "patient": "ANON56684",
+          "y_true": 1,
+          "probability": 0.2854068592343156,
           "predicted_class_0_5": 0
         }
       ]
@@ -1176,57 +1194,77 @@
         "0": 4,
         "1": 3
       },
+      "selection_method": "lasso",
       "selected_features": [
         "original__shape__Elongation_mean"
       ],
       "selected_features_count": 1,
-      "lasso_selected_features_full": [
+      "intercept_only": false,
+      "selected_features_full": [
         {
           "feature": "original__shape__Elongation_mean",
-          "coef": 1.258728158483524
+          "method": "lasso",
+          "score": 1.2127803159931423,
+          "coef": 1.2127803159931423,
+          "direction": 1
         },
         {
-          "feature": "original__glcm__DifferenceEntropy_max",
-          "coef": 1.0679371073958022
-        },
-        {
-          "feature": "original__glcm__Contrast_mean",
-          "coef": 0.6579507355701907
-        },
-        {
-          "feature": "original__glcm__ClusterTendency_max",
-          "coef": 0.44666408367639127
-        },
-        {
-          "feature": "original__ngtdm__Complexity_mean",
-          "coef": 0.2810040627556177
-        },
-        {
-          "feature": "original__shape__Flatness_max",
-          "coef": -0.25014631744672344
+          "feature": "original__shape__LeastAxisLength_mean",
+          "method": "lasso",
+          "score": 0.7053364729345505,
+          "coef": -0.7053364729345505,
+          "direction": -1
         },
         {
           "feature": "original__shape__Elongation_max",
-          "coef": -0.21490318625203056
+          "method": "lasso",
+          "score": 0.46081029891805436,
+          "coef": -0.46081029891805436,
+          "direction": -1
         },
         {
-          "feature": "original__firstorder__InterquartileRange_max",
-          "coef": -0.062098320875125956
-        },
-        {
-          "feature": "original__shape__LeastAxisLength_max",
-          "coef": -0.03631277008841034
-        },
-        {
-          "feature": "original__glcm__Correlation_max",
-          "coef": 0.007062002534854235
+          "feature": "original__firstorder__Kurtosis_mean",
+          "method": "lasso",
+          "score": 0.030411101619292072,
+          "coef": -0.030411101619292072,
+          "direction": -1
         }
       ],
-      "final_model_intercept": 0.31174267947199374,
+      "lasso_selected_features_full": [
+        {
+          "feature": "original__shape__Elongation_mean",
+          "method": "lasso",
+          "score": 1.2127803159931423,
+          "coef": 1.2127803159931423,
+          "direction": 1
+        },
+        {
+          "feature": "original__shape__LeastAxisLength_mean",
+          "method": "lasso",
+          "score": 0.7053364729345505,
+          "coef": -0.7053364729345505,
+          "direction": -1
+        },
+        {
+          "feature": "original__shape__Elongation_max",
+          "method": "lasso",
+          "score": 0.46081029891805436,
+          "coef": -0.46081029891805436,
+          "direction": -1
+        },
+        {
+          "feature": "original__firstorder__Kurtosis_mean",
+          "method": "lasso",
+          "score": 0.030411101619292072,
+          "coef": -0.030411101619292072,
+          "direction": -1
+        }
+      ],
+      "final_model_intercept": 0.4124629966796754,
       "final_model_coefficients": [
         {
           "feature": "original__shape__Elongation_mean",
-          "coef": 0.5923821070766282
+          "coef": 0.6665417797640273
         }
       ],
       "predictions": [
@@ -1235,7 +1273,7 @@
           "row_index": 1,
           "patient": "ANON14062",
           "y_true": 0,
-          "probability": 0.5928886286401509,
+          "probability": 0.6188510482788367,
           "predicted_class_0_5": 1
         },
         {
@@ -1243,7 +1281,7 @@
           "row_index": 6,
           "patient": "ANON26962",
           "y_true": 1,
-          "probability": 0.5830617014950594,
+          "probability": 0.6080281272304496,
           "predicted_class_0_5": 1
         },
         {
@@ -1251,7 +1289,7 @@
           "row_index": 11,
           "patient": "ANON43989",
           "y_true": 0,
-          "probability": 0.6489592787127276,
+          "probability": 0.6798507241797138,
           "predicted_class_0_5": 1
         },
         {
@@ -1259,7 +1297,7 @@
           "row_index": 16,
           "patient": "ANON53712",
           "y_true": 0,
-          "probability": 0.6256511949492882,
+          "probability": 0.6546621905924693,
           "predicted_class_0_5": 1
         },
         {
@@ -1267,7 +1305,7 @@
           "row_index": 21,
           "patient": "ANON63892",
           "y_true": 1,
-          "probability": 0.6989708850048388,
+          "probability": 0.732933071656477,
           "predicted_class_0_5": 1
         },
         {
@@ -1275,7 +1313,7 @@
           "row_index": 26,
           "patient": "ANON78234",
           "y_true": 1,
-          "probability": 0.4270635623319867,
+          "probability": 0.4331687948406203,
           "predicted_class_0_5": 0
         },
         {
@@ -1283,7 +1321,7 @@
           "row_index": 31,
           "patient": "ANON88214",
           "y_true": 0,
-          "probability": 0.4037424412950208,
+          "probability": 0.4068476282959822,
           "predicted_class_0_5": 0
         }
       ],
@@ -1293,7 +1331,7 @@
           "row_index": 21,
           "patient": "ANON63892",
           "y_true": 1,
-          "probability": 0.6989708850048388,
+          "probability": 0.732933071656477,
           "predicted_class_0_5": 1
         },
         {
@@ -1301,7 +1339,7 @@
           "row_index": 11,
           "patient": "ANON43989",
           "y_true": 0,
-          "probability": 0.6489592787127276,
+          "probability": 0.6798507241797138,
           "predicted_class_0_5": 1
         },
         {
@@ -1309,7 +1347,7 @@
           "row_index": 16,
           "patient": "ANON53712",
           "y_true": 0,
-          "probability": 0.6256511949492882,
+          "probability": 0.6546621905924693,
           "predicted_class_0_5": 1
         },
         {
@@ -1317,7 +1355,7 @@
           "row_index": 1,
           "patient": "ANON14062",
           "y_true": 0,
-          "probability": 0.5928886286401509,
+          "probability": 0.6188510482788367,
           "predicted_class_0_5": 1
         },
         {
@@ -1325,7 +1363,7 @@
           "row_index": 6,
           "patient": "ANON26962",
           "y_true": 1,
-          "probability": 0.5830617014950594,
+          "probability": 0.6080281272304496,
           "predicted_class_0_5": 1
         },
         {
@@ -1333,7 +1371,7 @@
           "row_index": 26,
           "patient": "ANON78234",
           "y_true": 1,
-          "probability": 0.4270635623319867,
+          "probability": 0.4331687948406203,
           "predicted_class_0_5": 0
         },
         {
@@ -1341,14 +1379,14 @@
           "row_index": 31,
           "patient": "ANON88214",
           "y_true": 0,
-          "probability": 0.4037424412950208,
+          "probability": 0.4068476282959822,
           "predicted_class_0_5": 0
         }
       ]
     },
     {
       "fold": 5,
-      "auc": 0.4166666666666667,
+      "auc": 0.16666666666666669,
       "n_train": 28,
       "n_test": 7,
       "train_indices": [
@@ -1437,53 +1475,91 @@
         "1": 4,
         "0": 3
       },
+      "selection_method": "lasso",
       "selected_features": [
-        "original__glcm__DifferenceEntropy_max"
+        "original__shape__LeastAxisLength_mean"
       ],
       "selected_features_count": 1,
-      "lasso_selected_features_full": [
+      "intercept_only": false,
+      "selected_features_full": [
         {
-          "feature": "original__glcm__DifferenceEntropy_max",
-          "coef": 0.9199097194961372
+          "feature": "original__shape__LeastAxisLength_mean",
+          "method": "lasso",
+          "score": 0.4179354900264663,
+          "coef": -0.4179354900264663,
+          "direction": -1
         },
         {
           "feature": "original__shape__Elongation_max",
-          "coef": 0.6233569133353863
+          "method": "lasso",
+          "score": 0.4129834371658017,
+          "coef": 0.4129834371658017,
+          "direction": 1
         },
         {
-          "feature": "original__glcm__Contrast_mean",
-          "coef": 0.6201738473725712
-        },
-        {
-          "feature": "original__ngtdm__Complexity_mean",
-          "coef": 0.5198406890169892
-        },
-        {
-          "feature": "original__glcm__MCC_max",
-          "coef": 0.40994755758517776
-        },
-        {
-          "feature": "original__glcm__Correlation_max",
-          "coef": 0.31512613029189296
-        },
-        {
-          "feature": "original__glcm__Cluster1ominence_mean",
-          "coef": 0.28703744854426877
-        },
-        {
-          "feature": "original__shape__Sphericity_max",
-          "coef": 0.08024799551689842
+          "feature": "original__firstorder__10Percentile_mean",
+          "method": "lasso",
+          "score": 0.30190696667289535,
+          "coef": -0.30190696667289535,
+          "direction": -1
         },
         {
           "feature": "original__shape__Elongation_mean",
-          "coef": 0.027040055349485392
+          "method": "lasso",
+          "score": 0.12984148894256678,
+          "coef": 0.12984148894256678,
+          "direction": 1
+        },
+        {
+          "feature": "original__firstorder__Kurtosis_mean",
+          "method": "lasso",
+          "score": 0.08970651315649032,
+          "coef": -0.08970651315649032,
+          "direction": -1
         }
       ],
-      "final_model_intercept": 0.037821116952551775,
+      "lasso_selected_features_full": [
+        {
+          "feature": "original__shape__LeastAxisLength_mean",
+          "method": "lasso",
+          "score": 0.4179354900264663,
+          "coef": -0.4179354900264663,
+          "direction": -1
+        },
+        {
+          "feature": "original__shape__Elongation_max",
+          "method": "lasso",
+          "score": 0.4129834371658017,
+          "coef": 0.4129834371658017,
+          "direction": 1
+        },
+        {
+          "feature": "original__firstorder__10Percentile_mean",
+          "method": "lasso",
+          "score": 0.30190696667289535,
+          "coef": -0.30190696667289535,
+          "direction": -1
+        },
+        {
+          "feature": "original__shape__Elongation_mean",
+          "method": "lasso",
+          "score": 0.12984148894256678,
+          "coef": 0.12984148894256678,
+          "direction": 1
+        },
+        {
+          "feature": "original__firstorder__Kurtosis_mean",
+          "method": "lasso",
+          "score": 0.08970651315649032,
+          "coef": -0.08970651315649032,
+          "direction": -1
+        }
+      ],
+      "final_model_intercept": 0.23687008094996548,
       "final_model_coefficients": [
         {
-          "feature": "original__glcm__DifferenceEntropy_max",
-          "coef": 1.166571025681558
+          "feature": "original__shape__LeastAxisLength_mean",
+          "coef": -0.5021383197715974
         }
       ],
       "predictions": [
@@ -1492,7 +1568,7 @@
           "row_index": 0,
           "patient": "ANON13320",
           "y_true": 0,
-          "probability": 0.5633887521617277,
+          "probability": 0.6165369655039423,
           "predicted_class_0_5": 1
         },
         {
@@ -1500,31 +1576,57 @@
           "row_index": 5,
           "patient": "ANON25835",
           "y_true": 0,
-          "probability": 0.13429136716049592,
-          "predicted_class_0_5": 0
+          "probability": 0.6460744229227575,
+          "predicted_class_0_5": 1
         },
         {
           "fold": 5,
           "row_index": 10,
           "patient": "ANON40374",
           "y_true": 1,
-          "probability": 0.4780415660518979,
-          "predicted_class_0_5": 0
+          "probability": 0.5194381189455771,
+          "predicted_class_0_5": 1
         },
         {
           "fold": 5,
           "row_index": 15,
           "patient": "ANON50016",
           "y_true": 1,
-          "probability": 0.5095600947422791,
-          "predicted_class_0_5": 1
+          "probability": 0.48376082228670136,
+          "predicted_class_0_5": 0
         },
         {
           "fold": 5,
           "row_index": 20,
           "patient": "ANON63191",
           "y_true": 1,
-          "probability": 0.6416041969025607,
+          "probability": 0.4918958528460437,
+          "predicted_class_0_5": 0
+        },
+        {
+          "fold": 5,
+          "row_index": 25,
+          "patient": "ANON77500",
+          "y_true": 1,
+          "probability": 0.6400399547825967,
+          "predicted_class_0_5": 1
+        },
+        {
+          "fold": 5,
+          "row_index": 30,
+          "patient": "ANON85851",
+          "y_true": 0,
+          "probability": 0.5802147088690164,
+          "predicted_class_0_5": 1
+        }
+      ],
+      "predictions_sorted_by_probability": [
+        {
+          "fold": 5,
+          "row_index": 5,
+          "patient": "ANON25835",
+          "y_true": 0,
+          "probability": 0.6460744229227575,
           "predicted_class_0_5": 1
         },
         {
@@ -1532,33 +1634,7 @@
           "row_index": 25,
           "patient": "ANON77500",
           "y_true": 1,
-          "probability": 0.501587018171825,
-          "predicted_class_0_5": 1
-        },
-        {
-          "fold": 5,
-          "row_index": 30,
-          "patient": "ANON85851",
-          "y_true": 0,
-          "probability": 0.7049018609855481,
-          "predicted_class_0_5": 1
-        }
-      ],
-      "predictions_sorted_by_probability": [
-        {
-          "fold": 5,
-          "row_index": 30,
-          "patient": "ANON85851",
-          "y_true": 0,
-          "probability": 0.7049018609855481,
-          "predicted_class_0_5": 1
-        },
-        {
-          "fold": 5,
-          "row_index": 20,
-          "patient": "ANON63191",
-          "y_true": 1,
-          "probability": 0.6416041969025607,
+          "probability": 0.6400399547825967,
           "predicted_class_0_5": 1
         },
         {
@@ -1566,23 +1642,15 @@
           "row_index": 0,
           "patient": "ANON13320",
           "y_true": 0,
-          "probability": 0.5633887521617277,
+          "probability": 0.6165369655039423,
           "predicted_class_0_5": 1
         },
         {
           "fold": 5,
-          "row_index": 15,
-          "patient": "ANON50016",
-          "y_true": 1,
-          "probability": 0.5095600947422791,
-          "predicted_class_0_5": 1
-        },
-        {
-          "fold": 5,
-          "row_index": 25,
-          "patient": "ANON77500",
-          "y_true": 1,
-          "probability": 0.501587018171825,
+          "row_index": 30,
+          "patient": "ANON85851",
+          "y_true": 0,
+          "probability": 0.5802147088690164,
           "predicted_class_0_5": 1
         },
         {
@@ -1590,19 +1658,27 @@
           "row_index": 10,
           "patient": "ANON40374",
           "y_true": 1,
-          "probability": 0.4780415660518979,
+          "probability": 0.5194381189455771,
+          "predicted_class_0_5": 1
+        },
+        {
+          "fold": 5,
+          "row_index": 20,
+          "patient": "ANON63191",
+          "y_true": 1,
+          "probability": 0.4918958528460437,
           "predicted_class_0_5": 0
         },
         {
           "fold": 5,
-          "row_index": 5,
-          "patient": "ANON25835",
-          "y_true": 0,
-          "probability": 0.13429136716049592,
+          "row_index": 15,
+          "patient": "ANON50016",
+          "y_true": 1,
+          "probability": 0.48376082228670136,
           "predicted_class_0_5": 0
         }
       ]
     }
   ],
-  "debug_note": "fold_details contains train/test patients, selected features, fold coefficients and patient-level predicted probabilities. Use it to verify whether identical AUC values across pruning thresholds come from identical rankings or from different models with the same fold-wise ordering."
+  "debug_note": "fold_details contains train/test patients, selected features, fold coefficients and patient-level predicted probabilities. Feature selection is performed inside each training fold."
 }

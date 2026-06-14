@@ -131,6 +131,8 @@ def _extract_row(threshold: float, analysis: dict) -> dict:
         "best_model_loocv_auc": best.get("loocv_auc") if best else None,
         "observed_prevalence": analysis.get("observed_prevalence") or sample_design.get("prevalence"),
         "primary_model_features": analysis.get("primary_model_features"),
+        "feature_selection_method": analysis.get("feature_selection_method") or (analysis.get("run_configuration") or {}).get("feature_selection_method"),
+        "selected_feature_selection_method_used": analysis.get("selected_feature_selection_method_used") or (analysis.get("run_configuration") or {}).get("selected_feature_selection_method_used"),
         "analysis_results_file": f"analysis_results_threshold_{_safe_label(threshold)}.json",
         "summary_file": f"summary_threshold_{_safe_label(threshold)}.txt",
     }

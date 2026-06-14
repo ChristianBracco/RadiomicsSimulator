@@ -6,6 +6,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score, confusion_matrix
 
+from analysis.univariate_selection import select_features, normalize_selection_method, selection_method_label
+
 
 # ============================================================
 # UTILITY
@@ -24,6 +26,7 @@ def _make_logistic_model():
     """
     return LogisticRegression(
         solver="liblinear",
+        l1_ratio=0.0,
         class_weight="balanced",
         C=1.0,
         max_iter=5000
@@ -122,98 +125,149 @@ def _top_lasso_features(selected_features, columns, n):
     return out
 
 
-def _candidate_feature_sets(X, selected_features=None, bootstrap=None):
+def _top_method_features(X, y, method, n):
+    """Return the first n features ranked by the requested selector."""
+    ranked = select_features(X, y, method=method)
+    columns = set(X.columns)
+    out = []
+    for item in ranked:
+        f = item.get("feature")
+        if f in columns and f not in out:
+            out.append(f)
+        if len(out) >= n:
+            break
+    return out, ranked[:max(n, 10)]
+
+
+def _candidate_feature_sets(
+    X,
+    y=None,
+    selected_features=None,
+    bootstrap=None,
+    selection_method="lasso",
+    selection_methods_to_compare=None,
+):
     """
-    Costruisce i modelli candidati.
+    Build candidate models.
 
-    Regola:
-    - 1 feature = prima bootstrap-stable;
-    - 3 feature = prime 3 bootstrap-stable;
-    - 5 feature = prime 5 bootstrap-stable;
-    - top3/top5/top10 LASSO = confronto esplorativo.
-
-    Se il bootstrap non ha abbastanza feature, usa fallback LASSO.
+    Families:
+    - bootstrap-stable 1/3/5 features;
+    - current primary selector top 1/3/5;
+    - univariate/penalized selector comparison: Pearson, Spearman, AUC,
+      Mann-Whitney, mutual information and LASSO.
     """
     columns = list(X.columns)
+    selection_method = normalize_selection_method(selection_method)
 
-    specs = [
-        {
-            "model_id": "one_feature_bootstrap",
-            "label": "1 feature - top bootstrap-stable",
-            "family": "bootstrap_stable",
-            "requested_n": 1,
-            "description": "Modello minimale costruito dalla feature più stabile al bootstrap."
-        },
-        {
-            "model_id": "three_feature_bootstrap",
-            "label": "3 feature - top bootstrap-stable",
-            "family": "bootstrap_stable",
-            "requested_n": 3,
-            "description": "Modello ristretto costruito dalle prime 3 feature bootstrap-stable."
-        },
-        {
-            "model_id": "five_feature_bootstrap",
-            "label": "5 feature - top bootstrap-stable",
-            "family": "bootstrap_stable",
-            "requested_n": 5,
-            "description": "Modello compatto costruito dalle prime 5 feature bootstrap-stable."
-        }
-    ]
+    if selection_methods_to_compare is None:
+        selection_methods_to_compare = [
+            "pearson",
+            "spearman",
+            "auc",
+            "mannwhitney",
+            "mutual_info",
+            "lasso",
+        ]
+
+    # Normalize and de-duplicate while preserving order.
+    normalized_methods = []
+    for method in selection_methods_to_compare:
+        try:
+            m = normalize_selection_method(method)
+        except Exception:
+            continue
+        if m not in normalized_methods:
+            normalized_methods.append(m)
 
     candidates = []
 
-    for spec in specs:
-        features = _top_bootstrap_features(
-            bootstrap,
-            columns,
-            spec["requested_n"]
-        )
+    # ------------------------------------------------------------
+    # Bootstrap-stable models
+    # ------------------------------------------------------------
+    bootstrap_specs = [
+        ("one_feature_bootstrap", "1 feature - top bootstrap-stable", 1),
+        ("three_feature_bootstrap", "3 feature - top bootstrap-stable", 3),
+        ("five_feature_bootstrap", "5 feature - top bootstrap-stable", 5),
+    ]
 
+    for model_id, label, n in bootstrap_specs:
+        features = _top_bootstrap_features(bootstrap, columns, n)
         source = "top_bootstrap_stable"
 
-        if len(features) < spec["requested_n"]:
-            features = _top_lasso_features(
-                selected_features,
-                columns,
-                spec["requested_n"]
-            )
-            source = "top_lasso_fallback"
+        if len(features) < n:
+            features = _top_lasso_features(selected_features, columns, n)
+            source = "top_primary_selection_fallback"
 
         candidates.append({
-            "model_id": spec["model_id"],
-            "label": spec["label"],
-            "family": spec["family"],
+            "model_id": model_id,
+            "label": label,
+            "family": "bootstrap_stable",
+            "selection_method": selection_method,
             "selection_source": source,
-            "features": features,
-            "n_features": len(features),
-            "requested_n": spec["requested_n"],
-            "description": spec["description"]
-        })
-
-    for n in [3, 5, 10]:
-        features = _top_lasso_features(
-            selected_features,
-            columns,
-            n
-        )
-
-        candidates.append({
-            "model_id": f"lasso_top{n}_current",
-            "label": f"{n} feature - top LASSO current run",
-            "family": "current_run_lasso_topk",
-            "selection_source": "top_lasso_current_run",
             "features": features,
             "n_features": len(features),
             "requested_n": n,
             "description": (
-                f"Modello a {n} feature prese dalla selezione LASSO "
-                "descrittiva del run corrente. Esplorativo, perché "
-                "la selezione top-k deriva dal dataset completo."
-            )
+                "Modello compatto costruito dalle feature più stabili al bootstrap. "
+                "Se non disponibili, usa fallback dalla selezione primaria."
+            ),
         })
 
-    return candidates
+    # ------------------------------------------------------------
+    # Primary selector top-k models
+    # ------------------------------------------------------------
+    for n in [1, 3, 5]:
+        features = _top_lasso_features(selected_features, columns, n)
+        candidates.append({
+            "model_id": f"primary_{selection_method}_top{n}",
+            "label": f"{n} feature - primary {selection_method_label(selection_method)}",
+            "family": "primary_selector_topk",
+            "selection_method": selection_method,
+            "selection_source": f"top_{selection_method}_current_run",
+            "features": features,
+            "n_features": len(features),
+            "requested_n": n,
+            "description": (
+                f"Modello a {n} feature prese dalla selezione primaria corrente "
+                f"({selection_method_label(selection_method)}). Esplorativo se la "
+                "selezione deriva dal dataset completo."
+            ),
+        })
 
+    # ------------------------------------------------------------
+    # Head-to-head selector comparison
+    # ------------------------------------------------------------
+    if y is not None:
+        for method in normalized_methods:
+            for n in [1, 3, 5]:
+                features, ranking = _top_method_features(X, y, method, n)
+                candidates.append({
+                    "model_id": f"{method}_top{n}",
+                    "label": f"{n} feature - {selection_method_label(method)}",
+                    "family": "selector_comparison",
+                    "selection_method": method,
+                    "selection_source": f"top_{method}_univariate_or_penalized",
+                    "features": features,
+                    "n_features": len(features),
+                    "requested_n": n,
+                    "selection_ranking_preview": ranking,
+                    "description": (
+                        "Confronto head-to-head: cambia il metodo di selezione, "
+                        "ma il classificatore finale resta LogisticRegression."
+                    ),
+                })
+
+    # De-duplicate identical model_id entries while preserving order.
+    out = []
+    seen = set()
+    for item in candidates:
+        mid = item.get("model_id")
+        if mid in seen:
+            continue
+        seen.add(mid)
+        out.append(item)
+
+    return out
 
 # ============================================================
 # VALUTAZIONE
@@ -529,12 +583,18 @@ def benchmark_candidate_models(
     groups,
     selected_features=None,
     bootstrap=None,
-    pruning_threshold=None
+    pruning_threshold=None,
+    selection_method="lasso",
+    selection_methods_to_compare=None,
 ):
+    selection_method = normalize_selection_method(selection_method)
     candidates = _candidate_feature_sets(
         X,
+        y=y,
         selected_features=selected_features,
-        bootstrap=bootstrap
+        bootstrap=bootstrap,
+        selection_method=selection_method,
+        selection_methods_to_compare=selection_methods_to_compare,
     )
 
     results = []
@@ -551,7 +611,7 @@ def benchmark_candidate_models(
                 "status": "skipped",
                 "skip_reason": (
                     "No usable features available after pruning, "
-                    "bootstrap fallback or LASSO fallback."
+                    "bootstrap fallback or selector fallback."
                 )
             }
 
@@ -626,15 +686,17 @@ def benchmark_candidate_models(
 
     return {
         "purpose": (
-            "Compare bootstrap-stable fixed-size models against current "
-            "LASSO top-k candidates."
+            "Compare bootstrap-stable fixed-size models, the primary selector, "
+            "and univariate/penalized feature-selection strategies."
         ),
         "important_caution": (
-            "Bootstrap-stable 1/3/5 feature models are preferred for "
-            "interpretability. LASSO top-k models remain exploratory because "
-            "the top-k set is selected from the current full run."
+            "Bootstrap-stable and 1-feature models are preferred for "
+            "interpretability. Selector-comparison models are sensitivity "
+            "analyses because their top-k set is ranked on the current full run."
         ),
         "pruning_threshold": pruning_threshold,
+        "selection_method": selection_method,
+        "selection_methods_compared": selection_methods_to_compare,
         "models": results,
         "summary": results,
         "best_model_id_by_internal_score": best,
@@ -656,6 +718,8 @@ def compare_candidate_models(
     n_splits=5,
     return_details=True,
     pruning_threshold=None,
+    selection_method="lasso",
+    selection_methods_to_compare=None,
     **kwargs
 ):
     """
@@ -675,13 +739,20 @@ def compare_candidate_models(
             None
         )
 
+    if selection_method is None:
+        selection_method = kwargs.get("feature_selection_method", "lasso")
+    if selection_methods_to_compare is None:
+        selection_methods_to_compare = kwargs.get("selection_methods_to_compare", None)
+
     return benchmark_candidate_models(
         X=X,
         y=y,
         groups=groups,
         selected_features=selected_features_detail,
         bootstrap=bootstrap_features_detail,
-        pruning_threshold=pruning_threshold
+        pruning_threshold=pruning_threshold,
+        selection_method=selection_method,
+        selection_methods_to_compare=selection_methods_to_compare,
     )
 
 
@@ -692,6 +763,8 @@ def run_candidate_model_benchmark(
     selected_features=None,
     bootstrap=None,
     pruning_threshold=None,
+    selection_method="lasso",
+    selection_methods_to_compare=None,
     **kwargs
 ):
     return benchmark_candidate_models(
@@ -700,5 +773,7 @@ def run_candidate_model_benchmark(
         groups=groups,
         selected_features=selected_features,
         bootstrap=bootstrap,
-        pruning_threshold=pruning_threshold
+        pruning_threshold=pruning_threshold,
+        selection_method=selection_method,
+        selection_methods_to_compare=selection_methods_to_compare,
     )

@@ -200,6 +200,7 @@ def evaluate_dataset(
         ]
 
         model = LogisticRegression(
+            l1_ratio=0.0,
             max_iter=500
         )
 

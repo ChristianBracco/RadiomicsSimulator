@@ -113,6 +113,7 @@ def train_final_model_from_data(
     top_n_features=DEFAULT_TOP_N_FEATURES,
     dataset_summary=None,
     validation_summary=None,
+    feature_selection_method="lasso",
 ):
     """
     Train the final deployable binary classifier on all available patients.
@@ -163,8 +164,8 @@ def train_final_model_from_data(
             (
                 "classifier",
                 LogisticRegression(
-                    l1_ratio=1.0,
                     solver="liblinear",
+                    l1_ratio=0.0,
                     C=1.0,
                     max_iter=5000
                 )
@@ -234,7 +235,7 @@ def train_final_model_from_data(
         "input_file": str(input_file),
         "created_at": datetime.now().isoformat(timespec="seconds"),
         "model_type": "StandardScaler + LogisticRegression",
-        "feature_selection": "LASSO / L1 logistic regression before final fit"
+        "feature_selection": f"{feature_selection_method} before final fit"
     }
 
     joblib.dump(
@@ -252,11 +253,10 @@ def train_final_model_from_data(
             "name": "LogisticRegression",
             "solver": "liblinear",
             "C": 1.0,
-            "l1_ratio": 1.0,
             "max_iter": 5000
         },
         "feature_selection": {
-            "method": "LASSO / L1 logistic regression",
+            "method": feature_selection_method,
             "top_n_features": int(top_n_features),
             "selected_features": selected_features,
             "selected_features_detail": selected_features_detail[:top_n_features]

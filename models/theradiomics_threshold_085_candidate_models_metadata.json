@@ -1,6 +1,6 @@
 {
   "threshold": 0.85,
-  "n_saved_models": 6,
+  "n_saved_models": 24,
   "n_skipped_models": 0,
   "saved_models": [
     {
@@ -12,7 +12,7 @@
         "original__ngtdm__Complexity_max"
       ],
       "n_features": 1,
-      "joblib_path": "/mnt/data/rsim_check/RadiomicsSimulator-main/models/theradiomics_threshold_085_one_feature_bootstrap.joblib",
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_one_feature_bootstrap.joblib",
       "group_cv_mean_auc": 0.8733333333333334,
       "group_cv_std_auc": 0.155492050529208,
       "group_cv_pooled_auc": 0.8366666666666667,
@@ -30,20 +30,20 @@
       "selection_source": "top_bootstrap_stable",
       "features": [
         "original__ngtdm__Complexity_max",
-        "original__shape__Elongation_mean",
-        "original__glcm__Contrast_max"
+        "original__ngtdm__Complexity_mean",
+        "original__glcm__DifferenceEntropy_max"
       ],
       "n_features": 3,
-      "joblib_path": "/mnt/data/rsim_check/RadiomicsSimulator-main/models/theradiomics_threshold_085_three_feature_bootstrap.joblib",
-      "group_cv_mean_auc": 0.8566666666666667,
-      "group_cv_std_auc": 0.12454361128179604,
-      "group_cv_pooled_auc": 0.8533333333333333,
-      "group_cv_sensitivity": 0.8,
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_three_feature_bootstrap.joblib",
+      "group_cv_mean_auc": 0.8933333333333333,
+      "group_cv_std_auc": 0.1372750685464933,
+      "group_cv_pooled_auc": 0.8033333333333333,
+      "group_cv_sensitivity": 0.7,
       "group_cv_specificity": 0.7333333333333333,
-      "loocv_auc": 0.8833333333333333,
+      "loocv_auc": 0.84,
       "loocv_sensitivity": 0.75,
-      "loocv_specificity": 0.8,
-      "apparent_training_auc": 0.9233333333333333
+      "loocv_specificity": 0.7333333333333333,
+      "apparent_training_auc": 0.88
     },
     {
       "model_id": "five_feature_bootstrap",
@@ -52,35 +52,451 @@
       "selection_source": "top_bootstrap_stable",
       "features": [
         "original__ngtdm__Complexity_max",
-        "original__shape__Elongation_mean",
-        "original__glcm__Contrast_max",
+        "original__ngtdm__Complexity_mean",
         "original__glcm__DifferenceEntropy_max",
-        "original__gldm__LargeDependenceHighGrayLevelEmphasis_max"
+        "original__glcm__Contrast_mean",
+        "original__glcm__MCC_max"
       ],
       "n_features": 5,
-      "joblib_path": "/mnt/data/rsim_check/RadiomicsSimulator-main/models/theradiomics_threshold_085_five_feature_bootstrap.joblib",
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_five_feature_bootstrap.joblib",
       "group_cv_mean_auc": 0.8566666666666667,
-      "group_cv_std_auc": 0.12454361128179604,
-      "group_cv_pooled_auc": 0.8866666666666667,
+      "group_cv_std_auc": 0.1451436070471816,
+      "group_cv_pooled_auc": 0.8133333333333334,
       "group_cv_sensitivity": 0.75,
-      "group_cv_specificity": 0.8,
-      "loocv_auc": 0.8766666666666666,
-      "loocv_sensitivity": 0.75,
-      "loocv_specificity": 0.8,
-      "apparent_training_auc": 0.9400000000000001
+      "group_cv_specificity": 0.6,
+      "loocv_auc": 0.8500000000000001,
+      "loocv_sensitivity": 0.8,
+      "loocv_specificity": 0.7333333333333333,
+      "apparent_training_auc": 0.89
     },
     {
-      "model_id": "lasso_top3_current",
-      "label": "3 feature - top LASSO current run",
-      "family": "current_run_lasso_topk",
-      "selection_source": "top_lasso_current_run",
+      "model_id": "primary_pearson_top1",
+      "label": "1 feature - primary Pearson / point-biserial",
+      "family": "primary_selector_topk",
+      "selection_source": "top_pearson_current_run",
+      "features": [
+        "original__ngtdm__Complexity_max"
+      ],
+      "n_features": 1,
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_primary_pearson_top1.joblib",
+      "group_cv_mean_auc": 0.8733333333333334,
+      "group_cv_std_auc": 0.155492050529208,
+      "group_cv_pooled_auc": 0.8366666666666667,
+      "group_cv_sensitivity": 0.75,
+      "group_cv_specificity": 0.8,
+      "loocv_auc": 0.8666666666666667,
+      "loocv_sensitivity": 0.8,
+      "loocv_specificity": 0.7333333333333333,
+      "apparent_training_auc": 0.8766666666666667
+    },
+    {
+      "model_id": "primary_pearson_top3",
+      "label": "3 feature - primary Pearson / point-biserial",
+      "family": "primary_selector_topk",
+      "selection_source": "top_pearson_current_run",
+      "features": [
+        "original__ngtdm__Complexity_max",
+        "original__ngtdm__Complexity_mean",
+        "original__glcm__DifferenceEntropy_max"
+      ],
+      "n_features": 3,
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_primary_pearson_top3.joblib",
+      "group_cv_mean_auc": 0.8933333333333333,
+      "group_cv_std_auc": 0.1372750685464933,
+      "group_cv_pooled_auc": 0.8033333333333333,
+      "group_cv_sensitivity": 0.7,
+      "group_cv_specificity": 0.7333333333333333,
+      "loocv_auc": 0.84,
+      "loocv_sensitivity": 0.75,
+      "loocv_specificity": 0.7333333333333333,
+      "apparent_training_auc": 0.88
+    },
+    {
+      "model_id": "primary_pearson_top5",
+      "label": "5 feature - primary Pearson / point-biserial",
+      "family": "primary_selector_topk",
+      "selection_source": "top_pearson_current_run",
+      "features": [
+        "original__ngtdm__Complexity_max",
+        "original__ngtdm__Complexity_mean",
+        "original__glcm__DifferenceEntropy_max",
+        "original__glcm__Contrast_mean",
+        "original__glcm__MCC_max"
+      ],
+      "n_features": 5,
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_primary_pearson_top5.joblib",
+      "group_cv_mean_auc": 0.8566666666666667,
+      "group_cv_std_auc": 0.1451436070471816,
+      "group_cv_pooled_auc": 0.8133333333333334,
+      "group_cv_sensitivity": 0.75,
+      "group_cv_specificity": 0.6,
+      "loocv_auc": 0.8500000000000001,
+      "loocv_sensitivity": 0.8,
+      "loocv_specificity": 0.7333333333333333,
+      "apparent_training_auc": 0.89
+    },
+    {
+      "model_id": "pearson_top1",
+      "label": "1 feature - Pearson / point-biserial",
+      "family": "selector_comparison",
+      "selection_source": "top_pearson_univariate_or_penalized",
+      "features": [
+        "original__ngtdm__Complexity_max"
+      ],
+      "n_features": 1,
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_pearson_top1.joblib",
+      "group_cv_mean_auc": 0.8733333333333334,
+      "group_cv_std_auc": 0.155492050529208,
+      "group_cv_pooled_auc": 0.8366666666666667,
+      "group_cv_sensitivity": 0.75,
+      "group_cv_specificity": 0.8,
+      "loocv_auc": 0.8666666666666667,
+      "loocv_sensitivity": 0.8,
+      "loocv_specificity": 0.7333333333333333,
+      "apparent_training_auc": 0.8766666666666667
+    },
+    {
+      "model_id": "pearson_top3",
+      "label": "3 feature - Pearson / point-biserial",
+      "family": "selector_comparison",
+      "selection_source": "top_pearson_univariate_or_penalized",
+      "features": [
+        "original__ngtdm__Complexity_max",
+        "original__ngtdm__Complexity_mean",
+        "original__glcm__DifferenceEntropy_max"
+      ],
+      "n_features": 3,
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_pearson_top3.joblib",
+      "group_cv_mean_auc": 0.8933333333333333,
+      "group_cv_std_auc": 0.1372750685464933,
+      "group_cv_pooled_auc": 0.8033333333333333,
+      "group_cv_sensitivity": 0.7,
+      "group_cv_specificity": 0.7333333333333333,
+      "loocv_auc": 0.84,
+      "loocv_sensitivity": 0.75,
+      "loocv_specificity": 0.7333333333333333,
+      "apparent_training_auc": 0.88
+    },
+    {
+      "model_id": "pearson_top5",
+      "label": "5 feature - Pearson / point-biserial",
+      "family": "selector_comparison",
+      "selection_source": "top_pearson_univariate_or_penalized",
+      "features": [
+        "original__ngtdm__Complexity_max",
+        "original__ngtdm__Complexity_mean",
+        "original__glcm__DifferenceEntropy_max",
+        "original__glcm__Contrast_mean",
+        "original__glcm__MCC_max"
+      ],
+      "n_features": 5,
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_pearson_top5.joblib",
+      "group_cv_mean_auc": 0.8566666666666667,
+      "group_cv_std_auc": 0.1451436070471816,
+      "group_cv_pooled_auc": 0.8133333333333334,
+      "group_cv_sensitivity": 0.75,
+      "group_cv_specificity": 0.6,
+      "loocv_auc": 0.8500000000000001,
+      "loocv_sensitivity": 0.8,
+      "loocv_specificity": 0.7333333333333333,
+      "apparent_training_auc": 0.89
+    },
+    {
+      "model_id": "spearman_top1",
+      "label": "1 feature - Spearman rank correlation",
+      "family": "selector_comparison",
+      "selection_source": "top_spearman_univariate_or_penalized",
+      "features": [
+        "original__ngtdm__Complexity_max"
+      ],
+      "n_features": 1,
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_spearman_top1.joblib",
+      "group_cv_mean_auc": 0.8733333333333334,
+      "group_cv_std_auc": 0.155492050529208,
+      "group_cv_pooled_auc": 0.8366666666666667,
+      "group_cv_sensitivity": 0.75,
+      "group_cv_specificity": 0.8,
+      "loocv_auc": 0.8666666666666667,
+      "loocv_sensitivity": 0.8,
+      "loocv_specificity": 0.7333333333333333,
+      "apparent_training_auc": 0.8766666666666667
+    },
+    {
+      "model_id": "spearman_top3",
+      "label": "3 feature - Spearman rank correlation",
+      "family": "selector_comparison",
+      "selection_source": "top_spearman_univariate_or_penalized",
+      "features": [
+        "original__ngtdm__Complexity_max",
+        "original__ngtdm__Complexity_mean",
+        "original__glcm__DifferenceEntropy_max"
+      ],
+      "n_features": 3,
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_spearman_top3.joblib",
+      "group_cv_mean_auc": 0.8933333333333333,
+      "group_cv_std_auc": 0.1372750685464933,
+      "group_cv_pooled_auc": 0.8033333333333333,
+      "group_cv_sensitivity": 0.7,
+      "group_cv_specificity": 0.7333333333333333,
+      "loocv_auc": 0.84,
+      "loocv_sensitivity": 0.75,
+      "loocv_specificity": 0.7333333333333333,
+      "apparent_training_auc": 0.88
+    },
+    {
+      "model_id": "spearman_top5",
+      "label": "5 feature - Spearman rank correlation",
+      "family": "selector_comparison",
+      "selection_source": "top_spearman_univariate_or_penalized",
+      "features": [
+        "original__ngtdm__Complexity_max",
+        "original__ngtdm__Complexity_mean",
+        "original__glcm__DifferenceEntropy_max",
+        "original__shape__Sphericity_max",
+        "original__glcm__Contrast_mean"
+      ],
+      "n_features": 5,
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_spearman_top5.joblib",
+      "group_cv_mean_auc": 0.82,
+      "group_cv_std_auc": 0.18897383710744486,
+      "group_cv_pooled_auc": 0.8233333333333334,
+      "group_cv_sensitivity": 0.8,
+      "group_cv_specificity": 0.6666666666666666,
+      "loocv_auc": 0.8466666666666667,
+      "loocv_sensitivity": 0.8,
+      "loocv_specificity": 0.7333333333333333,
+      "apparent_training_auc": 0.89
+    },
+    {
+      "model_id": "auc_top1",
+      "label": "1 feature - Univariate ROC-AUC",
+      "family": "selector_comparison",
+      "selection_source": "top_auc_univariate_or_penalized",
+      "features": [
+        "original__ngtdm__Complexity_max"
+      ],
+      "n_features": 1,
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_auc_top1.joblib",
+      "group_cv_mean_auc": 0.8733333333333334,
+      "group_cv_std_auc": 0.155492050529208,
+      "group_cv_pooled_auc": 0.8366666666666667,
+      "group_cv_sensitivity": 0.75,
+      "group_cv_specificity": 0.8,
+      "loocv_auc": 0.8666666666666667,
+      "loocv_sensitivity": 0.8,
+      "loocv_specificity": 0.7333333333333333,
+      "apparent_training_auc": 0.8766666666666667
+    },
+    {
+      "model_id": "auc_top3",
+      "label": "3 feature - Univariate ROC-AUC",
+      "family": "selector_comparison",
+      "selection_source": "top_auc_univariate_or_penalized",
+      "features": [
+        "original__ngtdm__Complexity_max",
+        "original__ngtdm__Complexity_mean",
+        "original__glcm__DifferenceEntropy_max"
+      ],
+      "n_features": 3,
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_auc_top3.joblib",
+      "group_cv_mean_auc": 0.8933333333333333,
+      "group_cv_std_auc": 0.1372750685464933,
+      "group_cv_pooled_auc": 0.8033333333333333,
+      "group_cv_sensitivity": 0.7,
+      "group_cv_specificity": 0.7333333333333333,
+      "loocv_auc": 0.84,
+      "loocv_sensitivity": 0.75,
+      "loocv_specificity": 0.7333333333333333,
+      "apparent_training_auc": 0.88
+    },
+    {
+      "model_id": "auc_top5",
+      "label": "5 feature - Univariate ROC-AUC",
+      "family": "selector_comparison",
+      "selection_source": "top_auc_univariate_or_penalized",
+      "features": [
+        "original__ngtdm__Complexity_max",
+        "original__ngtdm__Complexity_mean",
+        "original__glcm__DifferenceEntropy_max",
+        "original__shape__Sphericity_max",
+        "original__glcm__Contrast_mean"
+      ],
+      "n_features": 5,
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_auc_top5.joblib",
+      "group_cv_mean_auc": 0.82,
+      "group_cv_std_auc": 0.18897383710744486,
+      "group_cv_pooled_auc": 0.8233333333333334,
+      "group_cv_sensitivity": 0.8,
+      "group_cv_specificity": 0.6666666666666666,
+      "loocv_auc": 0.8466666666666667,
+      "loocv_sensitivity": 0.8,
+      "loocv_specificity": 0.7333333333333333,
+      "apparent_training_auc": 0.89
+    },
+    {
+      "model_id": "mannwhitney_top1",
+      "label": "1 feature - Mann-Whitney / rank-biserial",
+      "family": "selector_comparison",
+      "selection_source": "top_mannwhitney_univariate_or_penalized",
+      "features": [
+        "original__ngtdm__Complexity_max"
+      ],
+      "n_features": 1,
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_mannwhitney_top1.joblib",
+      "group_cv_mean_auc": 0.8733333333333334,
+      "group_cv_std_auc": 0.155492050529208,
+      "group_cv_pooled_auc": 0.8366666666666667,
+      "group_cv_sensitivity": 0.75,
+      "group_cv_specificity": 0.8,
+      "loocv_auc": 0.8666666666666667,
+      "loocv_sensitivity": 0.8,
+      "loocv_specificity": 0.7333333333333333,
+      "apparent_training_auc": 0.8766666666666667
+    },
+    {
+      "model_id": "mannwhitney_top3",
+      "label": "3 feature - Mann-Whitney / rank-biserial",
+      "family": "selector_comparison",
+      "selection_source": "top_mannwhitney_univariate_or_penalized",
+      "features": [
+        "original__ngtdm__Complexity_max",
+        "original__ngtdm__Complexity_mean",
+        "original__glcm__DifferenceEntropy_max"
+      ],
+      "n_features": 3,
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_mannwhitney_top3.joblib",
+      "group_cv_mean_auc": 0.8933333333333333,
+      "group_cv_std_auc": 0.1372750685464933,
+      "group_cv_pooled_auc": 0.8033333333333333,
+      "group_cv_sensitivity": 0.7,
+      "group_cv_specificity": 0.7333333333333333,
+      "loocv_auc": 0.84,
+      "loocv_sensitivity": 0.75,
+      "loocv_specificity": 0.7333333333333333,
+      "apparent_training_auc": 0.88
+    },
+    {
+      "model_id": "mannwhitney_top5",
+      "label": "5 feature - Mann-Whitney / rank-biserial",
+      "family": "selector_comparison",
+      "selection_source": "top_mannwhitney_univariate_or_penalized",
+      "features": [
+        "original__ngtdm__Complexity_max",
+        "original__ngtdm__Complexity_mean",
+        "original__glcm__DifferenceEntropy_max",
+        "original__shape__Sphericity_max",
+        "original__glcm__Contrast_mean"
+      ],
+      "n_features": 5,
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_mannwhitney_top5.joblib",
+      "group_cv_mean_auc": 0.82,
+      "group_cv_std_auc": 0.18897383710744486,
+      "group_cv_pooled_auc": 0.8233333333333334,
+      "group_cv_sensitivity": 0.8,
+      "group_cv_specificity": 0.6666666666666666,
+      "loocv_auc": 0.8466666666666667,
+      "loocv_sensitivity": 0.8,
+      "loocv_specificity": 0.7333333333333333,
+      "apparent_training_auc": 0.89
+    },
+    {
+      "model_id": "mutual_info_top1",
+      "label": "1 feature - Mutual information",
+      "family": "selector_comparison",
+      "selection_source": "top_mutual_info_univariate_or_penalized",
+      "features": [
+        "original__ngtdm__Complexity_max"
+      ],
+      "n_features": 1,
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_mutual_info_top1.joblib",
+      "group_cv_mean_auc": 0.8733333333333334,
+      "group_cv_std_auc": 0.155492050529208,
+      "group_cv_pooled_auc": 0.8366666666666667,
+      "group_cv_sensitivity": 0.75,
+      "group_cv_specificity": 0.8,
+      "loocv_auc": 0.8666666666666667,
+      "loocv_sensitivity": 0.8,
+      "loocv_specificity": 0.7333333333333333,
+      "apparent_training_auc": 0.8766666666666667
+    },
+    {
+      "model_id": "mutual_info_top3",
+      "label": "3 feature - Mutual information",
+      "family": "selector_comparison",
+      "selection_source": "top_mutual_info_univariate_or_penalized",
+      "features": [
+        "original__ngtdm__Complexity_max",
+        "original__glcm__Contrast_mean",
+        "original__ngtdm__Complexity_mean"
+      ],
+      "n_features": 3,
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_mutual_info_top3.joblib",
+      "group_cv_mean_auc": 0.8933333333333333,
+      "group_cv_std_auc": 0.1372750685464933,
+      "group_cv_pooled_auc": 0.8533333333333333,
+      "group_cv_sensitivity": 0.8,
+      "group_cv_specificity": 0.8,
+      "loocv_auc": 0.8733333333333333,
+      "loocv_sensitivity": 0.85,
+      "loocv_specificity": 0.8,
+      "apparent_training_auc": 0.8833333333333333
+    },
+    {
+      "model_id": "mutual_info_top5",
+      "label": "5 feature - Mutual information",
+      "family": "selector_comparison",
+      "selection_source": "top_mutual_info_univariate_or_penalized",
+      "features": [
+        "original__ngtdm__Complexity_max",
+        "original__glcm__Contrast_mean",
+        "original__ngtdm__Complexity_mean",
+        "original__firstorder__Entropy_mean",
+        "original__glcm__DifferenceEntropy_max"
+      ],
+      "n_features": 5,
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_mutual_info_top5.joblib",
+      "group_cv_mean_auc": 0.8966666666666667,
+      "group_cv_std_auc": 0.1222020185321557,
+      "group_cv_pooled_auc": 0.83,
+      "group_cv_sensitivity": 0.75,
+      "group_cv_specificity": 0.6,
+      "loocv_auc": 0.8533333333333334,
+      "loocv_sensitivity": 0.8,
+      "loocv_specificity": 0.7333333333333333,
+      "apparent_training_auc": 0.8966666666666667
+    },
+    {
+      "model_id": "lasso_top1",
+      "label": "1 feature - LASSO / L1 logistic",
+      "family": "selector_comparison",
+      "selection_source": "top_lasso_univariate_or_penalized",
+      "features": [
+        "original__ngtdm__Complexity_max"
+      ],
+      "n_features": 1,
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_lasso_top1.joblib",
+      "group_cv_mean_auc": 0.8733333333333334,
+      "group_cv_std_auc": 0.155492050529208,
+      "group_cv_pooled_auc": 0.8366666666666667,
+      "group_cv_sensitivity": 0.75,
+      "group_cv_specificity": 0.8,
+      "loocv_auc": 0.8666666666666667,
+      "loocv_sensitivity": 0.8,
+      "loocv_specificity": 0.7333333333333333,
+      "apparent_training_auc": 0.8766666666666667
+    },
+    {
+      "model_id": "lasso_top3",
+      "label": "3 feature - LASSO / L1 logistic",
+      "family": "selector_comparison",
+      "selection_source": "top_lasso_univariate_or_penalized",
       "features": [
         "original__ngtdm__Complexity_max",
         "original__shape__Elongation_mean",
         "original__glcm__Contrast_max"
       ],
       "n_features": 3,
-      "joblib_path": "/mnt/data/rsim_check/RadiomicsSimulator-main/models/theradiomics_threshold_085_lasso_top3_current.joblib",
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_lasso_top3.joblib",
       "group_cv_mean_auc": 0.8566666666666667,
       "group_cv_std_auc": 0.12454361128179604,
       "group_cv_pooled_auc": 0.8533333333333333,
@@ -92,10 +508,10 @@
       "apparent_training_auc": 0.9233333333333333
     },
     {
-      "model_id": "lasso_top5_current",
-      "label": "5 feature - top LASSO current run",
-      "family": "current_run_lasso_topk",
-      "selection_source": "top_lasso_current_run",
+      "model_id": "lasso_top5",
+      "label": "5 feature - LASSO / L1 logistic",
+      "family": "selector_comparison",
+      "selection_source": "top_lasso_univariate_or_penalized",
       "features": [
         "original__ngtdm__Complexity_max",
         "original__shape__Elongation_mean",
@@ -104,7 +520,7 @@
         "original__glcm__DifferenceEntropy_max"
       ],
       "n_features": 5,
-      "joblib_path": "/mnt/data/rsim_check/RadiomicsSimulator-main/models/theradiomics_threshold_085_lasso_top5_current.joblib",
+      "joblib_path": "/Users/cbracco/Downloads/RadiomicsSimulator-main/models/theradiomics_threshold_085_lasso_top5.joblib",
       "group_cv_mean_auc": 0.8566666666666667,
       "group_cv_std_auc": 0.12454361128179604,
       "group_cv_pooled_auc": 0.8933333333333333,
@@ -114,35 +530,6 @@
       "loocv_sensitivity": 0.8,
       "loocv_specificity": 0.8666666666666667,
       "apparent_training_auc": 0.94
-    },
-    {
-      "model_id": "lasso_top10_current",
-      "label": "10 feature - top LASSO current run",
-      "family": "current_run_lasso_topk",
-      "selection_source": "top_lasso_current_run",
-      "features": [
-        "original__ngtdm__Complexity_max",
-        "original__shape__Elongation_mean",
-        "original__glcm__Contrast_max",
-        "original__firstorder__Maximum_max",
-        "original__glcm__DifferenceEntropy_max",
-        "original__glcm__ClusterTendency_max",
-        "original__gldm__LargeDependenceHighGrayLevelEmphasis_max",
-        "original__shape__Sphericity_max",
-        "original__shape__Flatness_mean",
-        "original__shape__Flatness_max"
-      ],
-      "n_features": 10,
-      "joblib_path": "/mnt/data/rsim_check/RadiomicsSimulator-main/models/theradiomics_threshold_085_lasso_top10_current.joblib",
-      "group_cv_mean_auc": 0.8933333333333333,
-      "group_cv_std_auc": 0.07039570693980958,
-      "group_cv_pooled_auc": 0.8566666666666667,
-      "group_cv_sensitivity": 0.8,
-      "group_cv_specificity": 0.6,
-      "loocv_auc": 0.8733333333333333,
-      "loocv_sensitivity": 0.85,
-      "loocv_specificity": 0.6,
-      "apparent_training_auc": 0.9866666666666667
     }
   ],
   "skipped_models": [],
@@ -154,6 +541,8 @@
     "observed_prevalence": 0.5714285714285714,
     "design_prevalence": 0.5714285714285714,
     "primary_model_features": 1,
+    "feature_selection_method": "pearson",
+    "selected_feature_selection_method_used": "pearson",
     "features_before_pruning": 214,
     "features_after_pruning": 37
   },
@@ -176,13 +565,15 @@
       ],
       "n_splits": 5,
       "top_n_features_per_fold": 1,
+      "selection_method": "pearson",
+      "intercept_only_folds": 0,
       "all_predictions": [
         {
           "fold": 1,
           "row_index": 4,
           "patient": "ANON24466",
           "y_true": 1,
-          "probability": 0.9168884570336521,
+          "probability": 0.8994661787570648,
           "predicted_class_0_5": 1
         },
         {
@@ -190,7 +581,7 @@
           "row_index": 9,
           "patient": "ANON39031",
           "y_true": 0,
-          "probability": 0.5319821104778013,
+          "probability": 0.5653188612404471,
           "predicted_class_0_5": 1
         },
         {
@@ -198,7 +589,7 @@
           "row_index": 14,
           "patient": "ANON48611",
           "y_true": 0,
-          "probability": 0.34698265460352123,
+          "probability": 0.40552452387284416,
           "predicted_class_0_5": 0
         },
         {
@@ -206,7 +597,7 @@
           "row_index": 19,
           "patient": "ANON62995",
           "y_true": 0,
-          "probability": 0.4523330396266292,
+          "probability": 0.49794667074509447,
           "predicted_class_0_5": 0
         },
         {
@@ -214,7 +605,7 @@
           "row_index": 24,
           "patient": "ANON75224",
           "y_true": 1,
-          "probability": 0.7769372295873112,
+          "probability": 0.7708296003828594,
           "predicted_class_0_5": 1
         },
         {
@@ -222,7 +613,7 @@
           "row_index": 29,
           "patient": "ANON82809",
           "y_true": 0,
-          "probability": 0.62196362095276,
+          "probability": 0.6402768050544173,
           "predicted_class_0_5": 1
         },
         {
@@ -230,7 +621,7 @@
           "row_index": 34,
           "patient": "ANON90961",
           "y_true": 1,
-          "probability": 0.9634658141701276,
+          "probability": 0.9493490740370966,
           "predicted_class_0_5": 1
         },
         {
@@ -238,7 +629,7 @@
           "row_index": 3,
           "patient": "ANON18198",
           "y_true": 1,
-          "probability": 0.43565207023132185,
+          "probability": 0.4760311967749691,
           "predicted_class_0_5": 0
         },
         {
@@ -246,7 +637,7 @@
           "row_index": 8,
           "patient": "ANON38529",
           "y_true": 0,
-          "probability": 0.023991779438239165,
+          "probability": 0.05506736685510845,
           "predicted_class_0_5": 0
         },
         {
@@ -254,7 +645,7 @@
           "row_index": 13,
           "patient": "ANON47609",
           "y_true": 1,
-          "probability": 0.5430009672767546,
+          "probability": 0.5616074003383373,
           "predicted_class_0_5": 1
         },
         {
@@ -262,7 +653,7 @@
           "row_index": 18,
           "patient": "ANON57821",
           "y_true": 0,
-          "probability": 0.131766664062822,
+          "probability": 0.1990778976388122,
           "predicted_class_0_5": 0
         },
         {
@@ -270,7 +661,7 @@
           "row_index": 23,
           "patient": "ANON71293",
           "y_true": 1,
-          "probability": 0.24079772869642802,
+          "probability": 0.3090182275999693,
           "predicted_class_0_5": 0
         },
         {
@@ -278,7 +669,7 @@
           "row_index": 28,
           "patient": "ANON82646",
           "y_true": 1,
-          "probability": 0.5331457335666486,
+          "probability": 0.5538138249092213,
           "predicted_class_0_5": 1
         },
         {
@@ -286,7 +677,7 @@
           "row_index": 33,
           "patient": "ANON89597",
           "y_true": 1,
-          "probability": 0.41629742880506204,
+          "probability": 0.4603262865402801,
           "predicted_class_0_5": 0
         },
         {
@@ -294,7 +685,7 @@
           "row_index": 2,
           "patient": "ANON17952",
           "y_true": 0,
-          "probability": 0.791456915617325,
+          "probability": 0.7839714883549223,
           "predicted_class_0_5": 1
         },
         {
@@ -302,7 +693,7 @@
           "row_index": 7,
           "patient": "ANON37943",
           "y_true": 1,
-          "probability": 0.9141371238414909,
+          "probability": 0.8987743093012608,
           "predicted_class_0_5": 1
         },
         {
@@ -310,7 +701,7 @@
           "row_index": 12,
           "patient": "ANON44468",
           "y_true": 1,
-          "probability": 0.644003607176128,
+          "probability": 0.6561693052116627,
           "predicted_class_0_5": 1
         },
         {
@@ -318,7 +709,7 @@
           "row_index": 17,
           "patient": "ANON56684",
           "y_true": 1,
-          "probability": 0.6783712594480754,
+          "probability": 0.685556376254212,
           "predicted_class_0_5": 1
         },
         {
@@ -326,7 +717,7 @@
           "row_index": 22,
           "patient": "ANON69454",
           "y_true": 1,
-          "probability": 0.7588827063656748,
+          "probability": 0.7552137379237283,
           "predicted_class_0_5": 1
         },
         {
@@ -334,7 +725,7 @@
           "row_index": 27,
           "patient": "ANON78958",
           "y_true": 0,
-          "probability": 0.0009668848040199806,
+          "probability": 0.0027647662981342778,
           "predicted_class_0_5": 0
         },
         {
@@ -342,7 +733,7 @@
           "row_index": 32,
           "patient": "ANON88599",
           "y_true": 1,
-          "probability": 0.8812434144848407,
+          "probability": 0.8665247902429906,
           "predicted_class_0_5": 1
         },
         {
@@ -350,15 +741,15 @@
           "row_index": 1,
           "patient": "ANON14062",
           "y_true": 0,
-          "probability": 0.46316498930383915,
-          "predicted_class_0_5": 0
+          "probability": 0.5037842984708818,
+          "predicted_class_0_5": 1
         },
         {
           "fold": 4,
           "row_index": 6,
           "patient": "ANON26962",
           "y_true": 1,
-          "probability": 0.957453284411006,
+          "probability": 0.9479590039347547,
           "predicted_class_0_5": 1
         },
         {
@@ -366,7 +757,7 @@
           "row_index": 11,
           "patient": "ANON43989",
           "y_true": 0,
-          "probability": 0.32179721332002154,
+          "probability": 0.37421280602927603,
           "predicted_class_0_5": 0
         },
         {
@@ -374,7 +765,7 @@
           "row_index": 16,
           "patient": "ANON53712",
           "y_true": 0,
-          "probability": 0.4037042602492247,
+          "probability": 0.45029092092157313,
           "predicted_class_0_5": 0
         },
         {
@@ -382,7 +773,7 @@
           "row_index": 21,
           "patient": "ANON63892",
           "y_true": 1,
-          "probability": 0.8925440752735114,
+          "probability": 0.8828749129313691,
           "predicted_class_0_5": 1
         },
         {
@@ -390,7 +781,7 @@
           "row_index": 26,
           "patient": "ANON78234",
           "y_true": 1,
-          "probability": 0.7110520740655816,
+          "probability": 0.7197059640646856,
           "predicted_class_0_5": 1
         },
         {
@@ -398,7 +789,7 @@
           "row_index": 31,
           "patient": "ANON88214",
           "y_true": 0,
-          "probability": 0.1946531083522921,
+          "probability": 0.24762266656022286,
           "predicted_class_0_5": 0
         },
         {
@@ -406,7 +797,7 @@
           "row_index": 0,
           "patient": "ANON13320",
           "y_true": 0,
-          "probability": 0.5501048291537541,
+          "probability": 0.5831823772351368,
           "predicted_class_0_5": 1
         },
         {
@@ -414,7 +805,7 @@
           "row_index": 5,
           "patient": "ANON25835",
           "y_true": 0,
-          "probability": 0.06040018161090471,
+          "probability": 0.13397550957981047,
           "predicted_class_0_5": 0
         },
         {
@@ -422,7 +813,7 @@
           "row_index": 10,
           "patient": "ANON40374",
           "y_true": 1,
-          "probability": 0.6498067995768706,
+          "probability": 0.6564859737231,
           "predicted_class_0_5": 1
         },
         {
@@ -430,7 +821,7 @@
           "row_index": 15,
           "patient": "ANON50016",
           "y_true": 1,
-          "probability": 0.28306737952498484,
+          "probability": 0.37537336876721666,
           "predicted_class_0_5": 0
         },
         {
@@ -438,7 +829,7 @@
           "row_index": 20,
           "patient": "ANON63191",
           "y_true": 1,
-          "probability": 0.9835005321664724,
+          "probability": 0.9623685576729951,
           "predicted_class_0_5": 1
         },
         {
@@ -446,7 +837,7 @@
           "row_index": 25,
           "patient": "ANON77500",
           "y_true": 1,
-          "probability": 0.25830823355243976,
+          "probability": 0.3536474466781353,
           "predicted_class_0_5": 0
         },
         {
@@ -454,11 +845,11 @@
           "row_index": 30,
           "patient": "ANON85851",
           "y_true": 0,
-          "probability": 0.48708967352212,
-          "predicted_class_0_5": 0
+          "probability": 0.5366582749592974,
+          "predicted_class_0_5": 1
         }
       ],
-      "debug_note": "fold_details contains train/test patients, selected features, fold coefficients and patient-level predicted probabilities. Use it to verify whether identical AUC values across pruning thresholds come from identical rankings or from different models with the same fold-wise ordering.",
+      "debug_note": "fold_details contains train/test patients, selected features, fold coefficients and patient-level predicted probabilities. Feature selection is performed inside each training fold.",
       "fold_details": [
         {
           "fold": 1,
@@ -551,57 +942,539 @@
             "0": 4,
             "1": 3
           },
+          "selection_method": "pearson",
           "selected_features": [
             "original__ngtdm__Complexity_max"
           ],
           "selected_features_count": 1,
-          "lasso_selected_features_full": [
+          "intercept_only": false,
+          "selected_features_full": [
             {
               "feature": "original__ngtdm__Complexity_max",
-              "coef": 1.5072363984134893
+              "method": "pearson",
+              "score": 0.5954282968492893,
+              "correlation": 0.5954282968492893,
+              "direction": 1
             },
             {
-              "feature": "original__glcm__ClusterTendency_max",
-              "coef": 0.6655596128651854
-            },
-            {
-              "feature": "original__shape__Elongation_mean",
-              "coef": 0.4329229538590235
+              "feature": "original__ngtdm__Complexity_mean",
+              "method": "pearson",
+              "score": 0.5104812915528424,
+              "correlation": 0.5104812915528424,
+              "direction": 1
             },
             {
               "feature": "original__glcm__DifferenceEntropy_max",
-              "coef": 0.43056233233962843
+              "method": "pearson",
+              "score": 0.4714963401426101,
+              "correlation": 0.4714963401426101,
+              "direction": 1
             },
             {
               "feature": "original__glcm__MCC_max",
-              "coef": 0.422436159915134
+              "method": "pearson",
+              "score": 0.39566936562900484,
+              "correlation": 0.39566936562900484,
+              "direction": 1
             },
             {
-              "feature": "original__shape__LeastAxisLength_max",
-              "coef": 0.3548833294118984
+              "feature": "original__glcm__Id_mean",
+              "method": "pearson",
+              "score": 0.35708911715512376,
+              "correlation": -0.35708911715512376,
+              "direction": -1
             },
             {
-              "feature": "original__firstorder__Maximum_max",
-              "coef": -0.2008727583281634
+              "feature": "original__glcm__Contrast_mean",
+              "method": "pearson",
+              "score": 0.31949438462311464,
+              "correlation": 0.31949438462311464,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__ClusterTendency_max",
+              "method": "pearson",
+              "score": 0.3060028037783629,
+              "correlation": 0.3060028037783629,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Elongation_mean",
+              "method": "pearson",
+              "score": 0.2832790922336138,
+              "correlation": 0.2832790922336138,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Sphericity_max",
+              "method": "pearson",
+              "score": 0.27642081717010275,
+              "correlation": 0.27642081717010275,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Correlation_max",
+              "method": "pearson",
+              "score": 0.2555264295397849,
+              "correlation": -0.2555264295397849,
+              "direction": -1
+            },
+            {
+              "feature": "original__gldm__LargeDependenceHighGrayLevelEmphasis_mean",
+              "method": "pearson",
+              "score": 0.23986200435279634,
+              "correlation": -0.23986200435279634,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__Contrast_max",
+              "method": "pearson",
+              "score": 0.2108911536203146,
+              "correlation": 0.2108911536203146,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__DifferenceEntropy_mean",
+              "method": "pearson",
+              "score": 0.18894839571828914,
+              "correlation": 0.18894839571828914,
+              "direction": 1
+            },
+            {
+              "feature": "original__gldm__SmallDependenceHighGrayLevelEmphasis_mean",
+              "method": "pearson",
+              "score": 0.1813130923577227,
+              "correlation": 0.1813130923577227,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__MeanAbsoluteDeviation_max",
+              "method": "pearson",
+              "score": 0.17308065986441087,
+              "correlation": 0.17308065986441087,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Flatness_mean",
+              "method": "pearson",
+              "score": 0.16215470566177712,
+              "correlation": 0.16215470566177712,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Uniformity_mean",
+              "method": "pearson",
+              "score": 0.15976416773776225,
+              "correlation": -0.15976416773776225,
+              "direction": -1
+            },
+            {
+              "feature": "original__shape__Elongation_max",
+              "method": "pearson",
+              "score": 0.14350310315802994,
+              "correlation": 0.14350310315802994,
+              "direction": 1
             },
             {
               "feature": "original__glcm__Autocorrelation_max",
-              "coef": 0.07164459481021199
+              "method": "pearson",
+              "score": 0.14278212742517893,
+              "correlation": 0.14278212742517893,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__InterquartileRange_max",
+              "method": "pearson",
+              "score": 0.13591126211746443,
+              "correlation": 0.13591126211746443,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__90Percentile_max",
+              "method": "pearson",
+              "score": 0.13193590514325926,
+              "correlation": 0.13193590514325926,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Range_max",
+              "method": "pearson",
+              "score": 0.12938979172017176,
+              "correlation": 0.12938979172017176,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__ClusterShade_max",
+              "method": "pearson",
+              "score": 0.11866535363507456,
+              "correlation": -0.11866535363507456,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__10Percentile_mean",
+              "method": "pearson",
+              "score": 0.1182050651433695,
+              "correlation": 0.1182050651433695,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__LeastAxisLength_mean",
+              "method": "pearson",
+              "score": 0.11473978629328534,
+              "correlation": -0.11473978629328534,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__ClusterTendency_mean",
+              "method": "pearson",
+              "score": 0.11332974587505411,
+              "correlation": 0.11332974587505411,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Entropy_max",
+              "method": "pearson",
+              "score": 0.09352089631375139,
+              "correlation": 0.09352089631375139,
+              "direction": 1
             },
             {
               "feature": "original__firstorder__10Percentile_max",
-              "coef": 0.058171724238664686
+              "method": "pearson",
+              "score": 0.08148049993196678,
+              "correlation": 0.08148049993196678,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__LeastAxisLength_max",
+              "method": "pearson",
+              "score": 0.06701043320994872,
+              "correlation": 0.06701043320994872,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Maximum_max",
+              "method": "pearson",
+              "score": 0.04073293673509182,
+              "correlation": 0.04073293673509182,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__SurfaceVolumeRatio_mean",
+              "method": "pearson",
+              "score": 0.026957004285595085,
+              "correlation": -0.026957004285595085,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__Cluster1ominence_mean",
+              "method": "pearson",
+              "score": 0.01805355552871357,
+              "correlation": -0.01805355552871357,
+              "direction": -1
+            },
+            {
+              "feature": "original__shape__Flatness_max",
+              "method": "pearson",
+              "score": 0.014358190536283552,
+              "correlation": -0.014358190536283552,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Kurtosis_mean",
+              "method": "pearson",
+              "score": 0.011659779154968878,
+              "correlation": 0.011659779154968878,
+              "direction": 1
             },
             {
               "feature": "original__gldm__LargeDependenceHighGrayLevelEmphasis_max",
-              "coef": 0.01014968612515352
+              "method": "pearson",
+              "score": 0.009273489687759089,
+              "correlation": 0.009273489687759089,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Entropy_mean",
+              "method": "pearson",
+              "score": 0.006476015985751558,
+              "correlation": -0.006476015985751558,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Kurtosis_max",
+              "method": "pearson",
+              "score": 0.00442039412988469,
+              "correlation": -0.00442039412988469,
+              "direction": -1
             }
           ],
-          "final_model_intercept": 0.31972858033540275,
+          "lasso_selected_features_full": [
+            {
+              "feature": "original__ngtdm__Complexity_max",
+              "method": "pearson",
+              "score": 0.5954282968492893,
+              "correlation": 0.5954282968492893,
+              "direction": 1
+            },
+            {
+              "feature": "original__ngtdm__Complexity_mean",
+              "method": "pearson",
+              "score": 0.5104812915528424,
+              "correlation": 0.5104812915528424,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__DifferenceEntropy_max",
+              "method": "pearson",
+              "score": 0.4714963401426101,
+              "correlation": 0.4714963401426101,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__MCC_max",
+              "method": "pearson",
+              "score": 0.39566936562900484,
+              "correlation": 0.39566936562900484,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Id_mean",
+              "method": "pearson",
+              "score": 0.35708911715512376,
+              "correlation": -0.35708911715512376,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__Contrast_mean",
+              "method": "pearson",
+              "score": 0.31949438462311464,
+              "correlation": 0.31949438462311464,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__ClusterTendency_max",
+              "method": "pearson",
+              "score": 0.3060028037783629,
+              "correlation": 0.3060028037783629,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Elongation_mean",
+              "method": "pearson",
+              "score": 0.2832790922336138,
+              "correlation": 0.2832790922336138,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Sphericity_max",
+              "method": "pearson",
+              "score": 0.27642081717010275,
+              "correlation": 0.27642081717010275,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Correlation_max",
+              "method": "pearson",
+              "score": 0.2555264295397849,
+              "correlation": -0.2555264295397849,
+              "direction": -1
+            },
+            {
+              "feature": "original__gldm__LargeDependenceHighGrayLevelEmphasis_mean",
+              "method": "pearson",
+              "score": 0.23986200435279634,
+              "correlation": -0.23986200435279634,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__Contrast_max",
+              "method": "pearson",
+              "score": 0.2108911536203146,
+              "correlation": 0.2108911536203146,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__DifferenceEntropy_mean",
+              "method": "pearson",
+              "score": 0.18894839571828914,
+              "correlation": 0.18894839571828914,
+              "direction": 1
+            },
+            {
+              "feature": "original__gldm__SmallDependenceHighGrayLevelEmphasis_mean",
+              "method": "pearson",
+              "score": 0.1813130923577227,
+              "correlation": 0.1813130923577227,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__MeanAbsoluteDeviation_max",
+              "method": "pearson",
+              "score": 0.17308065986441087,
+              "correlation": 0.17308065986441087,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Flatness_mean",
+              "method": "pearson",
+              "score": 0.16215470566177712,
+              "correlation": 0.16215470566177712,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Uniformity_mean",
+              "method": "pearson",
+              "score": 0.15976416773776225,
+              "correlation": -0.15976416773776225,
+              "direction": -1
+            },
+            {
+              "feature": "original__shape__Elongation_max",
+              "method": "pearson",
+              "score": 0.14350310315802994,
+              "correlation": 0.14350310315802994,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Autocorrelation_max",
+              "method": "pearson",
+              "score": 0.14278212742517893,
+              "correlation": 0.14278212742517893,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__InterquartileRange_max",
+              "method": "pearson",
+              "score": 0.13591126211746443,
+              "correlation": 0.13591126211746443,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__90Percentile_max",
+              "method": "pearson",
+              "score": 0.13193590514325926,
+              "correlation": 0.13193590514325926,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Range_max",
+              "method": "pearson",
+              "score": 0.12938979172017176,
+              "correlation": 0.12938979172017176,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__ClusterShade_max",
+              "method": "pearson",
+              "score": 0.11866535363507456,
+              "correlation": -0.11866535363507456,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__10Percentile_mean",
+              "method": "pearson",
+              "score": 0.1182050651433695,
+              "correlation": 0.1182050651433695,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__LeastAxisLength_mean",
+              "method": "pearson",
+              "score": 0.11473978629328534,
+              "correlation": -0.11473978629328534,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__ClusterTendency_mean",
+              "method": "pearson",
+              "score": 0.11332974587505411,
+              "correlation": 0.11332974587505411,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Entropy_max",
+              "method": "pearson",
+              "score": 0.09352089631375139,
+              "correlation": 0.09352089631375139,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__10Percentile_max",
+              "method": "pearson",
+              "score": 0.08148049993196678,
+              "correlation": 0.08148049993196678,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__LeastAxisLength_max",
+              "method": "pearson",
+              "score": 0.06701043320994872,
+              "correlation": 0.06701043320994872,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Maximum_max",
+              "method": "pearson",
+              "score": 0.04073293673509182,
+              "correlation": 0.04073293673509182,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__SurfaceVolumeRatio_mean",
+              "method": "pearson",
+              "score": 0.026957004285595085,
+              "correlation": -0.026957004285595085,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__Cluster1ominence_mean",
+              "method": "pearson",
+              "score": 0.01805355552871357,
+              "correlation": -0.01805355552871357,
+              "direction": -1
+            },
+            {
+              "feature": "original__shape__Flatness_max",
+              "method": "pearson",
+              "score": 0.014358190536283552,
+              "correlation": -0.014358190536283552,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Kurtosis_mean",
+              "method": "pearson",
+              "score": 0.011659779154968878,
+              "correlation": 0.011659779154968878,
+              "direction": 1
+            },
+            {
+              "feature": "original__gldm__LargeDependenceHighGrayLevelEmphasis_max",
+              "method": "pearson",
+              "score": 0.009273489687759089,
+              "correlation": 0.009273489687759089,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Entropy_mean",
+              "method": "pearson",
+              "score": 0.006476015985751558,
+              "correlation": -0.006476015985751558,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Kurtosis_max",
+              "method": "pearson",
+              "score": 0.00442039412988469,
+              "correlation": -0.00442039412988469,
+              "direction": -1
+            }
+          ],
+          "final_model_intercept": 0.42538342694772785,
           "final_model_coefficients": [
             {
               "feature": "original__ngtdm__Complexity_max",
-              "coef": 1.772240530153751
+              "coef": 1.5038592111868403
             }
           ],
           "predictions": [
@@ -610,7 +1483,7 @@
               "row_index": 4,
               "patient": "ANON24466",
               "y_true": 1,
-              "probability": 0.9168884570336521,
+              "probability": 0.8994661787570648,
               "predicted_class_0_5": 1
             },
             {
@@ -618,7 +1491,7 @@
               "row_index": 9,
               "patient": "ANON39031",
               "y_true": 0,
-              "probability": 0.5319821104778013,
+              "probability": 0.5653188612404471,
               "predicted_class_0_5": 1
             },
             {
@@ -626,7 +1499,7 @@
               "row_index": 14,
               "patient": "ANON48611",
               "y_true": 0,
-              "probability": 0.34698265460352123,
+              "probability": 0.40552452387284416,
               "predicted_class_0_5": 0
             },
             {
@@ -634,7 +1507,7 @@
               "row_index": 19,
               "patient": "ANON62995",
               "y_true": 0,
-              "probability": 0.4523330396266292,
+              "probability": 0.49794667074509447,
               "predicted_class_0_5": 0
             },
             {
@@ -642,7 +1515,7 @@
               "row_index": 24,
               "patient": "ANON75224",
               "y_true": 1,
-              "probability": 0.7769372295873112,
+              "probability": 0.7708296003828594,
               "predicted_class_0_5": 1
             },
             {
@@ -650,7 +1523,7 @@
               "row_index": 29,
               "patient": "ANON82809",
               "y_true": 0,
-              "probability": 0.62196362095276,
+              "probability": 0.6402768050544173,
               "predicted_class_0_5": 1
             },
             {
@@ -658,7 +1531,7 @@
               "row_index": 34,
               "patient": "ANON90961",
               "y_true": 1,
-              "probability": 0.9634658141701276,
+              "probability": 0.9493490740370966,
               "predicted_class_0_5": 1
             }
           ],
@@ -668,7 +1541,7 @@
               "row_index": 34,
               "patient": "ANON90961",
               "y_true": 1,
-              "probability": 0.9634658141701276,
+              "probability": 0.9493490740370966,
               "predicted_class_0_5": 1
             },
             {
@@ -676,7 +1549,7 @@
               "row_index": 4,
               "patient": "ANON24466",
               "y_true": 1,
-              "probability": 0.9168884570336521,
+              "probability": 0.8994661787570648,
               "predicted_class_0_5": 1
             },
             {
@@ -684,7 +1557,7 @@
               "row_index": 24,
               "patient": "ANON75224",
               "y_true": 1,
-              "probability": 0.7769372295873112,
+              "probability": 0.7708296003828594,
               "predicted_class_0_5": 1
             },
             {
@@ -692,7 +1565,7 @@
               "row_index": 29,
               "patient": "ANON82809",
               "y_true": 0,
-              "probability": 0.62196362095276,
+              "probability": 0.6402768050544173,
               "predicted_class_0_5": 1
             },
             {
@@ -700,7 +1573,7 @@
               "row_index": 9,
               "patient": "ANON39031",
               "y_true": 0,
-              "probability": 0.5319821104778013,
+              "probability": 0.5653188612404471,
               "predicted_class_0_5": 1
             },
             {
@@ -708,7 +1581,7 @@
               "row_index": 19,
               "patient": "ANON62995",
               "y_true": 0,
-              "probability": 0.4523330396266292,
+              "probability": 0.49794667074509447,
               "predicted_class_0_5": 0
             },
             {
@@ -716,7 +1589,7 @@
               "row_index": 14,
               "patient": "ANON48611",
               "y_true": 0,
-              "probability": 0.34698265460352123,
+              "probability": 0.40552452387284416,
               "predicted_class_0_5": 0
             }
           ]
@@ -812,49 +1685,539 @@
             "1": 5,
             "0": 2
           },
+          "selection_method": "pearson",
           "selected_features": [
             "original__ngtdm__Complexity_max"
           ],
           "selected_features_count": 1,
-          "lasso_selected_features_full": [
+          "intercept_only": false,
+          "selected_features_full": [
             {
               "feature": "original__ngtdm__Complexity_max",
-              "coef": 2.594610744364566
+              "method": "pearson",
+              "score": 0.6248755821994626,
+              "correlation": 0.6248755821994626,
+              "direction": 1
             },
             {
-              "feature": "original__firstorder__Maximum_max",
-              "coef": -0.5458548049466254
+              "feature": "original__ngtdm__Complexity_mean",
+              "method": "pearson",
+              "score": 0.4824136801194161,
+              "correlation": 0.4824136801194161,
+              "direction": 1
             },
             {
-              "feature": "original__shape__Sphericity_max",
-              "coef": 0.5444414319518788
-            },
-            {
-              "feature": "original__firstorder__10Percentile_mean",
-              "coef": 0.41500818510854803
+              "feature": "original__glcm__DifferenceEntropy_max",
+              "method": "pearson",
+              "score": 0.3252713435479357,
+              "correlation": 0.3252713435479357,
+              "direction": 1
             },
             {
               "feature": "original__shape__Elongation_mean",
-              "coef": 0.3097785137494729
+              "method": "pearson",
+              "score": 0.26511387418286814,
+              "correlation": 0.26511387418286814,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Contrast_mean",
+              "method": "pearson",
+              "score": 0.22581117880096166,
+              "correlation": 0.22581117880096166,
+              "direction": 1
             },
             {
               "feature": "original__glcm__ClusterTendency_max",
-              "coef": 0.267825750943825
+              "method": "pearson",
+              "score": 0.22465239442745483,
+              "correlation": 0.22465239442745483,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Id_mean",
+              "method": "pearson",
+              "score": 0.21563604399119202,
+              "correlation": -0.21563604399119202,
+              "direction": -1
+            },
+            {
+              "feature": "original__shape__SurfaceVolumeRatio_mean",
+              "method": "pearson",
+              "score": 0.2088614750352922,
+              "correlation": -0.2088614750352922,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Uniformity_mean",
+              "method": "pearson",
+              "score": 0.20507160176814657,
+              "correlation": -0.20507160176814657,
+              "direction": -1
             },
             {
               "feature": "original__shape__Flatness_max",
-              "coef": -0.13173463621389306
+              "method": "pearson",
+              "score": 0.1754499866985913,
+              "correlation": -0.1754499866985913,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__DifferenceEntropy_mean",
+              "method": "pearson",
+              "score": 0.16700603154681296,
+              "correlation": 0.16700603154681296,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Elongation_max",
+              "method": "pearson",
+              "score": 0.15729973186624926,
+              "correlation": 0.15729973186624926,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Range_max",
+              "method": "pearson",
+              "score": 0.156378670375936,
+              "correlation": 0.156378670375936,
+              "direction": 1
             },
             {
               "feature": "original__glcm__Contrast_max",
-              "coef": 0.011653745220612553
+              "method": "pearson",
+              "score": 0.15301740491878227,
+              "correlation": 0.15301740491878227,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Entropy_max",
+              "method": "pearson",
+              "score": 0.1433713092383061,
+              "correlation": 0.1433713092383061,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__MCC_max",
+              "method": "pearson",
+              "score": 0.14196967359123644,
+              "correlation": 0.14196967359123644,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__ClusterShade_max",
+              "method": "pearson",
+              "score": 0.13380163110303397,
+              "correlation": -0.13380163110303397,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Entropy_mean",
+              "method": "pearson",
+              "score": 0.1226781799675921,
+              "correlation": 0.1226781799675921,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Kurtosis_max",
+              "method": "pearson",
+              "score": 0.11431132688794184,
+              "correlation": -0.11431132688794184,
+              "direction": -1
+            },
+            {
+              "feature": "original__shape__Sphericity_max",
+              "method": "pearson",
+              "score": 0.08659486907528532,
+              "correlation": 0.08659486907528532,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Flatness_mean",
+              "method": "pearson",
+              "score": 0.08635982023775313,
+              "correlation": 0.08635982023775313,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Kurtosis_mean",
+              "method": "pearson",
+              "score": 0.0832544795407371,
+              "correlation": -0.0832544795407371,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__MeanAbsoluteDeviation_max",
+              "method": "pearson",
+              "score": 0.08208872284028638,
+              "correlation": 0.08208872284028638,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Correlation_max",
+              "method": "pearson",
+              "score": 0.07494957701978694,
+              "correlation": -0.07494957701978694,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__ClusterTendency_mean",
+              "method": "pearson",
+              "score": 0.07047580149759669,
+              "correlation": 0.07047580149759669,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__LeastAxisLength_mean",
+              "method": "pearson",
+              "score": 0.05356366701057155,
+              "correlation": 0.05356366701057155,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Autocorrelation_max",
+              "method": "pearson",
+              "score": 0.049786831743748594,
+              "correlation": -0.049786831743748594,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__10Percentile_mean",
+              "method": "pearson",
+              "score": 0.04947319384460928,
+              "correlation": 0.04947319384460928,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Cluster1ominence_mean",
+              "method": "pearson",
+              "score": 0.04926771629270115,
+              "correlation": -0.04926771629270115,
+              "direction": -1
+            },
+            {
+              "feature": "original__gldm__LargeDependenceHighGrayLevelEmphasis_mean",
+              "method": "pearson",
+              "score": 0.04258911658364084,
+              "correlation": -0.04258911658364084,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__InterquartileRange_max",
+              "method": "pearson",
+              "score": 0.03805921492106127,
+              "correlation": 0.03805921492106127,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__10Percentile_max",
+              "method": "pearson",
+              "score": 0.035940116103873716,
+              "correlation": -0.035940116103873716,
+              "direction": -1
+            },
+            {
+              "feature": "original__gldm__LargeDependenceHighGrayLevelEmphasis_max",
+              "method": "pearson",
+              "score": 0.024346849433289203,
+              "correlation": 0.024346849433289203,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__LeastAxisLength_max",
+              "method": "pearson",
+              "score": 0.020847941188467365,
+              "correlation": -0.020847941188467365,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Maximum_max",
+              "method": "pearson",
+              "score": 0.017710846908803868,
+              "correlation": 0.017710846908803868,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__90Percentile_max",
+              "method": "pearson",
+              "score": 0.016868684314513865,
+              "correlation": -0.016868684314513865,
+              "direction": -1
+            },
+            {
+              "feature": "original__gldm__SmallDependenceHighGrayLevelEmphasis_mean",
+              "method": "pearson",
+              "score": 0.010894398888852543,
+              "correlation": 0.010894398888852543,
+              "direction": 1
             }
           ],
-          "final_model_intercept": 0.0,
+          "lasso_selected_features_full": [
+            {
+              "feature": "original__ngtdm__Complexity_max",
+              "method": "pearson",
+              "score": 0.6248755821994626,
+              "correlation": 0.6248755821994626,
+              "direction": 1
+            },
+            {
+              "feature": "original__ngtdm__Complexity_mean",
+              "method": "pearson",
+              "score": 0.4824136801194161,
+              "correlation": 0.4824136801194161,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__DifferenceEntropy_max",
+              "method": "pearson",
+              "score": 0.3252713435479357,
+              "correlation": 0.3252713435479357,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Elongation_mean",
+              "method": "pearson",
+              "score": 0.26511387418286814,
+              "correlation": 0.26511387418286814,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Contrast_mean",
+              "method": "pearson",
+              "score": 0.22581117880096166,
+              "correlation": 0.22581117880096166,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__ClusterTendency_max",
+              "method": "pearson",
+              "score": 0.22465239442745483,
+              "correlation": 0.22465239442745483,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Id_mean",
+              "method": "pearson",
+              "score": 0.21563604399119202,
+              "correlation": -0.21563604399119202,
+              "direction": -1
+            },
+            {
+              "feature": "original__shape__SurfaceVolumeRatio_mean",
+              "method": "pearson",
+              "score": 0.2088614750352922,
+              "correlation": -0.2088614750352922,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Uniformity_mean",
+              "method": "pearson",
+              "score": 0.20507160176814657,
+              "correlation": -0.20507160176814657,
+              "direction": -1
+            },
+            {
+              "feature": "original__shape__Flatness_max",
+              "method": "pearson",
+              "score": 0.1754499866985913,
+              "correlation": -0.1754499866985913,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__DifferenceEntropy_mean",
+              "method": "pearson",
+              "score": 0.16700603154681296,
+              "correlation": 0.16700603154681296,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Elongation_max",
+              "method": "pearson",
+              "score": 0.15729973186624926,
+              "correlation": 0.15729973186624926,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Range_max",
+              "method": "pearson",
+              "score": 0.156378670375936,
+              "correlation": 0.156378670375936,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Contrast_max",
+              "method": "pearson",
+              "score": 0.15301740491878227,
+              "correlation": 0.15301740491878227,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Entropy_max",
+              "method": "pearson",
+              "score": 0.1433713092383061,
+              "correlation": 0.1433713092383061,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__MCC_max",
+              "method": "pearson",
+              "score": 0.14196967359123644,
+              "correlation": 0.14196967359123644,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__ClusterShade_max",
+              "method": "pearson",
+              "score": 0.13380163110303397,
+              "correlation": -0.13380163110303397,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Entropy_mean",
+              "method": "pearson",
+              "score": 0.1226781799675921,
+              "correlation": 0.1226781799675921,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Kurtosis_max",
+              "method": "pearson",
+              "score": 0.11431132688794184,
+              "correlation": -0.11431132688794184,
+              "direction": -1
+            },
+            {
+              "feature": "original__shape__Sphericity_max",
+              "method": "pearson",
+              "score": 0.08659486907528532,
+              "correlation": 0.08659486907528532,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Flatness_mean",
+              "method": "pearson",
+              "score": 0.08635982023775313,
+              "correlation": 0.08635982023775313,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Kurtosis_mean",
+              "method": "pearson",
+              "score": 0.0832544795407371,
+              "correlation": -0.0832544795407371,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__MeanAbsoluteDeviation_max",
+              "method": "pearson",
+              "score": 0.08208872284028638,
+              "correlation": 0.08208872284028638,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Correlation_max",
+              "method": "pearson",
+              "score": 0.07494957701978694,
+              "correlation": -0.07494957701978694,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__ClusterTendency_mean",
+              "method": "pearson",
+              "score": 0.07047580149759669,
+              "correlation": 0.07047580149759669,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__LeastAxisLength_mean",
+              "method": "pearson",
+              "score": 0.05356366701057155,
+              "correlation": 0.05356366701057155,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Autocorrelation_max",
+              "method": "pearson",
+              "score": 0.049786831743748594,
+              "correlation": -0.049786831743748594,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__10Percentile_mean",
+              "method": "pearson",
+              "score": 0.04947319384460928,
+              "correlation": 0.04947319384460928,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Cluster1ominence_mean",
+              "method": "pearson",
+              "score": 0.04926771629270115,
+              "correlation": -0.04926771629270115,
+              "direction": -1
+            },
+            {
+              "feature": "original__gldm__LargeDependenceHighGrayLevelEmphasis_mean",
+              "method": "pearson",
+              "score": 0.04258911658364084,
+              "correlation": -0.04258911658364084,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__InterquartileRange_max",
+              "method": "pearson",
+              "score": 0.03805921492106127,
+              "correlation": 0.03805921492106127,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__10Percentile_max",
+              "method": "pearson",
+              "score": 0.035940116103873716,
+              "correlation": -0.035940116103873716,
+              "direction": -1
+            },
+            {
+              "feature": "original__gldm__LargeDependenceHighGrayLevelEmphasis_max",
+              "method": "pearson",
+              "score": 0.024346849433289203,
+              "correlation": 0.024346849433289203,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__LeastAxisLength_max",
+              "method": "pearson",
+              "score": 0.020847941188467365,
+              "correlation": -0.020847941188467365,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Maximum_max",
+              "method": "pearson",
+              "score": 0.017710846908803868,
+              "correlation": 0.017710846908803868,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__90Percentile_max",
+              "method": "pearson",
+              "score": 0.016868684314513865,
+              "correlation": -0.016868684314513865,
+              "direction": -1
+            },
+            {
+              "feature": "original__gldm__SmallDependenceHighGrayLevelEmphasis_mean",
+              "method": "pearson",
+              "score": 0.010894398888852543,
+              "correlation": 0.010894398888852543,
+              "direction": 1
+            }
+          ],
+          "final_model_intercept": 0.11029150634297526,
           "final_model_coefficients": [
             {
               "feature": "original__ngtdm__Complexity_max",
-              "coef": 2.118044258448243
+              "coef": 1.687713951019606
             }
           ],
           "predictions": [
@@ -863,7 +2226,7 @@
               "row_index": 3,
               "patient": "ANON18198",
               "y_true": 1,
-              "probability": 0.43565207023132185,
+              "probability": 0.4760311967749691,
               "predicted_class_0_5": 0
             },
             {
@@ -871,7 +2234,7 @@
               "row_index": 8,
               "patient": "ANON38529",
               "y_true": 0,
-              "probability": 0.023991779438239165,
+              "probability": 0.05506736685510845,
               "predicted_class_0_5": 0
             },
             {
@@ -879,7 +2242,7 @@
               "row_index": 13,
               "patient": "ANON47609",
               "y_true": 1,
-              "probability": 0.5430009672767546,
+              "probability": 0.5616074003383373,
               "predicted_class_0_5": 1
             },
             {
@@ -887,7 +2250,7 @@
               "row_index": 18,
               "patient": "ANON57821",
               "y_true": 0,
-              "probability": 0.131766664062822,
+              "probability": 0.1990778976388122,
               "predicted_class_0_5": 0
             },
             {
@@ -895,7 +2258,7 @@
               "row_index": 23,
               "patient": "ANON71293",
               "y_true": 1,
-              "probability": 0.24079772869642802,
+              "probability": 0.3090182275999693,
               "predicted_class_0_5": 0
             },
             {
@@ -903,7 +2266,7 @@
               "row_index": 28,
               "patient": "ANON82646",
               "y_true": 1,
-              "probability": 0.5331457335666486,
+              "probability": 0.5538138249092213,
               "predicted_class_0_5": 1
             },
             {
@@ -911,7 +2274,7 @@
               "row_index": 33,
               "patient": "ANON89597",
               "y_true": 1,
-              "probability": 0.41629742880506204,
+              "probability": 0.4603262865402801,
               "predicted_class_0_5": 0
             }
           ],
@@ -921,7 +2284,7 @@
               "row_index": 13,
               "patient": "ANON47609",
               "y_true": 1,
-              "probability": 0.5430009672767546,
+              "probability": 0.5616074003383373,
               "predicted_class_0_5": 1
             },
             {
@@ -929,7 +2292,7 @@
               "row_index": 28,
               "patient": "ANON82646",
               "y_true": 1,
-              "probability": 0.5331457335666486,
+              "probability": 0.5538138249092213,
               "predicted_class_0_5": 1
             },
             {
@@ -937,7 +2300,7 @@
               "row_index": 3,
               "patient": "ANON18198",
               "y_true": 1,
-              "probability": 0.43565207023132185,
+              "probability": 0.4760311967749691,
               "predicted_class_0_5": 0
             },
             {
@@ -945,7 +2308,7 @@
               "row_index": 33,
               "patient": "ANON89597",
               "y_true": 1,
-              "probability": 0.41629742880506204,
+              "probability": 0.4603262865402801,
               "predicted_class_0_5": 0
             },
             {
@@ -953,7 +2316,7 @@
               "row_index": 23,
               "patient": "ANON71293",
               "y_true": 1,
-              "probability": 0.24079772869642802,
+              "probability": 0.3090182275999693,
               "predicted_class_0_5": 0
             },
             {
@@ -961,7 +2324,7 @@
               "row_index": 18,
               "patient": "ANON57821",
               "y_true": 0,
-              "probability": 0.131766664062822,
+              "probability": 0.1990778976388122,
               "predicted_class_0_5": 0
             },
             {
@@ -969,7 +2332,7 @@
               "row_index": 8,
               "patient": "ANON38529",
               "y_true": 0,
-              "probability": 0.023991779438239165,
+              "probability": 0.05506736685510845,
               "predicted_class_0_5": 0
             }
           ]
@@ -1065,53 +2428,539 @@
             "1": 5,
             "0": 2
           },
+          "selection_method": "pearson",
           "selected_features": [
             "original__ngtdm__Complexity_max"
           ],
           "selected_features_count": 1,
-          "lasso_selected_features_full": [
+          "intercept_only": false,
+          "selected_features_full": [
             {
               "feature": "original__ngtdm__Complexity_max",
-              "coef": 1.6878938962908179
+              "method": "pearson",
+              "score": 0.6258328860034573,
+              "correlation": 0.6258328860034573,
+              "direction": 1
+            },
+            {
+              "feature": "original__ngtdm__Complexity_mean",
+              "method": "pearson",
+              "score": 0.4331845135766043,
+              "correlation": 0.4331845135766043,
+              "direction": 1
             },
             {
               "feature": "original__glcm__Contrast_max",
-              "coef": 0.7122664067337735
+              "method": "pearson",
+              "score": 0.4090980716724281,
+              "correlation": 0.4090980716724281,
+              "direction": 1
             },
             {
               "feature": "original__shape__Elongation_mean",
-              "coef": 0.6336653058058015
+              "method": "pearson",
+              "score": 0.37622823123003674,
+              "correlation": 0.37622823123003674,
+              "direction": 1
             },
             {
-              "feature": "original__firstorder__Maximum_max",
-              "coef": -0.3872385905782967
+              "feature": "original__glcm__MCC_max",
+              "method": "pearson",
+              "score": 0.3600987372056364,
+              "correlation": 0.3600987372056364,
+              "direction": 1
             },
             {
               "feature": "original__shape__Sphericity_max",
-              "coef": 0.38390753010954376
-            },
-            {
-              "feature": "original__glcm__Correlation_max",
-              "coef": 0.27573598263870547
-            },
-            {
-              "feature": "original__gldm__LargeDependenceHighGrayLevelEmphasis_max",
-              "coef": 0.23578155801360226
+              "method": "pearson",
+              "score": 0.3525784468466897,
+              "correlation": 0.3525784468466897,
+              "direction": 1
             },
             {
               "feature": "original__glcm__DifferenceEntropy_max",
-              "coef": 0.22853835180349835
+              "method": "pearson",
+              "score": 0.3464906080714037,
+              "correlation": 0.3464906080714037,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Contrast_mean",
+              "method": "pearson",
+              "score": 0.32115827228043253,
+              "correlation": 0.32115827228043253,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__ClusterTendency_max",
+              "method": "pearson",
+              "score": 0.2843172100485746,
+              "correlation": 0.2843172100485746,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__ClusterShade_max",
+              "method": "pearson",
+              "score": 0.2603358410948802,
+              "correlation": 0.2603358410948802,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__10Percentile_mean",
+              "method": "pearson",
+              "score": 0.2436820250480308,
+              "correlation": -0.2436820250480308,
+              "direction": -1
+            },
+            {
+              "feature": "original__shape__Flatness_mean",
+              "method": "pearson",
+              "score": 0.2348861109757731,
+              "correlation": 0.2348861109757731,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Id_mean",
+              "method": "pearson",
+              "score": 0.22195942952144446,
+              "correlation": -0.22195942952144446,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Kurtosis_max",
+              "method": "pearson",
+              "score": 0.21814394668359655,
+              "correlation": 0.21814394668359655,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Elongation_max",
+              "method": "pearson",
+              "score": 0.21338910818732698,
+              "correlation": 0.21338910818732698,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Cluster1ominence_mean",
+              "method": "pearson",
+              "score": 0.21185091896188155,
+              "correlation": 0.21185091896188155,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__10Percentile_max",
+              "method": "pearson",
+              "score": 0.21072526165264657,
+              "correlation": -0.21072526165264657,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Entropy_mean",
+              "method": "pearson",
+              "score": 0.20521251583899736,
+              "correlation": -0.20521251583899736,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__90Percentile_max",
+              "method": "pearson",
+              "score": 0.18772909823316347,
+              "correlation": -0.18772909823316347,
+              "direction": -1
+            },
+            {
+              "feature": "original__gldm__LargeDependenceHighGrayLevelEmphasis_mean",
+              "method": "pearson",
+              "score": 0.18179447006662192,
+              "correlation": -0.18179447006662192,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Uniformity_mean",
+              "method": "pearson",
+              "score": 0.181538717297745,
+              "correlation": 0.181538717297745,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Maximum_max",
+              "method": "pearson",
+              "score": 0.1505468807015825,
+              "correlation": -0.1505468807015825,
+              "direction": -1
+            },
+            {
+              "feature": "original__gldm__SmallDependenceHighGrayLevelEmphasis_mean",
+              "method": "pearson",
+              "score": 0.13112714170142808,
+              "correlation": 0.13112714170142808,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Flatness_max",
+              "method": "pearson",
+              "score": 0.12539074836512348,
+              "correlation": 0.12539074836512348,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__ClusterTendency_mean",
+              "method": "pearson",
+              "score": 0.12094590546854658,
+              "correlation": 0.12094590546854658,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Kurtosis_mean",
+              "method": "pearson",
+              "score": 0.11210331488830881,
+              "correlation": 0.11210331488830881,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__LeastAxisLength_mean",
+              "method": "pearson",
+              "score": 0.10648043422422374,
+              "correlation": -0.10648043422422374,
+              "direction": -1
             },
             {
               "feature": "original__firstorder__InterquartileRange_max",
-              "coef": -0.0937216582421505
+              "method": "pearson",
+              "score": 0.10561205836855603,
+              "correlation": -0.10561205836855603,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__Autocorrelation_max",
+              "method": "pearson",
+              "score": 0.09710245825450006,
+              "correlation": 0.09710245825450006,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Range_max",
+              "method": "pearson",
+              "score": 0.09045301864600286,
+              "correlation": 0.09045301864600286,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Correlation_max",
+              "method": "pearson",
+              "score": 0.08491705039169548,
+              "correlation": 0.08491705039169548,
+              "direction": 1
+            },
+            {
+              "feature": "original__gldm__LargeDependenceHighGrayLevelEmphasis_max",
+              "method": "pearson",
+              "score": 0.07306568021014957,
+              "correlation": 0.07306568021014957,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__DifferenceEntropy_mean",
+              "method": "pearson",
+              "score": 0.07109953319316294,
+              "correlation": -0.07109953319316294,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__MeanAbsoluteDeviation_max",
+              "method": "pearson",
+              "score": 0.05552888483495601,
+              "correlation": 0.05552888483495601,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Entropy_max",
+              "method": "pearson",
+              "score": 0.051521997814375886,
+              "correlation": 0.051521997814375886,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__SurfaceVolumeRatio_mean",
+              "method": "pearson",
+              "score": 0.01985185512312157,
+              "correlation": -0.01985185512312157,
+              "direction": -1
+            },
+            {
+              "feature": "original__shape__LeastAxisLength_max",
+              "method": "pearson",
+              "score": 0.014907780688035723,
+              "correlation": 0.014907780688035723,
+              "direction": 1
             }
           ],
-          "final_model_intercept": 0.13366739496820926,
+          "lasso_selected_features_full": [
+            {
+              "feature": "original__ngtdm__Complexity_max",
+              "method": "pearson",
+              "score": 0.6258328860034573,
+              "correlation": 0.6258328860034573,
+              "direction": 1
+            },
+            {
+              "feature": "original__ngtdm__Complexity_mean",
+              "method": "pearson",
+              "score": 0.4331845135766043,
+              "correlation": 0.4331845135766043,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Contrast_max",
+              "method": "pearson",
+              "score": 0.4090980716724281,
+              "correlation": 0.4090980716724281,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Elongation_mean",
+              "method": "pearson",
+              "score": 0.37622823123003674,
+              "correlation": 0.37622823123003674,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__MCC_max",
+              "method": "pearson",
+              "score": 0.3600987372056364,
+              "correlation": 0.3600987372056364,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Sphericity_max",
+              "method": "pearson",
+              "score": 0.3525784468466897,
+              "correlation": 0.3525784468466897,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__DifferenceEntropy_max",
+              "method": "pearson",
+              "score": 0.3464906080714037,
+              "correlation": 0.3464906080714037,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Contrast_mean",
+              "method": "pearson",
+              "score": 0.32115827228043253,
+              "correlation": 0.32115827228043253,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__ClusterTendency_max",
+              "method": "pearson",
+              "score": 0.2843172100485746,
+              "correlation": 0.2843172100485746,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__ClusterShade_max",
+              "method": "pearson",
+              "score": 0.2603358410948802,
+              "correlation": 0.2603358410948802,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__10Percentile_mean",
+              "method": "pearson",
+              "score": 0.2436820250480308,
+              "correlation": -0.2436820250480308,
+              "direction": -1
+            },
+            {
+              "feature": "original__shape__Flatness_mean",
+              "method": "pearson",
+              "score": 0.2348861109757731,
+              "correlation": 0.2348861109757731,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Id_mean",
+              "method": "pearson",
+              "score": 0.22195942952144446,
+              "correlation": -0.22195942952144446,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Kurtosis_max",
+              "method": "pearson",
+              "score": 0.21814394668359655,
+              "correlation": 0.21814394668359655,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Elongation_max",
+              "method": "pearson",
+              "score": 0.21338910818732698,
+              "correlation": 0.21338910818732698,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Cluster1ominence_mean",
+              "method": "pearson",
+              "score": 0.21185091896188155,
+              "correlation": 0.21185091896188155,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__10Percentile_max",
+              "method": "pearson",
+              "score": 0.21072526165264657,
+              "correlation": -0.21072526165264657,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Entropy_mean",
+              "method": "pearson",
+              "score": 0.20521251583899736,
+              "correlation": -0.20521251583899736,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__90Percentile_max",
+              "method": "pearson",
+              "score": 0.18772909823316347,
+              "correlation": -0.18772909823316347,
+              "direction": -1
+            },
+            {
+              "feature": "original__gldm__LargeDependenceHighGrayLevelEmphasis_mean",
+              "method": "pearson",
+              "score": 0.18179447006662192,
+              "correlation": -0.18179447006662192,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Uniformity_mean",
+              "method": "pearson",
+              "score": 0.181538717297745,
+              "correlation": 0.181538717297745,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Maximum_max",
+              "method": "pearson",
+              "score": 0.1505468807015825,
+              "correlation": -0.1505468807015825,
+              "direction": -1
+            },
+            {
+              "feature": "original__gldm__SmallDependenceHighGrayLevelEmphasis_mean",
+              "method": "pearson",
+              "score": 0.13112714170142808,
+              "correlation": 0.13112714170142808,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Flatness_max",
+              "method": "pearson",
+              "score": 0.12539074836512348,
+              "correlation": 0.12539074836512348,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__ClusterTendency_mean",
+              "method": "pearson",
+              "score": 0.12094590546854658,
+              "correlation": 0.12094590546854658,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Kurtosis_mean",
+              "method": "pearson",
+              "score": 0.11210331488830881,
+              "correlation": 0.11210331488830881,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__LeastAxisLength_mean",
+              "method": "pearson",
+              "score": 0.10648043422422374,
+              "correlation": -0.10648043422422374,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__InterquartileRange_max",
+              "method": "pearson",
+              "score": 0.10561205836855603,
+              "correlation": -0.10561205836855603,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__Autocorrelation_max",
+              "method": "pearson",
+              "score": 0.09710245825450006,
+              "correlation": 0.09710245825450006,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Range_max",
+              "method": "pearson",
+              "score": 0.09045301864600286,
+              "correlation": 0.09045301864600286,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Correlation_max",
+              "method": "pearson",
+              "score": 0.08491705039169548,
+              "correlation": 0.08491705039169548,
+              "direction": 1
+            },
+            {
+              "feature": "original__gldm__LargeDependenceHighGrayLevelEmphasis_max",
+              "method": "pearson",
+              "score": 0.07306568021014957,
+              "correlation": 0.07306568021014957,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__DifferenceEntropy_mean",
+              "method": "pearson",
+              "score": 0.07109953319316294,
+              "correlation": -0.07109953319316294,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__MeanAbsoluteDeviation_max",
+              "method": "pearson",
+              "score": 0.05552888483495601,
+              "correlation": 0.05552888483495601,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Entropy_max",
+              "method": "pearson",
+              "score": 0.051521997814375886,
+              "correlation": 0.051521997814375886,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__SurfaceVolumeRatio_mean",
+              "method": "pearson",
+              "score": 0.01985185512312157,
+              "correlation": -0.01985185512312157,
+              "direction": -1
+            },
+            {
+              "feature": "original__shape__LeastAxisLength_max",
+              "method": "pearson",
+              "score": 0.014907780688035723,
+              "correlation": 0.014907780688035723,
+              "direction": 1
+            }
+          ],
+          "final_model_intercept": 0.24803433547723897,
           "final_model_coefficients": [
             {
               "feature": "original__ngtdm__Complexity_max",
-              "coef": 1.7947313570596568
+              "coef": 1.5567407119133396
             }
           ],
           "predictions": [
@@ -1120,7 +2969,7 @@
               "row_index": 2,
               "patient": "ANON17952",
               "y_true": 0,
-              "probability": 0.791456915617325,
+              "probability": 0.7839714883549223,
               "predicted_class_0_5": 1
             },
             {
@@ -1128,7 +2977,7 @@
               "row_index": 7,
               "patient": "ANON37943",
               "y_true": 1,
-              "probability": 0.9141371238414909,
+              "probability": 0.8987743093012608,
               "predicted_class_0_5": 1
             },
             {
@@ -1136,7 +2985,7 @@
               "row_index": 12,
               "patient": "ANON44468",
               "y_true": 1,
-              "probability": 0.644003607176128,
+              "probability": 0.6561693052116627,
               "predicted_class_0_5": 1
             },
             {
@@ -1144,7 +2993,7 @@
               "row_index": 17,
               "patient": "ANON56684",
               "y_true": 1,
-              "probability": 0.6783712594480754,
+              "probability": 0.685556376254212,
               "predicted_class_0_5": 1
             },
             {
@@ -1152,7 +3001,7 @@
               "row_index": 22,
               "patient": "ANON69454",
               "y_true": 1,
-              "probability": 0.7588827063656748,
+              "probability": 0.7552137379237283,
               "predicted_class_0_5": 1
             },
             {
@@ -1160,7 +3009,7 @@
               "row_index": 27,
               "patient": "ANON78958",
               "y_true": 0,
-              "probability": 0.0009668848040199806,
+              "probability": 0.0027647662981342778,
               "predicted_class_0_5": 0
             },
             {
@@ -1168,7 +3017,7 @@
               "row_index": 32,
               "patient": "ANON88599",
               "y_true": 1,
-              "probability": 0.8812434144848407,
+              "probability": 0.8665247902429906,
               "predicted_class_0_5": 1
             }
           ],
@@ -1178,7 +3027,7 @@
               "row_index": 7,
               "patient": "ANON37943",
               "y_true": 1,
-              "probability": 0.9141371238414909,
+              "probability": 0.8987743093012608,
               "predicted_class_0_5": 1
             },
             {
@@ -1186,7 +3035,7 @@
               "row_index": 32,
               "patient": "ANON88599",
               "y_true": 1,
-              "probability": 0.8812434144848407,
+              "probability": 0.8665247902429906,
               "predicted_class_0_5": 1
             },
             {
@@ -1194,7 +3043,7 @@
               "row_index": 2,
               "patient": "ANON17952",
               "y_true": 0,
-              "probability": 0.791456915617325,
+              "probability": 0.7839714883549223,
               "predicted_class_0_5": 1
             },
             {
@@ -1202,7 +3051,7 @@
               "row_index": 22,
               "patient": "ANON69454",
               "y_true": 1,
-              "probability": 0.7588827063656748,
+              "probability": 0.7552137379237283,
               "predicted_class_0_5": 1
             },
             {
@@ -1210,7 +3059,7 @@
               "row_index": 17,
               "patient": "ANON56684",
               "y_true": 1,
-              "probability": 0.6783712594480754,
+              "probability": 0.685556376254212,
               "predicted_class_0_5": 1
             },
             {
@@ -1218,7 +3067,7 @@
               "row_index": 12,
               "patient": "ANON44468",
               "y_true": 1,
-              "probability": 0.644003607176128,
+              "probability": 0.6561693052116627,
               "predicted_class_0_5": 1
             },
             {
@@ -1226,7 +3075,7 @@
               "row_index": 27,
               "patient": "ANON78958",
               "y_true": 0,
-              "probability": 0.0009668848040199806,
+              "probability": 0.0027647662981342778,
               "predicted_class_0_5": 0
             }
           ]
@@ -1322,53 +3171,539 @@
             "0": 4,
             "1": 3
           },
+          "selection_method": "pearson",
           "selected_features": [
             "original__ngtdm__Complexity_max"
           ],
           "selected_features_count": 1,
-          "lasso_selected_features_full": [
+          "intercept_only": false,
+          "selected_features_full": [
             {
               "feature": "original__ngtdm__Complexity_max",
-              "coef": 1.265689315656754
-            },
-            {
-              "feature": "original__shape__Elongation_mean",
-              "coef": 0.9001093329578209
-            },
-            {
-              "feature": "original__glcm__Contrast_max",
-              "coef": 0.7320657034052751
-            },
-            {
-              "feature": "original__glcm__ClusterTendency_max",
-              "coef": 0.4100297888269935
-            },
-            {
-              "feature": "original__shape__Flatness_mean",
-              "coef": 0.3857299097218403
+              "method": "pearson",
+              "score": 0.5478999701430981,
+              "correlation": 0.5478999701430981,
+              "direction": 1
             },
             {
               "feature": "original__glcm__DifferenceEntropy_max",
-              "coef": 0.35769373156984713
-            },
-            {
-              "feature": "original__shape__Flatness_max",
-              "coef": -0.295578710672073
-            },
-            {
-              "feature": "original__shape__Elongation_max",
-              "coef": -0.2015874911810538
+              "method": "pearson",
+              "score": 0.43578483272908947,
+              "correlation": 0.43578483272908947,
+              "direction": 1
             },
             {
               "feature": "original__ngtdm__Complexity_mean",
-              "coef": 0.03156872875819172
+              "method": "pearson",
+              "score": 0.40071057948391614,
+              "correlation": 0.40071057948391614,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Contrast_mean",
+              "method": "pearson",
+              "score": 0.3849517621507782,
+              "correlation": 0.3849517621507782,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Elongation_mean",
+              "method": "pearson",
+              "score": 0.3471298800122347,
+              "correlation": 0.3471298800122347,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Contrast_max",
+              "method": "pearson",
+              "score": 0.33103825884216337,
+              "correlation": 0.33103825884216337,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Flatness_mean",
+              "method": "pearson",
+              "score": 0.328047489672545,
+              "correlation": 0.328047489672545,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Id_mean",
+              "method": "pearson",
+              "score": 0.32787692462458795,
+              "correlation": -0.32787692462458795,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__MCC_max",
+              "method": "pearson",
+              "score": 0.3193572865721116,
+              "correlation": 0.3193572865721116,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Sphericity_max",
+              "method": "pearson",
+              "score": 0.30400476429634776,
+              "correlation": 0.30400476429634776,
+              "direction": 1
+            },
+            {
+              "feature": "original__gldm__LargeDependenceHighGrayLevelEmphasis_mean",
+              "method": "pearson",
+              "score": 0.25992303585537174,
+              "correlation": -0.25992303585537174,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__ClusterTendency_max",
+              "method": "pearson",
+              "score": 0.23142891954272168,
+              "correlation": 0.23142891954272168,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__LeastAxisLength_mean",
+              "method": "pearson",
+              "score": 0.20410191608689823,
+              "correlation": -0.20410191608689823,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__MeanAbsoluteDeviation_max",
+              "method": "pearson",
+              "score": 0.18094997759728326,
+              "correlation": 0.18094997759728326,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Range_max",
+              "method": "pearson",
+              "score": 0.17994187542752452,
+              "correlation": 0.17994187542752452,
+              "direction": 1
+            },
+            {
+              "feature": "original__gldm__SmallDependenceHighGrayLevelEmphasis_mean",
+              "method": "pearson",
+              "score": 0.1537458237906408,
+              "correlation": 0.1537458237906408,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Correlation_max",
+              "method": "pearson",
+              "score": 0.15167301958849533,
+              "correlation": -0.15167301958849533,
+              "direction": -1
+            },
+            {
+              "feature": "original__shape__LeastAxisLength_max",
+              "method": "pearson",
+              "score": 0.15079275849770926,
+              "correlation": -0.15079275849770926,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__ClusterTendency_mean",
+              "method": "pearson",
+              "score": 0.1499953865236826,
+              "correlation": 0.1499953865236826,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Uniformity_mean",
+              "method": "pearson",
+              "score": 0.12940615603272795,
+              "correlation": -0.12940615603272795,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__10Percentile_max",
+              "method": "pearson",
+              "score": 0.10476136725967546,
+              "correlation": -0.10476136725967546,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Entropy_max",
+              "method": "pearson",
+              "score": 0.10426081140343323,
+              "correlation": -0.10426081140343323,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__Autocorrelation_max",
+              "method": "pearson",
+              "score": 0.10079241769471636,
+              "correlation": 0.10079241769471636,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__10Percentile_mean",
+              "method": "pearson",
+              "score": 0.08723262287997022,
+              "correlation": -0.08723262287997022,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Entropy_mean",
+              "method": "pearson",
+              "score": 0.08228313512289434,
+              "correlation": -0.08228313512289434,
+              "direction": -1
+            },
+            {
+              "feature": "original__shape__SurfaceVolumeRatio_mean",
+              "method": "pearson",
+              "score": 0.06803958599829962,
+              "correlation": 0.06803958599829962,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Maximum_max",
+              "method": "pearson",
+              "score": 0.05811770008915094,
+              "correlation": 0.05811770008915094,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__InterquartileRange_max",
+              "method": "pearson",
+              "score": 0.048570392042459644,
+              "correlation": 0.048570392042459644,
+              "direction": 1
+            },
+            {
+              "feature": "original__gldm__LargeDependenceHighGrayLevelEmphasis_max",
+              "method": "pearson",
+              "score": 0.043269386268065646,
+              "correlation": -0.043269386268065646,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Kurtosis_max",
+              "method": "pearson",
+              "score": 0.040990133592424295,
+              "correlation": -0.040990133592424295,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__Cluster1ominence_mean",
+              "method": "pearson",
+              "score": 0.02893418608105953,
+              "correlation": 0.02893418608105953,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__DifferenceEntropy_mean",
+              "method": "pearson",
+              "score": 0.028083173501448858,
+              "correlation": 0.028083173501448858,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Elongation_max",
+              "method": "pearson",
+              "score": 0.015322709343976035,
+              "correlation": -0.015322709343976035,
+              "direction": -1
+            },
+            {
+              "feature": "original__shape__Flatness_max",
+              "method": "pearson",
+              "score": 0.01169182405865694,
+              "correlation": 0.01169182405865694,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Kurtosis_mean",
+              "method": "pearson",
+              "score": 0.010940709742546724,
+              "correlation": -0.010940709742546724,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__90Percentile_max",
+              "method": "pearson",
+              "score": 0.006299996013920126,
+              "correlation": -0.006299996013920126,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__ClusterShade_max",
+              "method": "pearson",
+              "score": 0.0027666685625067733,
+              "correlation": -0.0027666685625067733,
+              "direction": -1
             }
           ],
-          "final_model_intercept": 0.28707623400549076,
+          "lasso_selected_features_full": [
+            {
+              "feature": "original__ngtdm__Complexity_max",
+              "method": "pearson",
+              "score": 0.5478999701430981,
+              "correlation": 0.5478999701430981,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__DifferenceEntropy_max",
+              "method": "pearson",
+              "score": 0.43578483272908947,
+              "correlation": 0.43578483272908947,
+              "direction": 1
+            },
+            {
+              "feature": "original__ngtdm__Complexity_mean",
+              "method": "pearson",
+              "score": 0.40071057948391614,
+              "correlation": 0.40071057948391614,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Contrast_mean",
+              "method": "pearson",
+              "score": 0.3849517621507782,
+              "correlation": 0.3849517621507782,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Elongation_mean",
+              "method": "pearson",
+              "score": 0.3471298800122347,
+              "correlation": 0.3471298800122347,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Contrast_max",
+              "method": "pearson",
+              "score": 0.33103825884216337,
+              "correlation": 0.33103825884216337,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Flatness_mean",
+              "method": "pearson",
+              "score": 0.328047489672545,
+              "correlation": 0.328047489672545,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Id_mean",
+              "method": "pearson",
+              "score": 0.32787692462458795,
+              "correlation": -0.32787692462458795,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__MCC_max",
+              "method": "pearson",
+              "score": 0.3193572865721116,
+              "correlation": 0.3193572865721116,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Sphericity_max",
+              "method": "pearson",
+              "score": 0.30400476429634776,
+              "correlation": 0.30400476429634776,
+              "direction": 1
+            },
+            {
+              "feature": "original__gldm__LargeDependenceHighGrayLevelEmphasis_mean",
+              "method": "pearson",
+              "score": 0.25992303585537174,
+              "correlation": -0.25992303585537174,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__ClusterTendency_max",
+              "method": "pearson",
+              "score": 0.23142891954272168,
+              "correlation": 0.23142891954272168,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__LeastAxisLength_mean",
+              "method": "pearson",
+              "score": 0.20410191608689823,
+              "correlation": -0.20410191608689823,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__MeanAbsoluteDeviation_max",
+              "method": "pearson",
+              "score": 0.18094997759728326,
+              "correlation": 0.18094997759728326,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Range_max",
+              "method": "pearson",
+              "score": 0.17994187542752452,
+              "correlation": 0.17994187542752452,
+              "direction": 1
+            },
+            {
+              "feature": "original__gldm__SmallDependenceHighGrayLevelEmphasis_mean",
+              "method": "pearson",
+              "score": 0.1537458237906408,
+              "correlation": 0.1537458237906408,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Correlation_max",
+              "method": "pearson",
+              "score": 0.15167301958849533,
+              "correlation": -0.15167301958849533,
+              "direction": -1
+            },
+            {
+              "feature": "original__shape__LeastAxisLength_max",
+              "method": "pearson",
+              "score": 0.15079275849770926,
+              "correlation": -0.15079275849770926,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__ClusterTendency_mean",
+              "method": "pearson",
+              "score": 0.1499953865236826,
+              "correlation": 0.1499953865236826,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Uniformity_mean",
+              "method": "pearson",
+              "score": 0.12940615603272795,
+              "correlation": -0.12940615603272795,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__10Percentile_max",
+              "method": "pearson",
+              "score": 0.10476136725967546,
+              "correlation": -0.10476136725967546,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Entropy_max",
+              "method": "pearson",
+              "score": 0.10426081140343323,
+              "correlation": -0.10426081140343323,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__Autocorrelation_max",
+              "method": "pearson",
+              "score": 0.10079241769471636,
+              "correlation": 0.10079241769471636,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__10Percentile_mean",
+              "method": "pearson",
+              "score": 0.08723262287997022,
+              "correlation": -0.08723262287997022,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Entropy_mean",
+              "method": "pearson",
+              "score": 0.08228313512289434,
+              "correlation": -0.08228313512289434,
+              "direction": -1
+            },
+            {
+              "feature": "original__shape__SurfaceVolumeRatio_mean",
+              "method": "pearson",
+              "score": 0.06803958599829962,
+              "correlation": 0.06803958599829962,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Maximum_max",
+              "method": "pearson",
+              "score": 0.05811770008915094,
+              "correlation": 0.05811770008915094,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__InterquartileRange_max",
+              "method": "pearson",
+              "score": 0.048570392042459644,
+              "correlation": 0.048570392042459644,
+              "direction": 1
+            },
+            {
+              "feature": "original__gldm__LargeDependenceHighGrayLevelEmphasis_max",
+              "method": "pearson",
+              "score": 0.043269386268065646,
+              "correlation": -0.043269386268065646,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Kurtosis_max",
+              "method": "pearson",
+              "score": 0.040990133592424295,
+              "correlation": -0.040990133592424295,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__Cluster1ominence_mean",
+              "method": "pearson",
+              "score": 0.02893418608105953,
+              "correlation": 0.02893418608105953,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__DifferenceEntropy_mean",
+              "method": "pearson",
+              "score": 0.028083173501448858,
+              "correlation": 0.028083173501448858,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Elongation_max",
+              "method": "pearson",
+              "score": 0.015322709343976035,
+              "correlation": -0.015322709343976035,
+              "direction": -1
+            },
+            {
+              "feature": "original__shape__Flatness_max",
+              "method": "pearson",
+              "score": 0.01169182405865694,
+              "correlation": 0.01169182405865694,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Kurtosis_mean",
+              "method": "pearson",
+              "score": 0.010940709742546724,
+              "correlation": -0.010940709742546724,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__90Percentile_max",
+              "method": "pearson",
+              "score": 0.006299996013920126,
+              "correlation": -0.006299996013920126,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__ClusterShade_max",
+              "method": "pearson",
+              "score": 0.0027666685625067733,
+              "correlation": -0.0027666685625067733,
+              "direction": -1
+            }
+          ],
+          "final_model_intercept": 0.3999535336848188,
           "final_model_coefficients": [
             {
               "feature": "original__ngtdm__Complexity_max",
-              "coef": 1.5225696848852661
+              "coef": 1.347897916570932
             }
           ],
           "predictions": [
@@ -1377,15 +3712,15 @@
               "row_index": 1,
               "patient": "ANON14062",
               "y_true": 0,
-              "probability": 0.46316498930383915,
-              "predicted_class_0_5": 0
+              "probability": 0.5037842984708818,
+              "predicted_class_0_5": 1
             },
             {
               "fold": 4,
               "row_index": 6,
               "patient": "ANON26962",
               "y_true": 1,
-              "probability": 0.957453284411006,
+              "probability": 0.9479590039347547,
               "predicted_class_0_5": 1
             },
             {
@@ -1393,7 +3728,7 @@
               "row_index": 11,
               "patient": "ANON43989",
               "y_true": 0,
-              "probability": 0.32179721332002154,
+              "probability": 0.37421280602927603,
               "predicted_class_0_5": 0
             },
             {
@@ -1401,7 +3736,7 @@
               "row_index": 16,
               "patient": "ANON53712",
               "y_true": 0,
-              "probability": 0.4037042602492247,
+              "probability": 0.45029092092157313,
               "predicted_class_0_5": 0
             },
             {
@@ -1409,7 +3744,7 @@
               "row_index": 21,
               "patient": "ANON63892",
               "y_true": 1,
-              "probability": 0.8925440752735114,
+              "probability": 0.8828749129313691,
               "predicted_class_0_5": 1
             },
             {
@@ -1417,7 +3752,7 @@
               "row_index": 26,
               "patient": "ANON78234",
               "y_true": 1,
-              "probability": 0.7110520740655816,
+              "probability": 0.7197059640646856,
               "predicted_class_0_5": 1
             },
             {
@@ -1425,7 +3760,7 @@
               "row_index": 31,
               "patient": "ANON88214",
               "y_true": 0,
-              "probability": 0.1946531083522921,
+              "probability": 0.24762266656022286,
               "predicted_class_0_5": 0
             }
           ],
@@ -1435,7 +3770,7 @@
               "row_index": 6,
               "patient": "ANON26962",
               "y_true": 1,
-              "probability": 0.957453284411006,
+              "probability": 0.9479590039347547,
               "predicted_class_0_5": 1
             },
             {
@@ -1443,7 +3778,7 @@
               "row_index": 21,
               "patient": "ANON63892",
               "y_true": 1,
-              "probability": 0.8925440752735114,
+              "probability": 0.8828749129313691,
               "predicted_class_0_5": 1
             },
             {
@@ -1451,7 +3786,7 @@
               "row_index": 26,
               "patient": "ANON78234",
               "y_true": 1,
-              "probability": 0.7110520740655816,
+              "probability": 0.7197059640646856,
               "predicted_class_0_5": 1
             },
             {
@@ -1459,15 +3794,15 @@
               "row_index": 1,
               "patient": "ANON14062",
               "y_true": 0,
-              "probability": 0.46316498930383915,
-              "predicted_class_0_5": 0
+              "probability": 0.5037842984708818,
+              "predicted_class_0_5": 1
             },
             {
               "fold": 4,
               "row_index": 16,
               "patient": "ANON53712",
               "y_true": 0,
-              "probability": 0.4037042602492247,
+              "probability": 0.45029092092157313,
               "predicted_class_0_5": 0
             },
             {
@@ -1475,7 +3810,7 @@
               "row_index": 11,
               "patient": "ANON43989",
               "y_true": 0,
-              "probability": 0.32179721332002154,
+              "probability": 0.37421280602927603,
               "predicted_class_0_5": 0
             },
             {
@@ -1483,7 +3818,7 @@
               "row_index": 31,
               "patient": "ANON88214",
               "y_true": 0,
-              "probability": 0.1946531083522921,
+              "probability": 0.24762266656022286,
               "predicted_class_0_5": 0
             }
           ]
@@ -1579,41 +3914,539 @@
             "1": 4,
             "0": 3
           },
+          "selection_method": "pearson",
           "selected_features": [
             "original__ngtdm__Complexity_max"
           ],
           "selected_features_count": 1,
-          "lasso_selected_features_full": [
+          "intercept_only": false,
+          "selected_features_full": [
             {
               "feature": "original__ngtdm__Complexity_max",
-              "coef": 2.053870357196004
+              "method": "pearson",
+              "score": 0.6463466368516003,
+              "correlation": 0.6463466368516003,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Contrast_mean",
+              "method": "pearson",
+              "score": 0.47854814978941473,
+              "correlation": 0.47854814978941473,
+              "direction": 1
+            },
+            {
+              "feature": "original__ngtdm__Complexity_mean",
+              "method": "pearson",
+              "score": 0.45447879942936614,
+              "correlation": 0.45447879942936614,
+              "direction": 1
             },
             {
               "feature": "original__glcm__Contrast_max",
-              "coef": 0.7084509432066595
+              "method": "pearson",
+              "score": 0.4381684927777138,
+              "correlation": 0.4381684927777138,
+              "direction": 1
             },
             {
               "feature": "original__glcm__DifferenceEntropy_max",
-              "coef": 0.33343161477130573
-            },
-            {
-              "feature": "original__gldm__LargeDependenceHighGrayLevelEmphasis_max",
-              "coef": 0.2889672531497286
-            },
-            {
-              "feature": "original__shape__Flatness_mean",
-              "coef": 0.1701649408974402
+              "method": "pearson",
+              "score": 0.4361249719639635,
+              "correlation": 0.4361249719639635,
+              "direction": 1
             },
             {
               "feature": "original__shape__Sphericity_max",
-              "coef": 0.02120225904854358
+              "method": "pearson",
+              "score": 0.41601485099811375,
+              "correlation": 0.41601485099811375,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Id_mean",
+              "method": "pearson",
+              "score": 0.39477549946079493,
+              "correlation": -0.39477549946079493,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__MCC_max",
+              "method": "pearson",
+              "score": 0.3891952257588651,
+              "correlation": 0.3891952257588651,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__MeanAbsoluteDeviation_max",
+              "method": "pearson",
+              "score": 0.33101928718128354,
+              "correlation": 0.33101928718128354,
+              "direction": 1
+            },
+            {
+              "feature": "original__gldm__LargeDependenceHighGrayLevelEmphasis_mean",
+              "method": "pearson",
+              "score": 0.2835763587311989,
+              "correlation": -0.2835763587311989,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Range_max",
+              "method": "pearson",
+              "score": 0.2775627657292085,
+              "correlation": 0.2775627657292085,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Elongation_max",
+              "method": "pearson",
+              "score": 0.25428571883474904,
+              "correlation": 0.25428571883474904,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__ClusterTendency_max",
+              "method": "pearson",
+              "score": 0.24806901324698918,
+              "correlation": 0.24806901324698918,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__LeastAxisLength_max",
+              "method": "pearson",
+              "score": 0.2429813523934537,
+              "correlation": -0.2429813523934537,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Maximum_max",
+              "method": "pearson",
+              "score": 0.2415449435024754,
+              "correlation": 0.2415449435024754,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__LeastAxisLength_mean",
+              "method": "pearson",
+              "score": 0.24044756442498139,
+              "correlation": -0.24044756442498139,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__Correlation_max",
+              "method": "pearson",
+              "score": 0.23946821715256186,
+              "correlation": -0.23946821715256186,
+              "direction": -1
+            },
+            {
+              "feature": "original__gldm__SmallDependenceHighGrayLevelEmphasis_mean",
+              "method": "pearson",
+              "score": 0.221093183637943,
+              "correlation": 0.221093183637943,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__10Percentile_mean",
+              "method": "pearson",
+              "score": 0.215561940263985,
+              "correlation": -0.215561940263985,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__ClusterTendency_mean",
+              "method": "pearson",
+              "score": 0.2092855834711038,
+              "correlation": 0.2092855834711038,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Elongation_mean",
+              "method": "pearson",
+              "score": 0.1842375760938681,
+              "correlation": 0.1842375760938681,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Entropy_mean",
+              "method": "pearson",
+              "score": 0.15445498781093278,
+              "correlation": -0.15445498781093278,
+              "direction": -1
+            },
+            {
+              "feature": "original__shape__Flatness_mean",
+              "method": "pearson",
+              "score": 0.1538778431119021,
+              "correlation": 0.1538778431119021,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__InterquartileRange_max",
+              "method": "pearson",
+              "score": 0.13045489273545946,
+              "correlation": 0.13045489273545946,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Kurtosis_max",
+              "method": "pearson",
+              "score": 0.11269125292629043,
+              "correlation": -0.11269125292629043,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__90Percentile_max",
+              "method": "pearson",
+              "score": 0.11089764757633712,
+              "correlation": 0.11089764757633712,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__SurfaceVolumeRatio_mean",
+              "method": "pearson",
+              "score": 0.09881612935362113,
+              "correlation": 0.09881612935362113,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Autocorrelation_max",
+              "method": "pearson",
+              "score": 0.0890537269722685,
+              "correlation": 0.0890537269722685,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Kurtosis_mean",
+              "method": "pearson",
+              "score": 0.07497580122381634,
+              "correlation": -0.07497580122381634,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__Cluster1ominence_mean",
+              "method": "pearson",
+              "score": 0.06932828500352174,
+              "correlation": 0.06932828500352174,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Uniformity_mean",
+              "method": "pearson",
+              "score": 0.06579157359927482,
+              "correlation": -0.06579157359927482,
+              "direction": -1
+            },
+            {
+              "feature": "original__gldm__LargeDependenceHighGrayLevelEmphasis_max",
+              "method": "pearson",
+              "score": 0.06273879617277821,
+              "correlation": -0.06273879617277821,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Entropy_max",
+              "method": "pearson",
+              "score": 0.05065785631203486,
+              "correlation": -0.05065785631203486,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__DifferenceEntropy_mean",
+              "method": "pearson",
+              "score": 0.04578138479529222,
+              "correlation": 0.04578138479529222,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__ClusterShade_max",
+              "method": "pearson",
+              "score": 0.036351707480285364,
+              "correlation": 0.036351707480285364,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Flatness_max",
+              "method": "pearson",
+              "score": 0.03464370154059903,
+              "correlation": 0.03464370154059903,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__10Percentile_max",
+              "method": "pearson",
+              "score": 0.024734608721973843,
+              "correlation": -0.024734608721973843,
+              "direction": -1
             }
           ],
-          "final_model_intercept": 0.09210613049933802,
+          "lasso_selected_features_full": [
+            {
+              "feature": "original__ngtdm__Complexity_max",
+              "method": "pearson",
+              "score": 0.6463466368516003,
+              "correlation": 0.6463466368516003,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Contrast_mean",
+              "method": "pearson",
+              "score": 0.47854814978941473,
+              "correlation": 0.47854814978941473,
+              "direction": 1
+            },
+            {
+              "feature": "original__ngtdm__Complexity_mean",
+              "method": "pearson",
+              "score": 0.45447879942936614,
+              "correlation": 0.45447879942936614,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Contrast_max",
+              "method": "pearson",
+              "score": 0.4381684927777138,
+              "correlation": 0.4381684927777138,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__DifferenceEntropy_max",
+              "method": "pearson",
+              "score": 0.4361249719639635,
+              "correlation": 0.4361249719639635,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Sphericity_max",
+              "method": "pearson",
+              "score": 0.41601485099811375,
+              "correlation": 0.41601485099811375,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Id_mean",
+              "method": "pearson",
+              "score": 0.39477549946079493,
+              "correlation": -0.39477549946079493,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__MCC_max",
+              "method": "pearson",
+              "score": 0.3891952257588651,
+              "correlation": 0.3891952257588651,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__MeanAbsoluteDeviation_max",
+              "method": "pearson",
+              "score": 0.33101928718128354,
+              "correlation": 0.33101928718128354,
+              "direction": 1
+            },
+            {
+              "feature": "original__gldm__LargeDependenceHighGrayLevelEmphasis_mean",
+              "method": "pearson",
+              "score": 0.2835763587311989,
+              "correlation": -0.2835763587311989,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Range_max",
+              "method": "pearson",
+              "score": 0.2775627657292085,
+              "correlation": 0.2775627657292085,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Elongation_max",
+              "method": "pearson",
+              "score": 0.25428571883474904,
+              "correlation": 0.25428571883474904,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__ClusterTendency_max",
+              "method": "pearson",
+              "score": 0.24806901324698918,
+              "correlation": 0.24806901324698918,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__LeastAxisLength_max",
+              "method": "pearson",
+              "score": 0.2429813523934537,
+              "correlation": -0.2429813523934537,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Maximum_max",
+              "method": "pearson",
+              "score": 0.2415449435024754,
+              "correlation": 0.2415449435024754,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__LeastAxisLength_mean",
+              "method": "pearson",
+              "score": 0.24044756442498139,
+              "correlation": -0.24044756442498139,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__Correlation_max",
+              "method": "pearson",
+              "score": 0.23946821715256186,
+              "correlation": -0.23946821715256186,
+              "direction": -1
+            },
+            {
+              "feature": "original__gldm__SmallDependenceHighGrayLevelEmphasis_mean",
+              "method": "pearson",
+              "score": 0.221093183637943,
+              "correlation": 0.221093183637943,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__10Percentile_mean",
+              "method": "pearson",
+              "score": 0.215561940263985,
+              "correlation": -0.215561940263985,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__ClusterTendency_mean",
+              "method": "pearson",
+              "score": 0.2092855834711038,
+              "correlation": 0.2092855834711038,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Elongation_mean",
+              "method": "pearson",
+              "score": 0.1842375760938681,
+              "correlation": 0.1842375760938681,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Entropy_mean",
+              "method": "pearson",
+              "score": 0.15445498781093278,
+              "correlation": -0.15445498781093278,
+              "direction": -1
+            },
+            {
+              "feature": "original__shape__Flatness_mean",
+              "method": "pearson",
+              "score": 0.1538778431119021,
+              "correlation": 0.1538778431119021,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__InterquartileRange_max",
+              "method": "pearson",
+              "score": 0.13045489273545946,
+              "correlation": 0.13045489273545946,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Kurtosis_max",
+              "method": "pearson",
+              "score": 0.11269125292629043,
+              "correlation": -0.11269125292629043,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__90Percentile_max",
+              "method": "pearson",
+              "score": 0.11089764757633712,
+              "correlation": 0.11089764757633712,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__SurfaceVolumeRatio_mean",
+              "method": "pearson",
+              "score": 0.09881612935362113,
+              "correlation": 0.09881612935362113,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__Autocorrelation_max",
+              "method": "pearson",
+              "score": 0.0890537269722685,
+              "correlation": 0.0890537269722685,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Kurtosis_mean",
+              "method": "pearson",
+              "score": 0.07497580122381634,
+              "correlation": -0.07497580122381634,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__Cluster1ominence_mean",
+              "method": "pearson",
+              "score": 0.06932828500352174,
+              "correlation": 0.06932828500352174,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__Uniformity_mean",
+              "method": "pearson",
+              "score": 0.06579157359927482,
+              "correlation": -0.06579157359927482,
+              "direction": -1
+            },
+            {
+              "feature": "original__gldm__LargeDependenceHighGrayLevelEmphasis_max",
+              "method": "pearson",
+              "score": 0.06273879617277821,
+              "correlation": -0.06273879617277821,
+              "direction": -1
+            },
+            {
+              "feature": "original__firstorder__Entropy_max",
+              "method": "pearson",
+              "score": 0.05065785631203486,
+              "correlation": -0.05065785631203486,
+              "direction": -1
+            },
+            {
+              "feature": "original__glcm__DifferenceEntropy_mean",
+              "method": "pearson",
+              "score": 0.04578138479529222,
+              "correlation": 0.04578138479529222,
+              "direction": 1
+            },
+            {
+              "feature": "original__glcm__ClusterShade_max",
+              "method": "pearson",
+              "score": 0.036351707480285364,
+              "correlation": 0.036351707480285364,
+              "direction": 1
+            },
+            {
+              "feature": "original__shape__Flatness_max",
+              "method": "pearson",
+              "score": 0.03464370154059903,
+              "correlation": 0.03464370154059903,
+              "direction": 1
+            },
+            {
+              "feature": "original__firstorder__10Percentile_max",
+              "method": "pearson",
+              "score": 0.024734608721973843,
+              "correlation": -0.024734608721973843,
+              "direction": -1
+            }
+          ],
+          "final_model_intercept": 0.25437131607112784,
           "final_model_coefficients": [
             {
               "feature": "original__ngtdm__Complexity_max",
-              "coef": 2.3914850446655294
+              "coef": 1.7878819673478885
             }
           ],
           "predictions": [
@@ -1622,7 +4455,7 @@
               "row_index": 0,
               "patient": "ANON13320",
               "y_true": 0,
-              "probability": 0.5501048291537541,
+              "probability": 0.5831823772351368,
               "predicted_class_0_5": 1
             },
             {
@@ -1630,7 +4463,7 @@
               "row_index": 5,
               "patient": "ANON25835",
               "y_true": 0,
-              "probability": 0.06040018161090471,
+              "probability": 0.13397550957981047,
               "predicted_class_0_5": 0
             },
             {
@@ -1638,7 +4471,7 @@
               "row_index": 10,
               "patient": "ANON40374",
               "y_true": 1,
-              "probability": 0.6498067995768706,
+              "probability": 0.6564859737231,
               "predicted_class_0_5": 1
             },
             {
@@ -1646,7 +4479,7 @@
               "row_index": 15,
               "patient": "ANON50016",
               "y_true": 1,
-              "probability": 0.28306737952498484,
+              "probability": 0.37537336876721666,
               "predicted_class_0_5": 0
             },
             {
@@ -1654,7 +4487,7 @@
               "row_index": 20,
               "patient": "ANON63191",
               "y_true": 1,
-              "probability": 0.9835005321664724,
+              "probability": 0.9623685576729951,
               "predicted_class_0_5": 1
             },
             {
@@ -1662,7 +4495,7 @@
               "row_index": 25,
               "patient": "ANON77500",
               "y_true": 1,
-              "probability": 0.25830823355243976,
+              "probability": 0.3536474466781353,
               "predicted_class_0_5": 0
             },
             {
@@ -1670,8 +4503,8 @@
               "row_index": 30,
               "patient": "ANON85851",
               "y_true": 0,
-              "probability": 0.48708967352212,
-              "predicted_class_0_5": 0
+              "probability": 0.5366582749592974,
+              "predicted_class_0_5": 1
             }
           ],
           "predictions_sorted_by_probability": [
@@ -1680,7 +4513,7 @@
               "row_index": 20,
               "patient": "ANON63191",
               "y_true": 1,
-              "probability": 0.9835005321664724,
+              "probability": 0.9623685576729951,
               "predicted_class_0_5": 1
             },
             {
@@ -1688,7 +4521,7 @@
               "row_index": 10,
               "patient": "ANON40374",
               "y_true": 1,
-              "probability": 0.6498067995768706,
+              "probability": 0.6564859737231,
               "predicted_class_0_5": 1
             },
             {
@@ -1696,7 +4529,7 @@
               "row_index": 0,
               "patient": "ANON13320",
               "y_true": 0,
-              "probability": 0.5501048291537541,
+              "probability": 0.5831823772351368,
               "predicted_class_0_5": 1
             },
             {
@@ -1704,15 +4537,15 @@
               "row_index": 30,
               "patient": "ANON85851",
               "y_true": 0,
-              "probability": 0.48708967352212,
-              "predicted_class_0_5": 0
+              "probability": 0.5366582749592974,
+              "predicted_class_0_5": 1
             },
             {
               "fold": 5,
               "row_index": 15,
               "patient": "ANON50016",
               "y_true": 1,
-              "probability": 0.28306737952498484,
+              "probability": 0.37537336876721666,
               "predicted_class_0_5": 0
             },
             {
@@ -1720,7 +4553,7 @@
               "row_index": 25,
               "patient": "ANON77500",
               "y_true": 1,
-              "probability": 0.25830823355243976,
+              "probability": 0.3536474466781353,
               "predicted_class_0_5": 0
             },
             {
@@ -1728,7 +4561,7 @@
               "row_index": 5,
               "patient": "ANON25835",
               "y_true": 0,
-              "probability": 0.06040018161090471,
+              "probability": 0.13397550957981047,
               "predicted_class_0_5": 0
             }
           ]
@@ -1736,9 +4569,9 @@
       ]
     },
     "loocv": {
-      "auc": 0.8633333333333333,
-      "sensitivity": 0.8,
-      "specificity": 0.7333333333333333,
+      "auc": 0.8666666666666667,
+      "sensitivity": 0.85,
+      "specificity": 0.6666666666666666,
       "stable_features": [
         [
           "original__ngtdm__Complexity_max",
@@ -1746,16 +4579,20 @@
         ]
       ],
       "top_n_features": 1,
+      "selection_method": "pearson",
+      "intercept_only_folds": 0,
       "n_predictions": 35
     },
     "permutation": {
       "observed_auc": 0.8733333333333334,
-      "mean_random_auc": 0.4383266666666666,
-      "std_random_auc": 0.11397519203756579,
-      "max_random_auc": 0.78,
+      "mean_random_auc": 0.4543333333333333,
+      "std_random_auc": 0.1340731558184229,
+      "max_random_auc": 0.7866666666666666,
       "p_value": 0.0,
       "n_permutations": 500,
-      "top_n_features": 1
+      "top_n_features": 1,
+      "selection_method": "pearson",
+      "intercept_only_folds_total": 0
     },
     "note": "These are validation metrics. The final model is trained on all available patients only after validation is complete."
   }

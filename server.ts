@@ -280,6 +280,32 @@ function parseThresholdList(value: unknown): number[] {
   return single === null ? [] : [single];
 }
 
+
+function parseFeatureSelectionMethod(value: unknown): string | null {
+  if (value === null || value === undefined) return null;
+  const raw = String(value).trim().toLowerCase().replace(/[\s-]+/g, "_");
+  const aliases: Record<string, string> = {
+    l1: "lasso",
+    logistic_l1: "lasso",
+    l1_logistic: "lasso",
+    point_biserial: "pearson",
+    pointbiserial: "pearson",
+    corr: "pearson",
+    correlation: "pearson",
+    univariate_auc: "auc",
+    roc_auc: "auc",
+    mann_whitney: "mannwhitney",
+    mann_whitney_u: "mannwhitney",
+    mw: "mannwhitney",
+    mwu: "mannwhitney",
+    mi: "mutual_info",
+    mutual_information: "mutual_info",
+  };
+  const normalized = aliases[raw] ?? raw;
+  const allowed = new Set(["lasso", "pearson", "spearman", "auc", "mannwhitney", "mutual_info"]);
+  return allowed.has(normalized) ? normalized : null;
+}
+
 async function readRunOptions(req: Request): Promise<Record<string, unknown>> {
   const contentType = req.headers.get("content-type") || "";
   if (!contentType.includes("application/json")) return {};
@@ -339,6 +365,14 @@ async function startPythonAnalysis(req: Request): Promise<Response> {
     envOverrides.THERADIOMICS_N_SAMPLE_SIZE_SIMULATIONS = String(Math.floor(nSim));
   }
 
+
+  const featureSelectionMethod = parseFeatureSelectionMethod(
+    options.feature_selection_method ?? options.featureSelectionMethod
+  );
+  if (featureSelectionMethod) {
+    envOverrides.THERADIOMICS_FEATURE_SELECTION_METHOD = featureSelectionMethod;
+  }
+
   runState.running = true;
   runState.proc = null;
   runState.returncode = null;
@@ -395,6 +429,7 @@ async function startPythonAnalysis(req: Request): Promise<Response> {
       run_sweep: runSweep,
       thresholds,
       pruning_threshold: envOverrides.THERADIOMICS_PRUNING_THRESHOLD ?? null,
+      feature_selection_method: envOverrides.THERADIOMICS_FEATURE_SELECTION_METHOD ?? null,
     });
   } catch (err) {
     runState.running = false;

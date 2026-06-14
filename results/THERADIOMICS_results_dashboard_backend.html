@@ -28,7 +28,7 @@ button{border:1px solid var(--line);background:rgba(255,255,255,.08);color:var(-
 button:hover{background:rgba(255,255,255,.14)}
 .runSettings{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;margin-top:12px}
 .runSettings label{display:grid;gap:5px;color:var(--muted);font-size:12px}
-.runSettings input{min-width:150px;border:1px solid var(--line);background:rgba(255,255,255,.07);color:var(--txt);border-radius:12px;padding:9px 10px;font:inherit}
+.runSettings input,.runSettings select{min-width:150px;border:1px solid var(--line);background:rgba(255,255,255,.07);color:var(--txt);border-radius:12px;padding:9px 10px;font:inherit}
 .runSettings input.wide{min-width:330px}
 button.primary{background:rgba(77,216,255,.16);border-color:rgba(77,216,255,.45)}
 button.danger{background:rgba(255,107,107,.11);border-color:rgba(255,107,107,.35)}
@@ -131,11 +131,21 @@ pre{white-space:pre-wrap;overflow:auto;background:#050a13;border:1px solid var(-
         <label>Feature finali k
           <input id="topNFinalInput" type="number" min="1" max="10" step="1" value="1">
         </label>
+        <label>Metodo selezione feature
+          <select id="featureSelectionMethodInput" title="Metodo usato per ordinare/selezionare le feature prima della regressione logistica finale">
+            <option value="lasso">LASSO / L1 logistic</option>
+            <option value="pearson">Pearson / point-biserial</option>
+            <option value="spearman">Spearman rank</option>
+            <option value="auc">AUC univariata</option>
+            <option value="mannwhitney">Mann-Whitney</option>
+            <option value="mutual_info">Mutual information</option>
+          </select>
+        </label>
         <label>Simulazioni Monte Carlo/N
           <input id="nSimInput" type="number" min="10" step="10" value="100">
         </label>
       </div>
-      <div class="small" style="margin-top:8px">Lascia vuoto lo sweep per fare un run singolo. Se usi lo sweep, il valore della soglia singola viene ignorato.</div>
+      <div class="small" style="margin-top:8px">Lascia vuoto lo sweep per fare un run singolo. Se usi lo sweep, il valore della soglia singola viene ignorato. Il metodo di selezione scelto viene applicato anche dentro Nested CV, LOOCV, permutation test e sweep.</div>
     </div>
     <div class="grid two">
       <div>
@@ -286,6 +296,7 @@ function renderSampleExplanation(a){
   const delta=design.delta_nagelkerke ?? first.delta_nagelkerke;
   const nsim=first.n_simulations_requested;
   const evalMode=first.evaluation_mode;
+  const selectionMethod=a?.feature_selection_method ?? a?.run_configuration?.feature_selection_method ?? a?.cv?.selection_method;
   box.innerHTML=`
     <strong>Come leggere questa sezione.</strong><br>
     La parte AUC è ancora la simulazione Monte Carlo classica: per ogni N genera dati sintetici coerenti con l'AUC target e misura quante simulazioni superano la soglia di successo. I nuovi campi non cambiano l'AUC: aggiungono un controllo metodologico su prevalenza/event-rate e numero massimo di predittori sostenibile.
@@ -298,6 +309,7 @@ function renderSampleExplanation(a){
       <div class="explainCard"><div class="k">δ Nagelkerke</div><div class="v">${fmt(delta,2)}</div><div class="small">Massima differenza accettata tra R² apparente e corretto.</div></div>
       <div class="explainCard"><div class="k">Simulazioni per N</div><div class="v">${nsim??"—"}</div><div class="small">Aumentabile in run_analysis.py per risultati più stabili.</div></div>
       <div class="explainCard"><div class="k">Modalità</div><div class="v">${evalMode||"—"}</div><div class="small">Biomarcatore sintetico calibrato sull'AUC target.</div></div>
+      <div class="explainCard"><div class="k">Selezione feature</div><div class="v">${selectionMethod||"—"}</div><div class="small">Metodo applicato prima della regressione logistica finale.</div></div>
     </div>
     <div class="small" style="margin-top:10px">
       Nota: questi valori non sono hardcoded nell'HTML. La dashboard li legge dal JSON prodotto da <code>run_analysis.py</code>. Al momento si modificano nei parametri Python e poi si rilancia l'analisi; la dashboard è volutamente read-only.
@@ -334,6 +346,7 @@ function render(){
     metric("Responder",a.responders??"—","classe positiva", "warn"),
     metric("Non responder",a.non_responders??"—","classe negativa"),
     metric("Feature",`${a.features_before_pruning??"—"} → ${a.features_after_pruning??"—"}`,`rimosse ${a.removed_features_count??"—"}`,"cyan"),
+    metric("Selezione",a.feature_selection_method??a.run_configuration?.feature_selection_method??"—",`k finale ${a.primary_model_features??"—"}`,"cyan"),
     metric("Nested CV",fmt(a.cv?.mean_auc),`± ${fmt(a.cv?.std_auc)}`,aucClass(a.cv?.mean_auc)),
     metric("LOOCV",fmt(a.loocv?.auc),`sens ${fmt(a.loocv?.sensitivity)} · spec ${fmt(a.loocv?.specificity)}`,aucClass(a.loocv?.auc)),
     metric("Permutation p",fmt(a.permutation?.p_value,3),`max random ${fmt(a.permutation?.max_random_auc)}`,(a.permutation?.p_value<.05?"good":"warn")),
@@ -405,6 +418,7 @@ function renderThresholdSweep(){
       <td>${statusTag}</td>
       <td><strong>${fmt(r.threshold,2)}</strong></td>
       <td>${r.features_before_pruning??"—"} → ${r.features_after_pruning??"—"}<br><span class="small">rimosse ${r.removed_features_count??"—"}</span></td>
+      <td><span class="tag info">${r.feature_selection_method||"—"}</span></td>
       <td><span class="tag ${aucClass(r.nested_cv_mean_auc)}">${fmt(r.nested_cv_mean_auc)}</span><br><span class="small">± ${fmt(r.nested_cv_std_auc)}</span></td>
       <td><span class="tag ${aucClass(r.loocv_auc)}">${fmt(r.loocv_auc)}</span><br><span class="small">sens ${fmt(r.loocv_sensitivity)} · spec ${fmt(r.loocv_specificity)}</span></td>
       <td><strong>${r.best_model_label||"—"}</strong><br><span class="small">feature ${r.best_model_n_features??"—"} · Group ${fmt(r.best_model_group_cv_auc)} · LOO ${fmt(r.best_model_loocv_auc)}</span></td>
@@ -418,6 +432,7 @@ function renderThresholdSweep(){
     <th>${thTip("Stato","OK se la soglia è stata analizzata. Failed se run_analysis.py è andato in errore per quella soglia; la riga resta visibile per non nascondere il problema.")}</th>
     <th>${thTip("Soglia","Soglia di correlation pruning usata. Più bassa = pruning più aggressivo; più alta = più feature residue.")}</th>
     <th>${thTip("Feature dopo pruning","Numero di feature residue dopo il filtro di correlazione. Serve a capire quanto cambia lo spazio delle feature.")}</th>
+    <th>${thTip("Selettore","Metodo di selezione feature applicato in quel run: LASSO, Pearson, Spearman, AUC univariata, Mann-Whitney o mutual information.")}</th>
     <th>${thTip("Nested CV","AUC media e deviazione standard della validazione nested per quella soglia.")}</th>
     <th>${thTip("LOOCV","AUC leave-one-out, più sensibilità e specificità a soglia 0.5.")}</th>
     <th>${thTip("Best candidate","Miglior modello candidato secondo score interno, utile per capire se cambia la firma selezionata.")}</th>
@@ -428,7 +443,7 @@ function renderThresholdSweep(){
 function renderModels(){
   const rows=models().map(m=>{
     const status=m.status==="ok"?`<span class="tag good">ok</span>`:m.status==="skipped"?`<span class="tag bad">skipped</span>`:`<span class="tag warn">${m.status||"?"}</span>`;
-    const fam=m.family==="bootstrap_stable"?`<span class="tag info">bootstrap</span>`:m.family==="current_run_lasso_topk"?`<span class="tag warn">LASSO top-k</span>`:`<span class="tag">${m.family||"model"}</span>`;
+    const fam=m.family==="bootstrap_stable"?`<span class="tag info">bootstrap</span>`:m.family==="primary_selector_topk"?`<span class="tag info">primary</span>`:m.family==="selector_comparison"?`<span class="tag warn">selector</span>`:m.family==="current_run_lasso_topk"?`<span class="tag warn">LASSO top-k</span>`:`<span class="tag">${m.family||"model"}</span>`;
     const feats=(m.features||[]).map(f=>`<div>${f}</div>`).join("") || `<span class="small">${m.skip_reason||"Nessuna feature"}</span>`;
     return `<tr>
       <td>${status}<br>${fam}</td>
@@ -439,11 +454,11 @@ function renderModels(){
       <td><span class="tag ${aucClass(getLoocvAuc(m))}">${fmt(getLoocvAuc(m))}</span></td>
       <td>${fmt(getSensitivity(m))}</td>
       <td>${fmt(getSpecificity(m))}</td>
-      <td>${m.selection_source||"—"}</td>
+      <td><span class="tag info">${m.selection_method||"—"}</span><br><span class="small">${m.selection_source||"—"}</span></td>
     </tr>`
   }).join("");
   document.getElementById("modelTable").innerHTML=`
-    <thead><tr><th>Status</th><th>Modello</th><th>N</th><th>Feature</th><th>GroupCV AUC</th><th>LOOCV AUC</th><th>Sens</th><th>Spec</th><th>Sorgente</th></tr></thead>
+    <thead><tr><th>Status</th><th>Modello</th><th>N</th><th>Feature</th><th>GroupCV AUC</th><th>LOOCV AUC</th><th>Sens</th><th>Spec</th><th>Metodo / sorgente</th></tr></thead>
     <tbody>${rows||"<tr><td colspan='9'>Nessun candidato caricato</td></tr>"}</tbody>`;
 }
 
@@ -605,11 +620,13 @@ function getRunOptionsFromForm(){
   const sweepRaw=document.getElementById("pruningThresholdsInput")?.value||"";
   const topNRaw=document.getElementById("topNFinalInput")?.value||"1";
   const nSimRaw=document.getElementById("nSimInput")?.value||"100";
+  const selectionMethod=document.getElementById("featureSelectionMethodInput")?.value||"lasso";
   const payload={
     pruning_threshold: singleRaw,
     pruning_thresholds: sweepRaw,
     top_n_final_model_features: Number(topNRaw),
-    n_sample_size_simulations: Number(nSimRaw)
+    n_sample_size_simulations: Number(nSimRaw),
+    feature_selection_method: selectionMethod
   };
   return payload;
 }
